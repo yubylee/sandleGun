@@ -49,6 +49,7 @@
     hms_comment c
   WHERE 
     board_id = #{no}
+    ORDER BY created_date DESC
 </select> 
   
 <delete id="delete" parameterType="int">

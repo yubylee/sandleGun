@@ -1,5 +1,7 @@
 package bitcamp.myapp.controller;
 
+import java.util.HashMap;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,9 +27,14 @@ public class SandleBoardController {
 
 
   @GetMapping("{no}")
-  public SandleBoard view(@PathVariable int no) {
+  public Object view(@PathVariable int no, HttpSession session) {
     SandleBoard board = sandleBoardService.get(no);
-    return board;
+    Map<String, Object> data = new HashMap<>();
+    data.put("loginUser", session.getAttribute("loginUser"));
+    data.put("board", board);
+    return new RestResult()
+        .setStatus(RestStatus.SUCCESS)
+        .setData(data);
   }
 
   @GetMapping

@@ -102,7 +102,7 @@ function logout() {
 
 
 const $modal = $('.modal');
-
+const cmt = document.querySelector("#comment");
 const $body = $('body');
 const html = document.querySelector("#image-template").innerHTML;
 const templateEngine = Handlebars.compile(html);
@@ -133,8 +133,10 @@ window.addEventListener("scroll", () => {
 
 loadData()
 
+// 게시글 눌렀을시 게시글 View
 let no;
 function getSandleBoard(e) {
+  
   no = e.currentTarget.getAttribute("data-no");
   fetch("../sandleboards/" + no)
     .then(response => {
@@ -148,8 +150,10 @@ function getSandleBoard(e) {
         return;
       }
 
+      let sandleLoginUser = result.data.loginUser;
+
       var img = document.createElement("img");
-      let sandleboard = result;
+      let sandleboard = result.data.board;
       document.querySelector("#title").innerHTML = sandleboard.title;
       document.querySelector("#content").innerHTML = sandleboard.content;
       document.querySelector("#tag").innerHTML = sandleboard.tag;
@@ -168,7 +172,7 @@ function getSandleBoard(e) {
         <div id="cmt-box">
         <div  style="display: flex; align-items: center;">
         <img src="../assets/images/profile_default_logo.png" id="cmt-image"/><span id="cmt-nickname">${comment.nickname}</span><br/>` +
-        no === wno ? `<img src="../assets/photofeed_images/comment-x-icon.png" class="cmt-x-logo" name="${comment.no}"/>` : "" +
+        (result.data.loginUser.no === comment.writerNo ? `<img src="../assets/photofeed_images/comment-x-icon.png" class="cmt-x-logo" name="${comment.no}"/>` : "") +
         `</div>
         <div id="cmt-content">${comment.commentContent}</div>
         </div>
@@ -176,34 +180,16 @@ function getSandleBoard(e) {
         div += html;
         console.log(comment);
 
-
-        fetch("../auth/user")
-          .then((response) => {
-            return response.json();
-          })
-          .then((result) => {
-            let x_logos = document.querySelectorAll('.cmt-x-logo');
-            let loginNo = result.data.no;
-            console.log("쓴사람 번호"+comment.writerNo);
-            console.log("로그인한사람 번호" + loginNo);
-            x_logos.forEach((x_logos) => {
-                x_logos.style.display = "none";
-              if (comment.writerNo == loginNo) {
-                x_logos.style.display = "block";
-              }
-            });
-          });
-
-
-
       });
       document.querySelector("#comment").innerHTML = div;
-
+              // 스크롤 내리기
+      // cmt.scrollTo(0, document.body.scrollHeight);
+      cmt.scrollTop = cmt.scrollHeight;
       $modal.css('display', 'block');
       $body.css('overflow', 'hidden');
 
 
-      // 삭제버튼 클릭 리스너--------------------------------------------------------
+      //삭제버튼 클릭 리스너--------------------------------------------------------
       document.querySelectorAll('.cmt-x-logo').forEach(function (element) {
         element.addEventListener('click', function () {
           const replyNo = element.getAttribute('name');
@@ -216,9 +202,10 @@ function getSandleBoard(e) {
             .then(result => {
               if (result.status == 'success') {
                 console.log(result.data);
+                ;
                 // 삭제된 댓글을 바로 HTML에서 제거합니다.
-                let commentBox = document.querySelector(`[name="${replyNo}"]`).parentNode.parentNode;
-                commentBox.parentNode.removeChild(commentBox);
+                // let commentBox = document.querySelector(`[name="${replyNo}"]`).parentNode.parentNode;
+                // commentBox.parentNode.removeChild(commentBox);
               } else {
                 alert('삭제 실패!');
               }
@@ -231,12 +218,23 @@ function getSandleBoard(e) {
         });
       });
 
+      // 이벤트 위임 기법을 사용하여 이벤트 핸들러를 등록합니다.
+document.addEventListener('click', function (event) {
+  // 클릭된 요소가 ".cmt-x-logo" 클래스를 가지고 있는지 확인합니다.
+  if (event.target.classList.contains('cmt-x-logo')) {
+    // 클릭된 요소가 ".cmt-x-logo" 클래스를 가진 경우, 이벤트를 처리합니다.
+    const replyNo = event.target.getAttribute('name');
+    deleteComment(replyNo);
+    reloadComments();
+  }
+});
+
     });
 }
 
 
 // --댓글 인서트
-const cmt = document.querySelector("#comment");
+
 const inputField = document.getElementById("comment-insert");
 inputField.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
@@ -256,9 +254,10 @@ inputField.addEventListener("keydown", function (event) {
           location.href = '../auth/login_form.html'
         }
         console.log(result);
-        inputComment(content, result.data.nickname, result.data.no);
+        inputComment();
+        // 입력 필드 비우기
         inputField.value = "";
-        cmt.scrollTo(0, document.body.scrollHeight);
+
       });
 
     console.log(inputField.value);
@@ -272,43 +271,42 @@ inputField.addEventListener("keydown", function (event) {
       })
       .catch(error => {
         console.error('Error:', error);
+        alert("댓글 등록에 실패했습니다.")
       });
   }
 });
 
 
 // 삭젝랑 댓글 추가 함수
-function inputComment(comment, nickname, no) {
-  let html = `
-    <div id="cmt-box">
-    <div  style="display: flex; align-items: center;">
-    <img src="../assets/images/profile_default_logo.png" id="cmt-image"/>
-    
-    <span style="padding-left: 10px;"><b>${nickname}</b></span><br/>
-    <img src="../assets/photofeed_images/comment-x-icon.png" class="cmt-x-logo" name="${no}"/>
-    </div>
-    <div style="padding-left: 50px;">${comment}</div>
-    </div>
-    `;
-  document.querySelector("#comment").innerHTML += html;
+function inputComment() {
+//   let html = `
+//   <div id="cmt-box">
+//   <div  style="display: flex; align-items: center;">
+//   <img src="../assets/images/profile_default_logo.png" id="cmt-image"/><span id="cmt-nickname">${nickname}</span><br/>` +
+// `<img src="../assets/photofeed_images/comment-x-icon.png" class="cmt-x-logo" name="${comment.no}"/>`+
+//   `</div>
+//   <div id="cmt-content">${comment}</div>
+//   </div>
+//     `;
+//     addComment(html); // 새로운 댓글을 화면에 추가
+    reloadComments(); // 서버에서 새로운 댓글 목록을 가져와서 화면을 업데이트
 
-  // fetch("../auth/user")
-  // .then((response) => {
-  //   return response.json();
-  // })
-  // .then((result) => {
-  //   let loginNo = result.data.no;
-  //   let x_logos = document.querySelectorAll('.cmt-x-logo');
-  //   x_logos.forEach((x_logo) => {
-  //     if (comment.writerNo != loginNo){
-  //       x_logo.style.display = "none";
-  //     } 
-  //   });
-  // });
+    document.querySelectorAll('.cmt-x-logo').forEach(function (element) {
+      element.addEventListener('click', function () {
+        const replyNo = element.getAttribute('name');
+        deleteComment(replyNo);
+        reloadComments();
+      });
+    });
+   
+  // document.querySelector("#comment").innerHTML += html;
 
-  document.querySelectorAll('.cmt-x-logo').forEach(function (element) {
+  let deleteButtons = document.querySelectorAll('.cmt-x-logo');
+
+  deleteButtons.forEach(function (element) {
     element.addEventListener('click', function () {
       const replyNo = element.getAttribute('name');
+      console.log(replyNo);
       fetch("../sandleboards/" + replyNo, {
         method: "DELETE"
       })
@@ -317,10 +315,11 @@ function inputComment(comment, nickname, no) {
         })
         .then(result => {
           if (result.status == 'success') {
+            reloadComments()
             console.log(result.data);
             // 삭제된 댓글을 바로 HTML에서 제거합니다.
-            let commentBox = document.querySelector(`[name="${replyNo}"]`).parentNode.parentNode;
-            commentBox.parentNode.removeChild(commentBox);
+            // let commentBox = document.querySelector(`[name="${replyNo}"]`).parentNode.parentNode;
+            // commentBox.parentNode.removeChild(commentBox);
           } else {
             alert('삭제 실패!');
           }
@@ -329,11 +328,26 @@ function inputComment(comment, nickname, no) {
           alert('삭제 중 오류 발생!');
           console.log(exception);
         });
-
     });
   });
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -350,3 +364,95 @@ $("#sandle").on("click", function () {
 
 
 
+
+
+
+
+
+
+
+
+function addComment(comment) {
+  let html = `
+    <div id="cmt-box">
+      <div style="display: flex; align-items: center;">
+        <img src="../assets/images/profile_default_logo.png" id="cmt-image"/><span id="cmt-nickname">${comment.nickname}</span><br/>
+        <img src="../assets/photofeed_images/comment-x-icon.png" class="cmt-x-logo" name="${comment.no}"/>
+      </div>
+      <div id="cmt-content">${comment.commentContent}</div>
+    </div>
+  `;
+  document.querySelector("#comment").innerHTML += html;
+}
+
+function reloadComments() {
+  fetch("../sandleboards/" + no)
+    .then(response => {
+      return response.json();
+    })
+    .then(result => {
+      if (result.status == 'failure') {
+        alert('게시글을 조회할 수 없습니다.');
+        location.href = "photofeed.html";
+        return;
+      }
+
+      let sandleLoginUser = result.data.loginUser;
+      let sandleboard = result.data.board;
+
+      let div = "";
+      sandleboard.comments.forEach(comment => {
+        if (comment.no == 0) return;
+        let html = `
+          <div id="cmt-box">
+            <div style="display: flex; align-items: center;">
+              <img src="../assets/images/profile_default_logo.png" id="cmt-image"/><span id="cmt-nickname">${comment.nickname}</span><br/>
+              ${sandleLoginUser.no === comment.writerNo ? `<img src="../assets/photofeed_images/comment-x-icon.png" class="cmt-x-logo" name="${comment.no}"/>` : ""}
+            </div>
+            <div id="cmt-content">${comment.commentContent}</div>
+          </div>
+        `;
+        div += html;
+      });
+      document.querySelector("#comment").innerHTML = div;
+
+
+    });
+
+    
+}
+
+
+
+
+function deleteComment(replyNo) {
+  fetch("../sandleboards/" + replyNo, {
+    method: "DELETE"
+  })
+    .then(response => {
+      return response.json();
+    })
+    .then(result => {
+      if (result.status == 'success') {
+        console.log(result.data);
+        // 삭제된 댓글을 바로 HTML에서 제거합니다.
+        // let commentBox = document.querySelector(`[name="${replyNo}"]`).parentNode.parentNode;
+        // commentBox.parentNode.removeChild(commentBox);
+        reloadComments(); // 댓글 목록을 서버에서 다시 불러와 화면을 업데이트합니다.
+      } else {
+        alert('삭제 실패!');
+      }
+    })
+    .catch(exception => {
+      alert('삭제 중 오류 발생!');
+      console.log(exception);
+    });
+}
+
+
+document.querySelectorAll('.cmt-x-logo').forEach(function (element) {
+  element.addEventListener('click', function () {
+    const replyNo = element.getAttribute('name');
+    deleteComment(replyNo);
+  });
+});
