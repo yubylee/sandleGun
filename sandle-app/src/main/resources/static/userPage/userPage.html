@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, user-scalable=no"
+  />
+  <title>산들산들 - 마이페이지</title>
+  <link rel="stylesheet" href="userPage.css" />
+  <link rel="stylesheet" href="/sandle/index.css" />
+  <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header id="header">
+    <h1><a href="/sandle/index.html">SANDLE</a></h1>
+
+    <div id="login" class="login">
+      <a href="/sandle/auth/login_form.html">LOGIN</a>
+    </div>
+
+    <div>
+      <a
+        id="logout"
+        class="logout"
+        href="sandle/auth/logout"
+        onclick="logout(); return false;"
+      >
+        LOGOUT</a
+      >
+    </div>
+
+    <div id="sign-up" class="sign-up">
+      <a href="/sandle/member/member.html">SIGN UP</a>
+    </div>
+
+    <div class="default_logo" id="default_logo">
+      <a href="/sandle/userPage/userPage.html"><span id="userEmail"></span></a>
+      <a href="/sandle/userPage/userPage.html"><img src="/sandle/assets/images/default_logo.jpg" /></a>
+    </div>
+  </header>
+
+  <!-- Nav -->
+  <nav id="nav">
+    <ul>
+      <li class="current">
+        <a href="/sandle/index.html">산들 소개</a>
+        <ul>
+          <ol>
+            산들 소개
+          </ol>
+          <li><a href="#">산들산들을 소개합니다.</a></li>
+          <li><a href="#">제작 동기</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="/sandle/mountain_info/mountain_info.html">전국 등산로 정보</a>
+      </li>
+
+      <li>
+        <a href="#">산악 소식</a>
+        <ul>
+          <ol>
+            산악 소식
+          </ol>
+          <li><a href="#">공지 사항</a></li>
+          <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
+          <li><a href="#">지역 행사 정보</a></li>
+          <li><a href="#">이벤트</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">커뮤니티</a>
+        <ul>
+          <ol>
+            커뮤니티
+          </ol>
+          <li><a href="/sandle/sandleboard/photofeed.html">포토 피드</a></li>
+          <li><a href="#">맛집 피드</a></li>
+          <li><a href="#">등산 일지</a></li>
+          <li><a href="#">1:1 문의</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <div id="top">
+    <div class="up">
+      <div class="user-photo-profile">
+        <img src="/sandle/assets/images/logo.jpg">
+        <br>
+        <a href="">프로필 사진변경</a>
+      </div>
+      <div class="user-name">
+        <a class="nickname">username</a>
+        <hr>
+      </div>
+    </div>
+  </div>
+    
+  <hr>
+
+  <div id="bottom">
+    <div id="user-button">
+      <div class="user1">
+        <a href="userUpdate.html">개인정보 변경</a>
+      </div>
+      <div class="user2">
+        <a href="">내 등산기록</a>
+      </div>
+      <div class="user3">
+        <a href="">게시물 관리</a>
+      </div>
+      <div class="user4">
+        <a href="">1:1 문의</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/sandle/assets/js/jquery.min.js"></script>
+  <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
+  <script src="/sandle/assets/js/breakpoints.min.js"></script>
+  <script src="/sandle/assets/js/util.js"></script>
+  <script src="/sandle/navLogin.js"></script>
+</body>
+</html>

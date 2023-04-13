@@ -1,0 +1,274 @@
+/* Basic */
+* {
+  outline: none;
+}
+
+a {
+  text-decoration-line: none;
+  outline: none;
+  color: #28544b;
+}
+
+#row > div > p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+body,
+textarea,
+select {
+  font-family: "Source Sans Pro";
+  font-weight: 300;
+  color: #28544b;
+  font-size: 14pt;
+  line-height: 1.75em;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+
+#header {
+  position: relative;
+  background: #ffffff;
+  padding: 2em 0 3em 0;
+  text-align: center;
+  min-height: 83px;
+  max-height: 83px;
+}
+
+#header h1 {
+  color: #28544b;
+  font-weight: 900;
+  font-size: 2em;
+  min-height: 33px;
+  max-height: 33px;
+}
+
+.login,
+.logout,
+.sign-up,
+.default_logo {
+  display: none;
+}
+
+#login,
+#logout,
+#default_logo,
+#sign-up {
+  float: right;
+  margin-right: 30px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+#login,
+#logout,
+#sign-up {
+  margin-top: 13px;
+}
+
+#default_logo {
+  float: right;
+  width: 480px;
+}
+
+#userEmail {
+  margin-left: 50px;
+  margin-top: 13px;
+  position: absolute;
+}
+
+/* Nav */
+
+#nav {
+  text-align: center;
+}
+
+#nav > ul {
+  margin: 0;
+  background-color: #28544b;
+  min-height: 20px;
+}
+
+#nav > ul > li {
+  display: inline-block;
+  margin: 6px 3em 5px 0em;
+}
+
+#nav > ul > li > ul {
+  display: none;
+}
+
+#nav > ul > li > a {
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.2em 0.6em 0.2em 0.6em;
+  outline: 0;
+}
+
+#nav > ul > li:hover > a,
+#nav > ul > li.active > a {
+  background: #fff;
+  color: #28544b !important;
+  font-weight: 700;
+}
+
+#nav > ul > li.current > a {
+  background: #fff;
+  color: #28544b !important;
+  font-weight: 700;
+}
+
+#navPanel {
+  display: none;
+}
+
+.dropotron {
+  border-radius: 5px;
+  background-color: #fff;
+  background-color: fff(34, 30, 31, 0.98);
+  padding: 1.2em 0.5em 1em 1em;
+  color: #28544b !important;
+  font-weight: 1000;
+  min-width: 12em;
+  box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.5);
+  text-align: left;
+  margin-top: -1.25em;
+  margin-left: -1px;
+  list-style: none;
+}
+
+.dropotron a,
+.dropotron span {
+  color: #28544b !important;
+  font-weight: 400;
+  text-decoration: none;
+  -moz-transition: color 0.25s ease-in-out;
+  -webkit-transition: color 0.25s ease-in-out;
+  -ms-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+}
+
+.dropotron li {
+  padding: 1em 0 0.25em 0;
+}
+
+.dropotron li:hover > a,
+.dropotron li:hover > span {
+  color: #28544b !important;
+  font-weight: 700;
+}
+
+.dropotron.level-0 {
+  margin-top: 2em;
+}
+
+.dropotron.level-0:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  margin-left: -10px;
+  top: -9px;
+  border-left: solid 10px transparent;
+  border-right: solid 10px transparent;
+  border-bottom: solid 10px #28544b;
+  border-bottom-color: #28544b;
+}
+
+/* Banner */
+
+#banner {
+  background: #fff url("./assets/images/main_image.jpg");
+  background-position: center;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 400px;
+  margin-top: 100px;
+}
+
+/* Intro */
+
+#intro {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#intro-menu1,
+#intro-menu2,
+#intro-menu3,
+#intro-menu4 {
+  display: inline-block;
+  text-align: center;
+  min-width: 350px;
+  min-height: 350px;
+  margin: 30px 30px 30px 70px;
+  border-radius: 10px;
+}
+
+#main-images {
+  margin-top: 10px;
+  min-height: 200px;
+  min-width: 325px;
+  padding: 0;
+}
+
+#main_images {
+  box-shadow: 3px 3px 5px 2px inset;
+  border-radius: 20px;
+  padding: 0;
+}
+
+#main_images:active {
+  box-shadow: 4px 4px;
+  border-radius: 20px;
+}
+
+/* footer */
+
+#footer {
+  background-color: #000000ee;
+  min-height: 300px;
+}
+
+#footer-title {
+  font-size: 30px;
+  display: block;
+  margin-left: 10%;
+  font-weight: 700;
+  max-height: 70px;
+}
+
+#footer-title > p {
+  position: absolute;
+}
+
+#creater-name-email {
+  position: absolute;
+  margin-left: 25%;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#creater-github {
+  position: absolute;
+  right: 5%;
+  margin-top: 180px;
+}
+
+#git {
+  background-image: url("./assets/images/git.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  background-size: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  margin: 0 5px 0 5px;
+  opacity: 0.9;
+}

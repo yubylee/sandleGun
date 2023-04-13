@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <title>산들산들 - 회원가입</title>
+    <link rel="stylesheet" href="member.css" />
+    <link rel="stylesheet" href="/sandle/index.css" />
+    <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <h1><a href="/sandle/index.html">SANDLE</a></h1>
+
+      <div id="login" class="login">
+        <a href="/sandle/auth/login_form.html">LOGIN</a>
+      </div>
+
+      <div>
+        <a
+          id="logout"
+          class="logout"
+          href="sandle/auth/logout"
+          onclick="logout(); return false;"
+        >
+          LOGOUT</a
+        >
+      </div>
+
+      <div id="sign-up" class="sign-up">
+        <a href="/sandle/member/member.html">SIGN UP</a>
+      </div>
+
+      <div class="default_logo" id="default_logo">
+        <a href="/sandle/userPage/userPage.html"><span id="userEmail"></span></a>
+        <a href="/sandle/userPage/userPage.html"><img src="/sandle/assets/images/default_logo.jpg" /></a>
+      </div>
+    </header>
+
+    <!-- Nav -->
+    <nav id="nav">
+      <ul>
+        <li class="current">
+          <a href="/sandle/index.html">산들 소개</a>
+          <ul>
+            <ol>
+              산들 소개
+            </ol>
+            <li><a href="#">산들산들을 소개합니다.</a></li>
+            <li><a href="#">제작 동기</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="/sandle/mountain_info/mountain_info.html">전국 등산로 정보</a>
+        </li>
+
+        <li>
+          <a href="#">산악 소식</a>
+          <ul>
+            <ol>
+              산악 소식
+            </ol>
+            <li><a href="#">공지 사항</a></li>
+            <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
+            <li><a href="#">지역 행사 정보</a></li>
+            <li><a href="#">이벤트</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">커뮤니티</a>
+          <ul>
+            <ol>
+              커뮤니티
+            </ol>
+            <li><a href="/sandle/sandleboard/photofeed.html">포토 피드</a></li>
+            <li><a href="#">맛집 피드</a></li>
+            <li><a href="#">등산 일지</a></li>
+            <li><a href="#">1:1 문의</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- container -->
+    <div id="logo">
+      <a href="/sandle/index.html"><img src="/sandle/assets/images/logo.jpg" /></a>
+    </div>
+
+    <div id="head">
+      <p>회원가입</p>
+    </div>
+    <div id="head-next">
+      <p>회원이 되어 다양한 서비스를 경험해 보세요!</p>
+    </div>
+
+    <article>
+      <form id="member-form" action="update" method="post">
+        <div class="b-email">
+          <b>아이디</b><br />
+          <input
+            id="email"
+            type="email"
+            placeholder="이메일을 입력해주세요"
+            name="email"
+            oninput="checkId()"
+          />
+          <span class="id_ok">사용 가능한 아이디입니다.</span>
+          <span class="id_already">이미 사용중인 아이디입니다.</span>
+          <span class="id_no">올바른 이메일 형식이 아닙니다.</span>
+        </div>
+        <div class="b-password">
+          <b>비밀번호</b><br />
+          <input
+            id="m-password"
+            class="pw"
+            type="password"
+            placeholder="문자, 숫자, 특수문자 포함(6~16자)"
+            name="password"
+            onchange="check_pw()"
+          />
+        </div>
+        <div class="b-password-chk">
+          <b>비밀번호 확인</b><br />
+          <input
+            id="m-password-chk"
+            class="pw"
+            type="password"
+            placeholder="비밀번호 재입력"
+            name="passwordChk"
+            onchange="check_pw()"
+          /><span id="check"></span>
+        </div>
+        <div class="b-name">
+          <b>이름</b><br />
+          <input
+            id="m-name"
+            class="sign-input"
+            type="text"
+            placeholder="이름을 입력해주세요"
+            name="name"
+          />
+        </div>
+        <div class="b-nickname">
+          <b>닉네임</b><br />
+          <input
+            id="nickname"
+            class="sign-input"
+            type="text"
+            placeholder="닉네임을 입력해주세요"
+            name="nickname"
+            oninput="checkNick()"
+          />
+          <span class="ni_ok">사용 가능한 닉네임입니다.</span>
+          <span class="ni_already">이미 사용중인 닉네임 입니다.</span>
+          <span class="ni_no">공백이나 특수문자가 포함되어있습니다.</span>
+        </div>
+        <div class="b-tel">
+          <b>전화</b><br />
+          <input
+            id="m-tel"
+            class="sign-input"
+            type="tel"
+            oninput="hypenTel(this)"
+            maxlength="13"
+            placeholder="휴대폰 번호(숫자를 입력하세요.)"
+            name="tel"
+          />
+        </div>
+        <div class="b-postNo">
+          <b>우편번호</b><br />
+          <input
+            id="m-postNo"
+            class="sign-input"
+            type="text"
+            name="postNo"
+            readonly
+          />
+          <input
+            id="find-button"
+            type="button"
+            onclick="sample6_execDaumPostcode()"
+            value="우편번호 찾기"
+          />
+        </div>
+        <div class="b-basicAddress">
+          <b>기본주소</b><br />
+          <input
+            id="m-basicAddress"
+            class="sign-input"
+            type="text"
+            name="basicAddress"
+            readonly
+          />
+        </div>
+        <div class="b-detailAddress">
+          <b>상세주소</b><br />
+          <input
+            id="m-detailAddress"
+            class="sign-input"
+            type="text"
+            name="detailAddress"
+          />
+        </div>
+        <div class="b-birth">
+          <b>생년월일</b><br />
+          <input id="m-birth" class="sign-input" type="date" name="birth" />
+        </div>
+
+        <div id="btns">
+          <button id="btn-insert" type="button">가입하기</button>
+          <button id="btn-cancel" type="button">가입취소</button>
+        </div>
+      </form>
+    </article>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div id="footer-title">
+        <p>SANDLE</p>
+      </div>
+
+      <div id="creater">
+        <div id="creater-name-email">
+          <h2>creater</h2>
+          팀장:서영훈 | <a>email:darktemi@nate.com</a><br />
+          조원:안진수 | <a>email:</a><br />
+          조원:김종현 | <a>email:</a><br />
+          조원:이건형 | <a>email:</a><br />
+          조원:박경한 | <a>email:</a>
+        </div>
+        <div id="creater-github">
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="/sandle/assets/js/jquery.min.js"></script>
+    <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
+    <script src="/sandle/assets/js/breakpoints.min.js"></script>
+    <script src="/sandle/assets/js/util.js"></script>
+    <script src="/sandle/navLogin.js"></script>
+    <script src="member.js"></script>
+  </body>
+</html>

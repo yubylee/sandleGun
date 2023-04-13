@@ -1,0 +1,93 @@
+form {
+  width: 450px;
+  margin-inline: auto;
+  margin-bottom: 20px;
+  text-align: center;
+}
+input {
+  width: 420px;
+  border: 1px solid #28544b;
+  padding: 5px 10px;
+  height: 30px;
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 2px 2px #000000;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+button {
+  margin: 10px auto 30px;
+  width: 100%;
+  display: table;
+  font-size: 20px;
+  padding: 10px 30px;
+  background-color: #28544b;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.Remember {
+  float: left;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+input[type="checkbox"] {
+  height: 16px;
+  width: 16px;
+  margin-right: 5px;
+  accent-color: #28544b;
+}
+
+.Social button.google-btn,
+.Social button.facebook-btn,
+.Social button.naver-btn,
+.Social button.kakao-btn {
+  width: 100%;
+  font-size: 18px;
+  margin: 0px 0px 10px;
+}
+.Social button.google-btn {
+  background-color: #26abfd;
+}
+.Social button.facebook-btn {
+  background-color: #3f68be;
+}
+.Social button.naver-btn {
+  background-color: #03c75a;
+}
+.Social button.kakao-btn {
+  background-color: #fee500;
+}
+.Social {
+  border-top: 1px solid #ddd;
+  padding-top: 30px;
+  margin-top: 30px;
+}
+.Social button i {
+  margin-right: 5px;
+  font-size: 20px;
+}
+/* bottom container */
+.bottom-container {
+  text-align: center;
+  background-color: #666;
+  border-radius: 0px 0px 4px 4px;
+}
+@media (max-width: 400px) {
+  form {
+    width: 100%;
+    margin-left: 0px;
+  }
+}
+
+#logo {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.myapp.dao.SandleBoardDao">
+
+  <resultMap type="sandleboard" id="boardMap">
+    <id column="board_id" property="no"/>
+    <result column="title" property="title"/>
+    <result column="content" property="content"/>
+    <result column="tag" property="tag"/>
+    <result column="photo" property="photo"/>
+    <result column="created_date" property="createdDate"/>
+    
+    <association property="writer" javaType="member">
+      <id column="writer" property="no"/>
+      <result column="email" property="email"/>
+    </association>
+    
+    <collection property="comments" ofType="comment">
+      <id column="comment_id" property="no"/>
+      <result column="board_id" property="boardNo"/>
+      <result column="cmt_content" property="commentContent"/>
+      <result column="created_date" property="createdDate"/>
+    </collection>
+  </resultMap>
+
+  <insert id="insert" parameterType="sandleboard" 
+          useGeneratedKeys="true" keyColumn="board_id" keyProperty="no">
+    insert into app_board(title, content, writer) 
+    values(#{title}, #{content}, #{writer.no})
+  </insert>
+
+  <select id="findAll" resultMap="boardMap">
+    select 
+      b.board_id, 
+      b.title, 
+      b.content,
+      b.tag,
+      b.created_date, 
+      m.photo 
+    from 
+      hms_board b
+      inner join hms_photo m on b.board_id = m.board_id
+  </select>
+
+  <select id="findByNo" parameterType="int" resultMap="boardMap">
+select 
+      b.board_id, 
+      b.title, 
+      b.content,      
+      b.tag,
+      b.created_date, 
+      m.photo,
+      c.comment_id,
+      c.writer_email,
+      c.cmt_content,
+      c.created_date
+    from 
+      hms_board b
+      inner join hms_photo m on b.board_id = m.board_id
+      left outer join hms_comment c on b.board_id = c.board_id
+    where 
+      b.board_id=#{no}
+  </select>
+  
+
+</mapper>
+
+
+
+
+

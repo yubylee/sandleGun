@@ -1,0 +1,99 @@
+/* container */
+
+#main-container {
+  text-align: center;
+}
+
+#container {
+  display: inline-block;
+  text-align: center;
+  width: 900px;
+  height: 700px;
+  padding-top: 30px;
+}
+
+#map {
+  background-image: url("../assets/mountain_info_images/southkorea.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-width: 400px;
+  min-height: 630px;
+  max-width: 400px;
+  max-height: 630px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+#tabs {
+  min-width: 393px;
+  min-height: 623px;
+  max-width: 393px;
+  max-height: 623px;
+  float: right;
+}
+
+#main-mountain_info {
+  text-align: center;
+}
+
+#mountain_detail_title {
+  display: inline-block;
+  text-align: left;
+  border-top: 1px #28544b solid;
+  min-width: 1100px;
+  max-width: 1100px;
+}
+
+#mountain_detail_info {
+  text-align: center;
+}
+
+#accordion {
+  font-size: 20px;
+  display: inline-block;
+  height: auto;
+  min-width: 1100px;
+  max-width: 1100px;
+  margin-bottom: 50px;
+}
+
+h3 > input {
+  width: 150px;
+}
+/* footer */
+
+#footer {
+  background-color: #000000ee;
+  min-height: 400px;
+}
+
+#footer-title {
+  font-size: 40px;
+  display: block;
+  margin-left: 10%;
+  font-weight: 700;
+}
+
+#creater-name-email {
+  display: inline-block;
+  margin-left: 10%;
+}
+
+#creater-github {
+  display: inline-block;
+  margin-left: 60%;
+}
+
+#git {
+  background-image: url("../assets/images/git.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  background-size: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  margin-left: 10px;
+  margin-bottom: 50px;
+  opacity: 0.9;
+}

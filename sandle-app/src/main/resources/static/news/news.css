@@ -1,0 +1,44 @@
+.news {
+  margin: 20px auto;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #28544B;
+  padding-bottom: 20px;
+  width: 800px;
+  min-height: 80px;
+}
+.news .title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #0366d6;
+  text-decoration: none;
+  text-align: left;
+}
+.news .content {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+  text-align: left;
+}
+.news img {
+  width: 132px;
+  height: 90px;
+  float: right; 
+  margin-left: 20px;
+}
+.title:hover{
+  text-decoration: underline;
+}
+
+hr {
+  width: 80%;
+  margin-bottom: 50px;
+}
+.keyword{
+  margin-top: 80px;
+  margin-left: 200px;
+  max-height: 20px;
+}
+.keyword span{
+  font-size: 16px;
+  margin-left: 20px;
+}

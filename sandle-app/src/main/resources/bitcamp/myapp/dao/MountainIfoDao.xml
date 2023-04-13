@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.myapp.dao.MountainInfoDao">
+
+  <resultMap type="mountainInfo" id="mountainInfoMap">
+    <id column="mountain_info_id" property="no"/>
+    <result column="region_id" property="regionId"/>
+    <result column="mountain_name" property="mountainName"/>
+    <result column="height" property="height"/>
+    <result column="photo" property="photo"/>
+    <result column="address" property="address"/>
+    <result column="sunrise" property="sunrise"/>
+    <result column="sunset" property="sunset"/>
+  </resultMap>
+
+  <select id="findAll" resultMap="mountainInfoMap">
+    select
+      m.mountain_info_id,
+      m.mountain_name,
+      m.address,
+      m.height,
+      m.sunset
+    from 
+      hms_mountain_info m
+      inner join hms_region r on m.region_id = r.region_id
+    <if test="keyword != '' and keyword != null">
+    where
+      m.mountain_info_id like(concat('%', #{keyword}, '%'))
+      or m.region_id like(concat('%', #{keyword}, '%'))
+      or m.mountain_name like(concat('%', #{keyword}, '%'))
+      or m.height like(concat('%', #{keyword}, '%'))
+      or m.address like(concat('%', #{keyword}, '%'))
+      or r.region_id like(concat('%', #{keyword}, '%'))
+      or r.region_list like(concat('%', #{keyword}, '%'))
+    </if>
+    order by
+      m.mountain_info_id desc
+  </select>
+</mapper>
+
+
+
+
+
