@@ -91,7 +91,8 @@ CREATE TABLE hms_qna (
   qna_id       INTEGER      NOT NULL COMMENT '문의번호', -- 문의번호
   member_id    INTEGER      NOT NULL COMMENT '회원번호', -- 회원번호
   title        VARCHAR(255) NOT NULL COMMENT '문의제목', -- 문의제목
-  response     VARCHAR(255) NOT NULL COMMENT '답변', -- 답변
+  content      VARCHAR(255) NOT NULL COMMENT '문의내용', -- 문의내용
+  response     VARCHAR(255) NULL COMMENT '답변', -- 답변
   created_date DATETIME     NOT NULL DEFAULT now() COMMENT '등록일' -- 등록일
 )
 COMMENT 'QnA';
@@ -343,14 +344,6 @@ ALTER TABLE hms_photo
   photo_id -- 사진번호
   );
   
--- 뉴스
-  CREATE TABLE news (
-  title VARCHAR(100) NOT NULL,
-  content VARCHAR(1000) NOT NULL,
-  image2 VARCHAR(200) NOT NULL,
-  link VARCHAR(500) NOT NULL,
-);
-
 ALTER TABLE hms_photo
   MODIFY COLUMN photo_id INTEGER NOT NULL AUTO_INCREMENT COMMENT '사진번호';
 
@@ -523,3 +516,19 @@ ALTER TABLE hms_photo
   REFERENCES hms_board ( -- 게시판
   board_id -- 게시판번호
   );
+  
+  -- 게시글 첨부파일 정보를 저장하는 테이블 정의
+create table hms_profile_photo (
+  profile_photo_id int not null,
+  filepath varchar(255) not null,
+  origin_filename varchar(255) not null,
+  mime_type varchar(30) not null,
+  member_id int not null
+);
+
+alter table hms_profile_photo
+  add constraint primary key (profile_photo_id),
+  modify column profile_photo_id int not null auto_increment;
+  
+alter table hms_profile_photo
+  add constraint hms_profile_photo_fk foreign key (member_id) references hms_member (member_id);

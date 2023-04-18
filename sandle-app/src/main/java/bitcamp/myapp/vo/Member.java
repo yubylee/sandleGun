@@ -7,10 +7,7 @@ import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import lombok.Data;
 
 @Data
-public class Member implements Serializable{
-  /**
-   * 
-   */
+public class Member implements Serializable {
   private static final long serialVersionUID = 1L;
   private int no;
   private String name;
@@ -30,6 +27,5 @@ public class Member implements Serializable{
       pattern = "yyyy-MM-dd")
   private Date createdDate;
   private String authority;
-
   private transient Object someObject; 
 }

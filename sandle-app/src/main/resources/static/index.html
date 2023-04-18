@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SANDLE - 산들산들</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
+    <title>SANDLE - 산들산들</title>
     <link rel="stylesheet" href="/sandle/index.css" />
     <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
   </head>
@@ -14,19 +14,14 @@
   <body>
     <!-- Header -->
     <header id="header">
-      <h1><a href="/sandle/index.html">SANDLE</a></h1>
+      <div id="header-title"><a href="/sandle/index.html">SANDLE</a></div>
 
       <div id="login" class="login">
         <a href="/sandle/auth/login_form.html">LOGIN</a>
       </div>
 
-      <div>
-        <a
-          id="logout"
-          class="logout"
-          href="sandle/auth/logout"
-          onclick="logout(); return false;"
-        >
+      <div id="logout" class="logout">
+        <a href="sandle/auth/logout" onclick="logout(); return false;">
           LOGOUT</a
         >
       </div>
@@ -36,8 +31,12 @@
       </div>
 
       <div class="default_logo" id="default_logo">
-        <a href="/sandle/userPage/userPage.html"><span id="userEmail"></span></a>
-        <a href="/sandle/userPage/userPage.html"><img src="/sandle/assets/images/default_logo.jpg" /></a>
+        <a href="/sandle/userPage/userPage.html"
+          ><span id="userEmail"></span
+        ></a>
+        <a href="/sandle/userPage/userPage.html"
+          ><img src="/sandle/assets/images/default_logo.jpg"
+        /></a>
       </div>
     </header>
 
@@ -56,7 +55,9 @@
         </li>
 
         <li>
-          <a href="/sandle/mountain_info/mountain_info.html">전국 등산로 정보</a>
+          <a href="/sandle/mountain_info/mountain_info.html"
+            >전국 등산로 정보</a
+          >
         </li>
 
         <li>
@@ -80,7 +81,7 @@
             <li><a href="/sandle/sandleboard/photofeed.html">포토 피드</a></li>
             <li><a href="#">맛집 피드</a></li>
             <li><a href="#">등산 일지</a></li>
-            <li><a href="#">1:1 문의</a></li>
+            <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
           </ul>
         </li>
       </ul>
@@ -95,7 +96,9 @@
         <div id="intro-menu1">
           <div id="main_images">
             <a href="/sandle/mountain_info/mountain_info.html"
-              ><img src="/sandle/assets/images/main_image_1.jpg" id="main-images"
+              ><img
+                src="/sandle/assets/images/main_image_1.jpg"
+                id="main-images"
             /></a>
           </div>
           <h4>
@@ -108,7 +111,9 @@
         <div id="intro-menu2">
           <div id="main_images">
             <a href="/sandle/sandleboard/photofeed.html"
-              ><img src="/sandle/assets/images/main_image_2.jpg" id="main-images"
+              ><img
+                src="/sandle/assets/images/main_image_2.jpg"
+                id="main-images"
             /></a>
           </div>
           <h4>
@@ -121,7 +126,9 @@
         <div id="intro-menu3">
           <div id="main_images">
             <a href="/sandle/news/news.html"
-              ><img src="/sandle/assets/images/main_image_3.jpg" id="main-images"
+              ><img
+                src="/sandle/assets/images/main_image_3.jpg"
+                id="main-images"
             /></a>
           </div>
           <h4>
@@ -133,7 +140,9 @@
         <div id="intro-menu4">
           <div id="main_images">
             <a href="#"
-              ><img src="/sandle/assets/images/main_image_4.jpg" id="main-images"
+              ><img
+                src="/sandle/assets/images/main_image_4.jpg"
+                id="main-images"
             /></a>
           </div>
           <h4>

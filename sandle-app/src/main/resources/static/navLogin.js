@@ -55,6 +55,9 @@ fetch("../auth/user")
   })
   .then((result) => {
     console.log(result);
+
+    let member = result.data;
+
     if (result.status === "success") {
       document.querySelector("#userEmail").innerHTML = result.data.email;
       document.querySelector(".default_logo").classList.remove("default_logo");
@@ -62,6 +65,23 @@ fetch("../auth/user")
     } else {
       document.querySelector(".login").classList.remove("login");
       document.querySelector(".sign-up").classList.remove("sign-up");
+    }
+    if (member.profilePhoto != null) {
+      if (!document.querySelector("#m-photo-origin")) {
+        return;
+      }
+      document.querySelector(
+        "#m-photo-origin"
+      ).href = `https://kr.object.ncloudstorage.com/sandle-images/profile-photo/${member.profilePhoto}`;
+      document.querySelector(
+        "#m-photo"
+      ).src = `http://mcjpfbyigjei16837664.cdn.ntruss.com/profile-photo/${member.profilePhoto}?type=f&w=200&h=200&faceopt=true&ttype=jpg`;
+    } else if (member.profilePhoto == null) {
+      if (!document.querySelector("#m-photo")) {
+        return;
+      }
+      document.querySelector("#m-photo").src =
+        "/sandle/assets/images/default_logo.jpg";
     }
   });
 

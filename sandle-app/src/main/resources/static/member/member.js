@@ -168,6 +168,8 @@ function checkNick() {
   }
 }
 
+/******************************전화번호 - 자동*******************************/
+
 // 전화번호 - 없이 입력
 const hypenTel = (target) => {
   target.value = target.value

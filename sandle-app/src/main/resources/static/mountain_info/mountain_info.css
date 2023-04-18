@@ -12,26 +12,2051 @@
   padding-top: 30px;
 }
 
-#map {
-  background-image: url("../assets/mountain_info_images/southkorea.jpg");
+/* map */
+#map,
+#seoul-map,
+#incheon-map,
+#daejeon-map,
+#daegu-map,
+#gwangju-map,
+#ulsan-map,
+#busan-map,
+#gyeonggi-map,
+#gangwon-map,
+#chungbuk-map,
+#chungnam-map,
+#jeonbuk-map,
+#jeonnam-map,
+#gyeongbuk-map,
+#gyeongnam-map,
+#jeju-map,
+#sejong-map {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
+  margin-top: 20px;
+  display: none;
+}
+
+/* 전국 */
+#map {
+  background-image: url("/sandle/assets/mountain_info_images/southkorea.jpg");
   min-width: 400px;
   min-height: 630px;
   max-width: 400px;
   max-height: 630px;
-  display: inline-block;
-  margin-top: 20px;
+}
+
+#seoul-map {
+  background-image: url("/sandle/assets/mountain_info_images/seoul-map.jpg");
+  min-width: 450px;
+  min-height: 600px;
+  max-width: 450px;
+  max-height: 600px;
+  border: 1px solid red;
+}
+
+#incheon-map {
+  background-image: url("/sandle/assets/mountain_info_images/incheon-map.jpg");
+  min-width: 450px;
+  min-height: 600px;
+  max-width: 450px;
+  max-height: 600px;
+  border: 1px solid red;
+}
+
+#daejeon-map {
+  background-image: url("/sandle/assets/mountain_info_images/daejeon-map.jpg");
+  min-width: 450px;
+  min-height: 600px;
+  max-width: 450px;
+  max-height: 600px;
+  border: 1px solid red;
+}
+
+#daegu-map {
+  background-image: url("/sandle/assets/mountain_info_images/daegu-map.jpg");
+  min-width: 450px;
+  min-height: 600px;
+  max-width: 450px;
+  max-height: 600px;
+  border: 1px solid red;
+}
+
+#gwangju-map {
+  background-image: url("/sandle/assets/mountain_info_images/gwangju-map.jpg");
+  min-width: 450px;
+  min-height: 600px;
+  max-width: 450px;
+  max-height: 600px;
+  border: 1px solid red;
+}
+
+#ulsan-map {
+  background-image: url("/sandle/assets/mountain_info_images/ulsan-map.jpg");
+  min-width: 450px;
+  min-height: 600px;
+  max-width: 450px;
+  max-height: 600px;
+  border: 1px solid red;
+}
+
+#busan-map {
+  background-image: url("/sandle/assets/mountain_info_images/busan-map.jpg");
+  min-width: 450px;
+  min-height: 600px;
+  max-width: 450px;
+  max-height: 600px;
+  border: 1px solid red;
+}
+
+#gyeonggi-map {
+  background-image: url("/sandle/assets/mountain_info_images/gyeonggi-map.jpg");
+  background-size: 120%;
+  min-width: 430px;
+  min-height: 650px;
+  max-width: 430px;
+  max-height: 650px;
+}
+
+#gangwon-map {
+  background-image: url("/sandle/assets/mountain_info_images/gangwon-map.jpg");
+  min-width: 450px;
+  min-height: 600px;
+  max-width: 450px;
+  max-height: 600px;
+  border: 1px solid red;
+}
+
+#chungbuk-map {
+  background-image: url("/sandle/assets/mountain_info_images/chungbuk-map.jpg");
+  min-width: 450px;
+  min-height: 600px;
+  max-width: 450px;
+  max-height: 600px;
+  border: 1px solid red;
+}
+
+#chungnam-map {
+  background-image: url("/sandle/assets/mountain_info_images/chungnam-map.jpg");
+  min-width: 450px;
+  min-height: 600px;
+  max-width: 450px;
+  max-height: 600px;
+  border: 1px solid red;
+}
+
+#jeonbuk-map {
+  background-image: url("/sandle/assets/mountain_info_images/jeonbuk-map.jpg");
+  min-width: 450px;
+  min-height: 600px;
+  max-width: 450px;
+  max-height: 600px;
+  border: 1px solid red;
+}
+
+#jeonnam-map {
+  background-image: url("/sandle/assets/mountain_info_images/jeonnam-map.jpg");
+  min-width: 450px;
+  min-height: 600px;
+  max-width: 450px;
+  max-height: 600px;
+  border: 1px solid red;
+}
+
+#gyeongbuk-map {
+  background-image: url("/sandle/assets/mountain_info_images/gyeongbuk-map.jpg");
+  min-width: 450px;
+  min-height: 600px;
+  max-width: 450px;
+  max-height: 600px;
+  border: 1px solid red;
+}
+
+#gyeongnam-map {
+  background-image: url("/sandle/assets/mountain_info_images/gyeongnam-map.jpg");
+  min-width: 450px;
+  min-height: 600px;
+  max-width: 450px;
+  max-height: 600px;
+  border: 1px solid red;
+}
+
+#jeju-map {
+  background-image: url("/sandle/assets/mountain_info_images/jeju-map.jpg");
+  min-width: 450px;
+  min-height: 600px;
+  max-width: 450px;
+  max-height: 600px;
+  border: 1px solid red;
+}
+
+#sejong-map {
+  background-image: url("/sandle/assets/mountain_info_images/sejong-map.jpg");
+  min-width: 450px;
+  min-height: 600px;
+  max-width: 450px;
+  max-height: 600px;
+  border: 1px solid red;
+}
+
+/* 지역 > 세부지역 */
+#map > div {
+  position: absolute;
+  cursor: pointer;
+}
+
+/* 서울 - 세부지역 */
+#seoul-map > div {
+  position: absolute;
+  cursor: pointer;
+  border: 1px red solid;
+  width: 45px;
+  height: 20px;
+}
+
+.gangnam {
+  margin: 395px 0 0 283px;
+  border-radius: 10px;
+}
+
+.gangdong {
+  margin: 315px 0 0 385px;
+  border-radius: 10px;
+}
+
+.gangbuk {
+  margin: 172px 0 0 235px;
+  border-radius: 10px;
+}
+
+.gangseo-seoul {
+  margin: 285px 0 0 16px;
+  border-radius: 10px;
+}
+
+.gwanak {
+  margin: 432px 0 0 156px;
+  border-radius: 10px;
+}
+
+.gwangjin {
+  margin: 307px 0 0 320px;
+  border-radius: 10px;
+}
+
+.guro {
+  margin: 390px 0 0 46px;
+  border-radius: 10px;
+}
+
+.geumcheon {
+  margin: 426px 0 0 98px;
+  border-radius: 10px;
+}
+
+.nowon {
+  margin: 160px 0 0 307px;
+  border-radius: 10px;
+}
+
+.dobong {
+  margin: 125px 0 0 255px;
+  border-radius: 10px;
+}
+
+.dongdaemun {
+  margin: 262px 0 0 279px;
+  border-radius: 10px;
+}
+
+.dongjak {
+  margin: 380px 0 0 160px;
+  border-radius: 10px;
+}
+
+.mapo {
+  margin: 290px 0 0 117px;
+  border-radius: 10px;
+}
+
+.seodaemun {
+  margin: 262px 0 0 145px;
+  border-radius: 10px;
+}
+
+.seocho {
+  margin: 415px 0 0 230px;
+  border-radius: 10px;
+}
+
+.seongdong {
+  margin: 307px 0 0 263px;
+  border-radius: 10px;
+}
+
+.seongbuk {
+  margin: 230px 0 0 238px;
+  border-radius: 10px;
+}
+
+.songpa {
+  margin: 373px 0 0 342px;
+  border-radius: 10px;
+}
+
+.yangcheon {
+  margin: 347px 0 0 57px;
+  border-radius: 10px;
+}
+
+.yeongdeungpo {
+  margin: 355px 0 0 110px;
+  border-radius: 10px;
+}
+
+.yongsan {
+  margin: 330px 0 0 197px;
+  border-radius: 10px;
+}
+
+.eunpyeong {
+  margin: 200px 0 0 142px;
+  border-radius: 10px;
+}
+
+.jongno {
+  margin: 255px 0 0 202px;
+  border-radius: 10px;
+}
+
+.junggu-seoul {
+  margin: 292px 0 0 205px;
+  border-radius: 10px;
+}
+
+.joongnang {
+  margin: 232px 0 0 334px;
+  border-radius: 10px;
+}
+
+/* 인천 - 세부지역 */
+#incheon-map > div {
+  position: absolute;
+  cursor: pointer;
+  border: 1px red solid;
+}
+
+.bupyeong {
+  margin: 355px 0 0 365px;
+  border-radius: 10px;
+  width: 40px;
+  height: 30px;
+}
+
+.donggu-incheon {
+  margin: 363px 0 0 313px;
+  border-radius: 10px;
+  width: 40px;
+  height: 30px;
+}
+
+.ganghwa {
+  margin: 120px 0 0 160px;
+  border-radius: 10px;
+  width: 100px;
+  height: 170px;
+}
+
+.gyeyang {
+  margin: 305px 0 0 375px;
+  border-radius: 10px;
+  width: 60px;
+  height: 30px;
+}
+
+.junggu-incheon {
+  margin: 350px 0 0 170px;
+  border-radius: 10px;
+  width: 120px;
+  height: 80px;
+}
+
+.namdonggu {
+  margin: 400px 0 0 380px;
+  border-radius: 10px;
+  width: 40px;
+  height: 30px;
+}
+
+.namgu-incheon {
+  margin: 400px 0 0 340px;
+  border-radius: 10px;
+  width: 30px;
+  height: 25px;
+}
+
+.ongjin {
+  margin: 425px 0 0 30px;
+  border-radius: 10px;
+  width: 90px;
+  height: 50px;
+}
+
+.seogu-incheon {
+  margin: 265px 0 0 335px;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.yeonsu {
+  margin: 455px 0 0 320px;
+  border-radius: 10px;
+  width: 50px;
+  height: 40px;
+}
+
+/* 대전 - 세부지역 */
+#daejeon-map > div {
+  position: absolute;
+  cursor: pointer;
+  border: 1px red solid;
+  width: 80px;
+  height: 50px;
+}
+
+.daedeok {
+  margin: 130px 0 0 235px;
+  border-radius: 10px;
+}
+
+.donggu-daejeon {
+  margin: 305px 0 0 300px;
+  border-radius: 10px;
+}
+
+.junggu-daejeon {
+  margin: 330px 0 0 210px;
+  border-radius: 10px;
+}
+
+.seogu-daejeon {
+  margin: 375px 0 0 100px;
+  border-radius: 10px;
+}
+
+.yuseong {
+  margin: 210px 0 0 95px;
+  border-radius: 10px;
+}
+
+/* 대구 - 세부지역 */
+#daegu-map > div {
+  position: absolute;
+  cursor: pointer;
+  border: 1px red solid;
+}
+
+.bukgu-daegu {
+  margin: 125px 0 0 205px;
+  border-radius: 10px;
+  width: 50px;
+  height: 40px;
+}
+
+.dalseo {
+  margin: 250px 0 0 160px;
+  border-radius: 10px;
+  width: 50px;
+  height: 40px;
+}
+
+.dalseong {
+  margin: 350px 0 0 140px;
+  border-radius: 10px;
+  width: 60px;
+  height: 40px;
+}
+
+.donggu-daegu {
+  margin: 110px 0 0 310px;
+  border-radius: 10px;
+  width: 60px;
+  height: 50px;
+}
+
+.junggu-daegu {
+  margin: 210px 0 0 235px;
+  border-radius: 10px;
+  width: 40px;
+  height: 30px;
+}
+
+.namgu-daegu {
+  margin: 250px 0 0 220px;
+  border-radius: 10px;
+  width: 50px;
+  height: 30px;
+}
+
+.seogu-daegu {
+  margin: 200px 0 0 190px;
+  border-radius: 10px;
+  width: 40px;
+  height: 30px;
+}
+
+.susung {
+  margin: 240px 0 0 290px;
+  border-radius: 10px;
+  width: 60px;
+  height: 40px;
+}
+
+/* 광주 - 세부지역 */
+#gwangju-map > div {
+  position: absolute;
+  cursor: pointer;
+  border: 1px red solid;
+  width: 60px;
+  height: 40px;
+}
+
+.bukgu-gwangju {
+  margin: 220px 0 0 285px;
+  border-radius: 10px;
+}
+
+.donggu-gwangju {
+  margin: 330px 0 0 325px;
+  border-radius: 10px;
+}
+
+.gwangsan {
+  margin: 260px 0 0 110px;
+  border-radius: 10px;
+}
+
+.namgu-gwangju {
+  margin: 360px 0 0 230px;
+  border-radius: 10px;
+}
+
+.seogu-gwangju {
+  margin: 290px 0 0 215px;
+  border-radius: 10px;
+}
+
+/* 울산 - 세부지역 */
+#ulsan-map > div {
+  position: absolute;
+  cursor: pointer;
+  border: 1px red solid;
+  width: 60px;
+  height: 40px;
+}
+
+.bukgu-ulsan {
+  margin: 177px 0 0 327px;
+  border-radius: 10px;
+}
+
+.donggu-ulsan {
+  margin: 265px 0 0 374px;
+  border-radius: 10px;
+}
+
+.junggu-ulsan {
+  margin: 225px 0 0 265px;
+  border-radius: 10px;
+}
+
+.namgu-ulsan {
+  margin: 280px 0 0 285px;
+  border-radius: 10px;
+}
+
+.ulju {
+  margin: 230px 0 0 150px;
+  border-radius: 10px;
+}
+
+/* 부산 - 세부지역 */
+#busan-map > div {
+  position: absolute;
+  cursor: pointer;
+  border: 1px red solid;
+}
+
+.bukgu-busan {
+  margin: 245px 0 0 180px;
+  border-radius: 10px;
+  width: 40px;
+  height: 20px;
+}
+
+.busanjin {
+  margin: 305px 0 0 197px;
+  border-radius: 10px;
+  width: 50px;
+  height: 20px;
+}
+
+.donggu-busan {
+  margin: 342px 0 0 207px;
+  border-radius: 10px;
+  width: 30px;
+  height: 15px;
+}
+
+.dongnae {
+  margin: 263px 0 0 230px;
+  border-radius: 10px;
+  width: 40px;
+  height: 15px;
+}
+
+.gangseo-busan {
+  margin: 325px 0 0 70px;
+  border-radius: 10px;
+  width: 55px;
+  height: 30px;
+}
+
+.geumjeong {
+  margin: 205px 0 0 232px;
+  border-radius: 10px;
+  width: 50px;
+  height: 40px;
+}
+
+.gijang {
+  margin: 150px 0 0 325px;
+  border-radius: 10px;
+  width: 50px;
+  height: 40px;
+}
+
+.haeundae {
+  margin: 282px 0 0 293px;
+  border-radius: 10px;
+  width: 60px;
+  height: 20px;
+}
+
+.junggu-busan {
+  margin: 373px 0 0 200px;
+  border-radius: 10px;
+  width: 25px;
+  height: 15px;
+}
+
+.namgu-busan {
+  margin: 347px 0 0 250px;
+  border-radius: 10px;
+  width: 30px;
+  height: 20px;
+}
+
+.saha {
+  margin: 385px 0 0 145px;
+  border-radius: 10px;
+  width: 50px;
+  height: 20px;
+}
+
+.sasang {
+  margin: 315px 0 0 142px;
+  border-radius: 10px;
+  width: 50px;
+  height: 20px;
+}
+
+.seogu-busan {
+  margin: 355px 0 0 175px;
+  border-radius: 10px;
+  width: 30px;
+  height: 15px;
+}
+
+.suyeong {
+  margin: 305px 0 0 257px;
+  border-radius: 10px;
+  width: 40px;
+  height: 20px;
+}
+
+.yeongdo {
+  margin: 390px 0 0 220px;
+  border-radius: 10px;
+  width: 40px;
+  height: 30px;
+}
+
+.yeonje {
+  margin: 285px 0 0 235px;
+  border-radius: 10px;
+  width: 40px;
+  height: 15px;
+}
+
+/* 경기  - 세부지역 */
+#gyeonggi-map > div {
+  position: absolute;
+  cursor: pointer;
+  border: 1px red solid;
+}
+
+.ansan {
+  margin: 425px 0 0 85px;
+  border-radius: 10px;
+  width: 30px;
+  height: 20px;
+}
+
+.anseong {
+  margin: 535px 0 0 240px;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.anyang {
+  margin: 400px 0 0 147px;
+  border-radius: 10px;
+  width: 30px;
+  height: 10px;
+}
+
+.bucheon {
+  margin: 335px 0 0 65px;
+  border-radius: 10px;
+  width: 40px;
+  height: 30px;
+}
+
+.dongducheon {
+  margin: 165px 0 0 163px;
+  border-radius: 10px;
+  width: 50px;
+  height: 30px;
+}
+
+.gapyeong {
+  margin: 195px 0 0 287px;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.gimpo {
+  margin: 267px 0 0 10px;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.goyang {
+  margin: 267px 0 0 80px;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.gunpo {
+  margin: 415px 0 0 122px;
+  border-radius: 10px;
+  width: 30px;
+  height: 16px;
+}
+
+.guri {
+  margin: 305px 0 0 175px;
+  border-radius: 10px;
+  width: 40px;
+  height: 30px;
+}
+
+.gwacheon {
+  margin: 360px 0 0 147px;
+  border-radius: 10px;
+  width: 30px;
+  height: 20px;
+}
+
+.gwangmyeong {
+  margin: 385px 0 0 115px;
+  border-radius: 10px;
+  width: 30px;
+  height: 15px;
+}
+
+.gwangju-si {
+  margin: 375px 0 0 240px;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.hanam {
+  margin: 335px 0 0 210px;
+  border-radius: 10px;
+  width: 40px;
+  height: 30px;
+}
+
+.hwaseong {
+  margin: 460px 0 0 970px;
+  border-radius: 10px;
+  width: 50px;
+  height: 30px;
+}
+
+.icheon {
+  margin: 443px 0 0 287px;
+  border-radius: 10px;
+  width: 50px;
+  height: 40px;
+}
+
+.namyangju {
+  margin: 260px 0 0 215px;
+  border-radius: 10px;
+  width: 50px;
+  height: 30px;
+}
+
+.osan {
+  margin: 480px 0 0 159px;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.paju {
+  margin: 177px 0 0 73px;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.pocheon {
+  margin: 130px 0 0 225px;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.pyeongtaek {
+  margin: 540px 0 0 140px;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.siheung {
+  margin: 380px 0 0 57px;
+  border-radius: 10px;
+  width: 40px;
+  height: 30px;
+}
+
+.sungnam {
+  margin: 390px 0 0 183px;
+  border-radius: 10px;
+  width: 30px;
+  height: 20px;
+}
+
+.suwon {
+  margin: 435px 0 0 147px;
+  border-radius: 10px;
+  width: 30px;
+  height: 20px;
+}
+
+.uijeongbu {
+  margin: 252px 0 0 156px;
+  border-radius: 10px;
+  width: 50px;
+  height: 20px;
+}
+
+.yangju {
+  margin: 210px 0 0 140px;
+  border-radius: 10px;
+  width: 50px;
+  height: 30px;
+}
+
+.yangpyeong {
+  margin: 335px 0 0 335px;
+  border-radius: 10px;
+  width: 50px;
+  height: 40px;
+}
+
+.yeoju {
+  margin: 420px 0 0 357px;
+  border-radius: 10px;
+  width: 50px;
+  height: 40px;
+}
+
+.yeoncheon {
+  margin: 95px 0 0 137px;
+  border-radius: 10px;
+  width: 50px;
+  height: 40px;
+}
+
+.yongin {
+  margin: 430px 0 0 205px;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+/* 강원 - 세부지역 */
+#gangwon-map > div {
+  position: absolute;
+  cursor: pointer;
+  border: 1px red solid;
+  width: 50px;
+  height: 30px;
+}
+
+.cheorwon {
+  margin: 167px 0 0 37px;
+  border-radius: 10px;
+}
+
+.chuncheon {
+  margin: 245px 0 0 105px;
+  border-radius: 10px;
+}
+
+.donghae {
+  margin: 360px 0 0 340px;
+  border-radius: 10px;
+}
+
+.gangneung {
+  margin: 310px 0 0 315px;
+  border-radius: 10px;
+}
+
+.goseong-gangwon {
+  margin: 150px 0 0 240px;
+  border-radius: 10px;
+}
+
+.hoengseong {
+  margin: 340px 0 0 165px;
+  border-radius: 10px;
+}
+
+.hongcheon {
+  margin: 285px 0 0 160px;
+  border-radius: 10px;
+}
+
+.hwacheon {
+  margin: 185px 0 0 100px;
+  border-radius: 10px;
+}
+
+.inje {
+  margin: 230px 0 0 210px;
+  border-radius: 10px;
+}
+
+.jeongseon {
+  margin: 380px 0 0 280px;
+  border-radius: 10px;
+}
+
+.pyeongchang {
+  margin: 335px 0 0 235px;
+  border-radius: 10px;
+}
+
+.samcheok {
+  margin: 420px 0 0 370px;
+  border-radius: 10px;
+}
+
+.sokcho {
+  margin: 190px 0 0 255px;
+  border-radius: 10px;
+}
+
+.taebaek {
+  margin: 455px 0 0 330px;
+  border-radius: 10px;
+}
+
+.wonju {
+  margin: 380px 0 0 125px;
+  border-radius: 10px;
+}
+
+.yanggu {
+  margin: 180px 0 0 160px;
+  border-radius: 10px;
+}
+
+.yangyang {
+  margin: 245px 0 0 275px;
+  border-radius: 10px;
+}
+
+.yeongwol {
+  margin: 420px 0 0 225px;
+  border-radius: 10px;
+}
+
+/* 충북 - 세부지역 */
+#chungbuk-map > div {
+  position: absolute;
+  cursor: pointer;
+  border: 1px red solid;
+  width: 50px;
+  height: 30px;
+}
+
+.boeun {
+  margin: 345px 0 0 132px;
+  border-radius: 10px;
+}
+
+.cheongju {
+  margin: 302px 0 0 58px;
+  border-radius: 10px;
+}
+
+.chungju {
+  margin: 145px 0 0 167px;
+  border-radius: 10px;
+}
+
+.danyang {
+  margin: 150px 0 0 320px;
+  border-radius: 10px;
+}
+
+.eumseong {
+  margin: 175px 0 0 85px;
+  border-radius: 10px;
+}
+
+.goesan {
+  margin: 240px 0 0 160px;
+  border-radius: 10px;
+}
+
+.jecheon {
+  margin: 140px 0 0 260px;
+  border-radius: 10px;
+}
+
+.jeungpyeong {
+  margin: 230px 0 0 95px;
+  border-radius: 10px;
+}
+
+.jincheon {
+  margin: 203px 0 0 35px;
+  border-radius: 10px;
+}
+
+.okcheon {
+  margin: 410px 0 0 112px;
+  border-radius: 10px;
+}
+
+.yeongdong {
+  margin: 473px 0 0 165px;
+  border-radius: 10px;
+}
+
+/* 충남 - 세부지역 */
+#chungnam-map > div {
+  position: absolute;
+  cursor: pointer;
+  border: 1px red solid;
+  width: 50px;
+  height: 30px;
+}
+
+.asan {
+  margin: 175px 0 0 230px;
+  border-radius: 10px;
+}
+
+.boryeong {
+  margin: 350px 0 0 125px;
+  border-radius: 10px;
+}
+
+.buyeo {
+  margin: 370px 0 0 195px;
+  border-radius: 10px;
+}
+
+.cheonan {
+  margin: 170px 0 0 295px;
+  border-radius: 10px;
+}
+
+.cheongyang {
+  margin: 310px 0 0 190px;
+  border-radius: 10px;
+}
+
+.dangjin {
+  margin: 145px 0 0 145px;
+  border-radius: 10px;
+}
+
+.geumsan {
+  margin: 422px 0 0 370px;
+  border-radius: 10px;
+}
+
+.gyeryong {
+  margin: 360px 0 0 310px;
+  border-radius: 10px;
+}
+
+.gongju {
+  margin: 290px 0 0 260px;
+  border-radius: 10px;
+}
+
+.hongseong {
+  margin: 260px 0 0 125px;
+  border-radius: 10px;
+}
+
+.nonsan {
+  margin: 395px 0 0 280px;
+  border-radius: 10px;
+}
+
+.seocheon {
+  margin: 427px 0 0 145px;
+  border-radius: 10px;
+}
+
+.seosan {
+  margin: 195px 0 0 90px;
+  border-radius: 10px;
+}
+
+.taean {
+  margin: 185px 0 0 30px;
+  border-radius: 10px;
+}
+
+.yesan {
+  margin: 225px 0 0 190px;
+  border-radius: 10px;
+}
+
+/* 전북 - 세부지역 */
+#jeonbuk-map > div {
+  position: absolute;
+  cursor: pointer;
+  border: 1px red solid;
+  width: 55px;
+  height: 30px;
+}
+
+.buan {
+  margin: 300px 0 0 60px;
+  border-radius: 10px;
+}
+
+.gimje {
+  margin: 245px 0 0 115px;
+  border-radius: 10px;
+}
+
+.gochang {
+  margin: 390px 0 0 35px;
+  border-radius: 10px;
+}
+
+.gunsan {
+  margin: 200px 0 0 90px;
+  border-radius: 10px;
+}
+
+.iksan {
+  margin: 178px 0 0 150px;
+  border-radius: 10px;
+}
+
+.imsil {
+  margin: 335px 0 0 215px;
+  border-radius: 10px;
+}
+
+.jangsu {
+  margin: 310px 0 0 310px;
+  border-radius: 10px;
+}
+
+.jeongeup {
+  margin: 320px 0 0 125px;
+  border-radius: 10px;
+}
+
+.jeonju {
+  margin: 245px 0 0 180px;
+  border-radius: 10px;
+}
+
+.jinan {
+  margin: 250px 0 0 270px;
+  border-radius: 10px;
+}
+
+.muju {
+  margin: 210px 0 0 355px;
+  border-radius: 10px;
+}
+
+.namwon {
+  margin: 390px 0 0 280px;
+  border-radius: 10px;
+}
+
+.sunchang {
+  margin: 390px 0 0 180px;
+  border-radius: 10px;
+}
+
+.wanju {
+  margin: 200px 0 0 215px;
+  border-radius: 10px;
+}
+
+/* 전남 - 세부지역 */
+#jeonnam-map > div {
+  position: absolute;
+  cursor: pointer;
+  border: 1px red solid;
+  width: 40px;
+  height: 30px;
+}
+
+.boseong {
+  margin: 300px 0 0 283px;
+  border-radius: 10px;
+}
+
+.damyang {
+  margin: 175px 0 0 245px;
+  border-radius: 10px;
+}
+
+.gangjin {
+  margin: 350px 0 0 200px;
+  border-radius: 10px;
+}
+
+.goheung {
+  margin: 350px 0 0 325px;
+  border-radius: 10px;
+}
+
+.gokseong {
+  margin: 190px 0 0 305px;
+  border-radius: 10px;
+}
+
+.gurye {
+  margin: 185px 0 0 360px;
+  border-radius: 10px;
+}
+
+.gwangyang {
+  margin: 240px 0 0 390px;
+  border-radius: 10px;
+}
+
+.haenam {
+  margin: 375px 0 0 152px;
+  border-radius: 10px;
+}
+
+.hampyeong {
+  margin: 215px 0 0 147px;
+  border-radius: 10px;
+}
+
+.hwasun {
+  margin: 245px 0 0 257px;
+  border-radius: 10px;
+}
+
+.jangheung {
+  margin: 312px 0 0 232px;
+  border-radius: 10px;
+}
+
+.jangseong {
+  margin: 170px 0 0 200px;
+  border-radius: 10px;
+}
+
+.jindo {
+  margin: 390px 0 0 83px;
+  border-radius: 10px;
+}
+
+.mokpo {
+  margin: 295px 0 0 90px;
+  border-radius: 10px;
+}
+
+.muan {
+  margin: 262px 0 0 127px;
+  border-radius: 10px;
+}
+
+.naju {
+  margin: 250px 0 0 190px;
+  border-radius: 10px;
+}
+
+.sinan {
+  margin: 285px 0 0 30px;
+  border-radius: 10px;
+}
+
+.suncheon {
+  margin: 245px 0 0 335px;
+  border-radius: 10px;
+}
+
+.wando {
+  margin: 430px 0 0 195px;
+  border-radius: 10px;
+}
+
+.yeongam {
+  margin: 300px 0 0 173px;
+  border-radius: 10px;
+}
+
+.yeonggwang {
+  margin: 180px 0 0 133px;
+  border-radius: 10px;
+}
+
+.yeosu {
+  margin: 300px 0 0 388px;
+  border-radius: 10px;
+}
+
+/* 경북 - 세부지역 */
+#gyeongbuk-map > div {
+  position: absolute;
+  cursor: pointer;
+  border: 1px red solid;
+  width: 50px;
+  height: 30px;
+}
+
+.andong {
+  margin: 225px 0 0 195px;
+  border-radius: 10px;
+}
+
+.bonghwa {
+  margin: 140px 0 0 215px;
+  border-radius: 10px;
+}
+
+.cheongdo {
+  margin: 470px 0 0 190px;
+  border-radius: 10px;
+}
+
+.cheongsong {
+  margin: 280px 0 0 250px;
+  border-radius: 10px;
+}
+
+.chilgok {
+  margin: 370px 0 0 130px;
+  border-radius: 10px;
+}
+
+.gimcheon {
+  margin: 355px 0 0 45px;
+  border-radius: 10px;
+}
+
+.goryeong {
+  margin: 450px 0 0 90px;
+  border-radius: 10px;
+}
+
+.gumi {
+  margin: 310px 0 0 90px;
+  border-radius: 10px;
+}
+
+.gunwi {
+  margin: 335px 0 0 165px;
+  border-radius: 10px;
+}
+
+.gyeongju {
+  margin: 420px 0 0 290px;
+  border-radius: 10px;
+}
+
+.gyeongsan {
+  margin: 430px 0 0 200px;
+  border-radius: 10px;
+}
+
+.mungyeong {
+  margin: 205px 0 0 60px;
+  border-radius: 10px;
+}
+
+.pohang {
+  margin: 335px 0 0 290px;
+  border-radius: 10px;
+}
+
+.sangju {
+  margin: 275px 0 0 40px;
+  border-radius: 10px;
+}
+
+.seongju {
+  margin: 410px 0 0 80px;
+  border-radius: 10px;
+}
+
+.uiseong {
+  margin: 290px 0 0 150px;
+  border-radius: 10px;
+}
+
+.uljin {
+  margin: 132px 0 0 300px;
+  border-radius: 10px;
+}
+
+.ulleung {
+  margin: 100px 0 0 370px;
+  border-radius: 10px;
+}
+
+.yecheon {
+  margin: 210px 0 0 120px;
+  border-radius: 10px;
+}
+
+.yeongcheon {
+  margin: 370px 0 0 235px;
+  border-radius: 10px;
+}
+
+.yeongdeok {
+  margin: 255px 0 0 305px;
+  border-radius: 10px;
+}
+
+.yeongju {
+  margin: 155px 0 0 140px;
+  border-radius: 10px;
+}
+
+.yeongyang {
+  margin: 200px 0 0 260px;
+  border-radius: 10px;
+}
+
+/* 경남 -세부지역 */
+#gyeongnam-map > div {
+  position: absolute;
+  cursor: pointer;
+  border: 1px red solid;
+  width: 50px;
+  height: 30px;
+}
+
+.changnyeong {
+  margin: 210px 0 0 220px;
+  border-radius: 10px;
+}
+
+.changwon {
+  margin: 290px 0 0 265px;
+  border-radius: 10px;
+}
+
+.geochang {
+  margin: 140px 0 0 70px;
+  border-radius: 10px;
+}
+
+.geoje {
+  margin: 400px 0 0 270px;
+  border-radius: 10px;
+}
+
+.gimhae {
+  margin: 280px 0 0 320px;
+  border-radius: 10px;
+}
+
+.goseong-gyeongnam {
+  margin: 355px 0 0 175px;
+  border-radius: 10px;
+}
+
+.hadong {
+  margin: 320px 0 0 45px;
+  border-radius: 10px;
+}
+
+.haman {
+  margin: 280px 0 0 205px;
+  border-radius: 10px;
+}
+
+.hamyang {
+  margin: 210px 0 0 30px;
+  border-radius: 10px;
+}
+
+.hapcheon {
+  margin: 210px 0 0 140px;
+  border-radius: 10px;
+}
+
+.jinju {
+  margin: 295px 0 0 130px;
+  border-radius: 10px;
+}
+
+.miryang {
+  margin: 215px 0 0 300px;
+  border-radius: 10px;
+}
+
+.namhae {
+  margin: 410px 0 0 75px;
+  border-radius: 10px;
+}
+
+.sacheon {
+  margin: 340px 0 0 110px;
+  border-radius: 10px;
+}
+
+.sancheong {
+  margin: 250px 0 0 70px;
+  border-radius: 10px;
+}
+
+.tongyeong {
+  margin: 400px 0 0 205px;
+  border-radius: 10px;
+}
+
+.uiryeong {
+  margin: 245px 0 0 175px;
+  border-radius: 10px;
+}
+
+.yangsan {
+  margin: 240px 0 0 365px;
+  border-radius: 10px;
+}
+
+/* 세종 - 세부지역 */
+#sejong-map > div {
+  position: absolute;
+  cursor: pointer;
+  border: 1px red solid;
+}
+
+.areum {
+  margin: 355px 0 0 170px;
+  border-radius: 10px;
+  width: 40px;
+  height: 20px;
+}
+
+.bugang {
+  margin: 345px 0 0 335px;
+  border-radius: 10px;
+  width: 60px;
+  height: 30px;
+}
+
+.dodam {
+  margin: 373px 0 0 210px;
+  border-radius: 10px;
+  width: 60px;
+  height: 15px;
+}
+
+.geumnam {
+  margin: 465px 0 0 237px;
+  border-radius: 10px;
+  width: 60px;
+  height: 30px;
+}
+
+.hansol {
+  margin: 425px 0 0 200px;
+  border-radius: 10px;
+  width: 50px;
+  height: 30px;
+}
+
+.janggun {
+  margin: 370px 0 0 115px;
+  border-radius: 10px;
+  width: 50px;
+  height: 30px;
+}
+
+.jeondong {
+  margin: 150px 0 0 175px;
+  border-radius: 10px;
+  width: 50px;
+  height: 30px;
+}
+
+.jeonui {
+  margin: 135px 0 0 95px;
+  border-radius: 10px;
+  width: 50px;
+  height: 30px;
+}
+
+.jochiwon {
+  margin: 225px 0 0 222px;
+  border-radius: 10px;
+  width: 60px;
+  height: 30px;
+}
+
+.jongchon {
+  margin: 388px 0 0 175px;
+  border-radius: 10px;
+  width: 40px;
+  height: 30px;
+}
+
+.sojeong {
+  margin: 50px 0 0 85px;
+  border-radius: 10px;
+  width: 50px;
+  height: 30px;
+}
+
+.yeondong {
+  margin: 325px 0 0 275px;
+  border-radius: 10px;
+  width: 50px;
+  height: 30px;
+}
+
+.yeongi {
+  margin: 325px 0 0 215px;
+  border-radius: 10px;
+  width: 50px;
+  height: 30px;
+}
+
+.yeonseo {
+  margin: 260px 0 0 175px;
+  border-radius: 10px;
+  width: 50px;
+  height: 30px;
+}
+
+/* 제주 - 세부지역 */
+#jeju-map > div {
+  position: absolute;
+  cursor: pointer;
+  border: 1px red solid;
+  width: 40px;
+  height: 25px;
+}
+
+.aewol {
+  margin: 250px 0 0 125px;
+  border-radius: 10px;
+}
+
+.andeok {
+  margin: 330px 0 0 100px;
+  border-radius: 10px;
+}
+
+.biangdo {
+  margin: 245px 0 0 35px;
+  border-radius: 10px;
+}
+
+.chagwido {
+  margin: 300px 0 0 0px;
+  border-radius: 10px;
+}
+
+.chujado {
+  margin: 160px 0 0 100px;
+  border-radius: 10px;
+}
+
+.daejeong {
+  margin: 345px 0 0 50px;
+  border-radius: 10px;
+}
+
+.gapado {
+  margin: 395px 0 0 60px;
+  border-radius: 10px;
+}
+
+.gujwa {
+  margin: 195px 0 0 340px;
+  border-radius: 10px;
+}
+
+.hankyung {
+  margin: 310px 0 0 50px;
+  border-radius: 10px;
+}
+
+.hanrim {
+  margin: 275px 0 0 70px;
+  border-radius: 10px;
+}
+
+.jejusi {
+  margin: 235px 0 0 200px;
+  border-radius: 10px;
+}
+
+.jocheon {
+  margin: 215px 0 0 280px;
+  border-radius: 10px;
+}
+
+.jungmun {
+  margin: 325px 0 0 165px;
+  border-radius: 10px;
+}
+
+.marado {
+  margin: 430px 0 0 60px;
+  border-radius: 10px;
+}
+
+.namwoneup {
+  margin: 300px 0 0 270px;
+  border-radius: 10px;
+}
+
+.pyoseon {
+  margin: 275px 0 0 325px;
+  border-radius: 10px;
+}
+
+.seogwipo {
+  margin: 320px 0 0 220px;
+  border-radius: 10px;
+}
+
+.seongsan {
+  margin: 250px 0 0 375px;
+  border-radius: 10px;
+}
+
+.udo {
+  margin: 180px 0 0 407px;
+  border-radius: 10px;
+}
+
+/* 지도 박스 */
+.seoul {
+  width: 32px;
+  height: 30px;
+  margin: 100px 0 0 113px;
+  border-radius: 10px;
+}
+
+.incheon {
+  width: 35px;
+  height: 30px;
+  margin: 122px 0 0 72px;
+  border-radius: 10px;
+}
+
+.daejeon {
+  width: 30px;
+  height: 27px;
+  margin: 260px 0 0 150px;
+  border-radius: 10px;
+}
+
+.daegu {
+  width: 37px;
+  height: 38px;
+  margin: 320px 0 0 257px;
+  border-radius: 10px;
+}
+
+.gwangju {
+  width: 34px;
+  height: 22px;
+  margin: 412px 0 0 92px;
+  border-radius: 10px;
+}
+
+.ulsan {
+  width: 43px;
+  height: 42px;
+  margin: 353px 0 0 333px;
+  border-radius: 10px;
+}
+
+.busan {
+  width: 43px;
+  height: 42px;
+  margin: 398px 0 0 310px;
+  border-radius: 10px;
+}
+
+.gyeonggi {
+  width: 75px;
+  height: 50px;
+  margin: 135px 0 0 115px;
+  border-radius: 10px;
+}
+
+.gangwon {
+  width: 150px;
+  height: 150px;
+  margin: 25px 0 0 200px;
+  border-radius: 10px;
+}
+
+.chungbuk {
+  width: 60px;
+  height: 70px;
+  margin: 185px 0 0 175px;
+  border-radius: 10px;
+}
+
+.chungnam {
+  width: 75px;
+  height: 100px;
+  margin: 200px 0 0 63px;
+  border-radius: 10px;
+}
+
+.jeonbuk {
+  width: 125px;
+  height: 90px;
+  margin: 315px 0 0 63px;
+  border-radius: 10px;
+}
+
+.jeonnam {
+  width: 130px;
+  height: 80px;
+  margin: 440px 0 0 55px;
+  border-radius: 10px;
+}
+
+.gyeongbuk {
+  width: 120px;
+  height: 105px;
+  margin: 210px 0 0 245px;
+  border-radius: 10px;
+}
+
+.gyeongnam {
+  width: 110px;
+  height: 90px;
+  margin: 365px 0 0 195px;
+  border-radius: 10px;
+}
+
+.jeju {
+  width: 75px;
+  height: 40px;
+  margin: 575px 0 0 35px;
+  border-radius: 10px;
+}
+
+.sejong {
+  width: 30px;
+  height: 40px;
+  margin: 216px 0 0 142px;
+  border-radius: 10px;
+}
+
+/* tab */
+
+#reset {
+  float: right;
+  margin: 10px 10px 0 0;
+  cursor: pointer;
 }
 
 #tabs {
-  min-width: 393px;
+  background-color: #ffffff;
+  min-width: 430px;
   min-height: 623px;
-  max-width: 393px;
+  max-width: 430px;
   max-height: 623px;
   float: right;
+  border: none;
 }
+
+#height_list,
+#height_list_seoul,
+#height_list_incheon,
+#height_list_daejeon,
+#height_list_daegu,
+#height_list_gwangju,
+#height_list_ulsan,
+#height_list_busan,
+#height_list_gyeonggi,
+#height_list_gangwon,
+#height_list_chungbuk,
+#height_list_chungnam,
+#height_list_jeonbuk,
+#height_list_jeonnam,
+#height_list_gyeongbuk,
+#height_list_gyeongnam,
+#height_list_jeju,
+#height_list_sejong {
+  width: 370px;
+  text-align: center;
+  display: none;
+}
+
+#height_list_seoul > button,
+#height_list_incheon > button,
+#height_list_daejeon > button,
+#height_list_daegu > button,
+#height_list_gwangju > button,
+#height_list_ulsan > button,
+#height_list_busan > button,
+#height_list_gyeonggi > button,
+#height_list_gangwon > button,
+#height_list_chungbuk > button,
+#height_list_chungnam > button,
+#height_list_jeonbuk > button,
+#height_list_jeonnam > button,
+#height_list_gyeongbuk > button,
+#height_list_gyeongnam > button,
+#height_list_jeju > button,
+#height_list_sejong > button {
+  width: 100px;
+}
+
+.h1,
+.h3,
+.h5,
+.h7,
+.h9,
+.h11,
+.h13,
+.h15,
+.h17,
+.h19,
+.h21,
+.h23,
+.h25,
+.h27,
+.h29,
+.h31 {
+  background-color: #ffdd5c;
+}
+
+.h2,
+.h4,
+.h6,
+.h8,
+.h10,
+.h12,
+.h14,
+.h16,
+.h18,
+.h20,
+.h22,
+.h24,
+.h26,
+.h28,
+.h30 {
+  background-color: #ffd6a0;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.h7,
+.h8,
+.h9,
+.h10,
+.h11,
+.h12,
+.h13,
+.h14,
+.h15,
+.h16,
+.h17,
+.h18,
+.h19,
+.h20,
+.h21,
+.h22,
+.h23,
+.h24,
+.h25,
+.h26,
+.h27,
+.h28,
+.h29,
+.h30,
+.h31 {
+  border: none;
+  display: inline-block;
+  width: 130px;
+  height: 45px;
+  margin: 0 10px 10px 10px;
+  border-radius: 20px;
+  padding-top: 5px;
+  cursor: pointer;
+  color: #28544b;
+  font-weight: 700;
+}
+
+/* mountain info */
 
 #main-mountain_info {
   text-align: center;
@@ -41,59 +2066,54 @@
   display: inline-block;
   text-align: left;
   border-top: 1px #28544b solid;
+  border-bottom: 1px #28544b solid;
+  padding-bottom: 10px;
   min-width: 1100px;
   max-width: 1100px;
+  max-height: 60px;
+}
+
+#mountain_detail_title > h2 {
+  margin-left: 20px;
+}
+
+#mountain_detail_list > input {
+  text-align: center;
+  width: 150px;
+  border: none;
+  font-size: 20px;
+  color: #28544b;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#main-mountain_info input[value="주소"] {
+  width: 320px;
+}
+
+#mountain_detail_list {
+  margin-left: 15px;
 }
 
 #mountain_detail_info {
   text-align: center;
 }
 
-#accordion {
+#accordion-form {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.accordion {
   font-size: 20px;
   display: inline-block;
   height: auto;
   min-width: 1100px;
   max-width: 1100px;
-  margin-bottom: 50px;
 }
 
-h3 > input {
+.accordion-item > input {
+  text-align: center;
   width: 150px;
-}
-/* footer */
-
-#footer {
-  background-color: #000000ee;
-  min-height: 400px;
-}
-
-#footer-title {
-  font-size: 40px;
-  display: block;
-  margin-left: 10%;
-  font-weight: 700;
-}
-
-#creater-name-email {
-  display: inline-block;
-  margin-left: 10%;
-}
-
-#creater-github {
-  display: inline-block;
-  margin-left: 60%;
-}
-
-#git {
-  background-image: url("../assets/images/git.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  display: inline-block;
-  background-size: 50px;
-  min-width: 50px;
-  min-height: 50px;
-  margin-left: 10px;
-  margin-bottom: 50px;
-  opacity: 0.9;
+  border: none;
 }

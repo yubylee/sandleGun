@@ -1,34 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>SANDLE - 산들산들</title>
   <link rel="stylesheet" href="photofeed.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>산들산들-게시판</title>
-
+  <link rel="stylesheet" href="/sandle/index.css" />
+  <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
   <script src="../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-  <script src="../assets/js/jquery.min.js"></script>
-  <script src="../assets/js/jquery.dropotron.min.js"></script>
-  <script src="../assets/js/breakpoints.min.js"></script>
-  <script src="../assets/js/util.js"></script>
-  <script src="../node_modules/handlebars/dist/handlebars.js"></script>
 </head>
 
 <body>
   <!-- Header -->
   <header id="header">
-    <h1><a id="sandle" href="/sandle/index.html">SANDLE</a></h1>
+    <div id="header-title"><a href="/sandle/index.html">SANDLE</a></div>
 
     <div id="login" class="login">
       <a href="/sandle/auth/login_form.html">LOGIN</a>
     </div>
 
-    <div>
-      <a id="logout" class="logout" href="sandle/auth/logout" onclick="logout(); return false;">
+    <div id="logout" class="logout">
+      <a href="sandle/auth/logout" onclick="logout(); return false;">
         LOGOUT</a>
     </div>
 
@@ -36,8 +30,8 @@
       <a href="/sandle/member/member.html">SIGN UP</a>
     </div>
 
-    <div id="default_logo" class="default_logo">
-      <a  href="/sandle/userPage/userPage.html"><span id="email"></span></a>
+    <div class="default_logo" id="default_logo">
+      <a href="/sandle/userPage/userPage.html"><span id="userEmail"></span></a>
       <a href="/sandle/userPage/userPage.html"><img src="/sandle/assets/images/default_logo.jpg" /></a>
     </div>
   </header>
@@ -81,20 +75,21 @@
           <li><a href="/sandle/sandleboard/photofeed.html">포토 피드</a></li>
           <li><a href="#">맛집 피드</a></li>
           <li><a href="#">등산 일지</a></li>
-          <li><a href="#">1:1 문의</a></li>
+          <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
         </ul>
       </li>
     </ul>
   </nav>
 
-
-
-
-
+  <div id="photo-head">
+    <div id="head-underline">
+      <span id="photo-head-photofeed">PHOTOFEED</span><img src="../assets/photofeed_images/board_plus.png"
+        id="board-plus" />
+    </div>
+  </div>
 
   <!-- photofeed -->
   <div class="container"></div>
-
 
   <!-- ---------------------------------------------Modal area------------------------------ -->
 
@@ -108,39 +103,28 @@
           <!-- <img src="../assets/photofeed_images/arrow-left.png" width="30px" height="30px" class="arrow-i" /> -->
         </div>
         <div class="session2-s" id="session2-2">
-          <div id="photo">
-
-          </div>
+          <div id="photo"></div>
         </div>
         <div class="session2-s" id="session2-3">
           <div class="session2-s" id="session2-3-1">
             <div id="modal-content-creater">
               <div id="user-info">
                 <div id="user-info-image">
-                  <img src="../assets/photofeed_images/KakaoTalk_20230311_155709246.jpg" id="modal-user-image"/>
+                  <img src="../assets/photofeed_images/KakaoTalk_20230311_155709246.jpg" id="modal-user-image" />
                 </div>
                 <div id="user-info-content">
-                <span id="user-info-id" style="text-decoration: underline;">SEOYH10@NATE.COM</span>
+                  <span id="user-info-id" style="text-decoration: underline">SEOYH10@NATE.COM</span>
+                </div>
               </div>
-              </div>
-              <div id="tag">
-                
-              </div>
-              <div id="content">
-                
-              </div>
-              <div id="title">
-
-              </div>
+              <div id="tag"></div>
+              <div id="content"></div>
+              <div id="title"></div>
             </div>
-            <div id="comment">
-              
-            </div>
+            <div id="comment"></div>
             <div id="modal-content-insert">
-              <input type="text" id="comment-insert" placeholder="댓글을 작성하세요.">
+              <input type="text" id="comment-insert" placeholder="댓글을 작성하세요." />
             </div>
           </div>
-
         </div>
         <div class="session2-s" id="session2-4">
           <!-- <img src="../assets/photofeed_images/arrow-right.png" width="30px" height="30px" class="arrow-i" id="arrow-right"/> -->
@@ -149,20 +133,62 @@
     </div>
   </div>
 
-  <script id="image-template" type="text/x-handlebars-template">
-    {{#each this}}
-    <div class="item">
-      <div class="photo-a" id="photo-ex1" data-no="{{no}}" onclick="getSandleBoard(event)" style="background-image: url({{photo}})">
+  <!-- ---------------------------------------------Post modal area------------------------------ -->
+  <div class="modal-insert">
+
+    <div class="modal_body">
+      <div id="session1">
+        <img src="../assets/photofeed_images/x-circle.png" width="17px" height="17px" id="insert-x-circle" />
+      </div>
+      <div id="post-area">
+        <div id="post-head">
+          <span id="post-font">게시물 작성</span>
+        </div>
+      </div>
+      <div id="post-substance">
+        <form id="photofeed-form" enctype="multipart/form-data">
+          <div id="post-image">
+            <div id="post-photo">
+              <label for="file-input">
+                <img src="../assets/photofeed_images/post-photo-icon.png" id="post-photo-icon" />
+              </label>
+              <input id="file-input" type="file" style="display:none;" name="files">
+              <a id="file-text" style="font-weight: bold;">사진추가</a>
+              <img id="selected-image" style="display:none;">
+            </div>
+          </div>
+          <div id="post-contents">
+            <input id="post-tag" type="text" name="tag" placeholder="태그 작성란"></input>
+            <input id="post-write" type="text" name="content" placeholder="코멘트를 작성해주세요."></input>
+            <button id="btn-post" type="button">게시하기</button>
+          </div>
+        </form>
       </div>
     </div>
-    {{/each}}
+
+  </div>
+
+  <script id="image-template" type="text/x-handlebars-template">
+      {{#each this}}
+        <div class="item">
+          <div
+            class="photo-a"
+            id="photo-ex1"
+            data-no="{{no}}"
+            onclick="getSandleBoard(event)"
+            style="background-image: url({{photo}})"
+          >
+          </div>
+        </div>
+      {{/each}}
     </script>
-  <script>
-
-
-  </script>
+  <script src="../assets/js/jquery.min.js"></script>
+  <script src="../assets/js/jquery.dropotron.min.js"></script>
+  <script src="../assets/js/breakpoints.min.js"></script>
+  <script src="../assets/js/util.js"></script>
+  <script src="../node_modules/handlebars/dist/handlebars.js"></script>
+  <script src="/sandle/navLogin.js"></script>
+  <script src="photofeed.js"></script>
 </body>
 
-<script src="photofeed.js"></script>
-  
 </html>

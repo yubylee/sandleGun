@@ -50,6 +50,11 @@
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/io.awspring.cloud/spring-cloud-starter-aws/2.4.4/b486194fc0373539a9c7c107a81ae12c060a4f8/spring-cloud-starter-aws-2.4.4.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-json/3.0.4/5ddf427d011646fe787fdaa1b8edc4a4eebd48d5/spring-boot-starter-json-3.0.4.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-json/3.0.4/ccc570ef2bd134f3951663271e565962c41c6cb6/spring-boot-starter-json-3.0.4-sources.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
@@ -115,17 +120,52 @@
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/io.awspring.cloud/spring-cloud-aws-autoconfigure/2.4.4/4cbf7576204c58f20419b35defbf4ad33f517a8c/spring-cloud-aws-autoconfigure-2.4.4.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/io.awspring.cloud/spring-cloud-aws-autoconfigure/2.4.4/e03480aa91682ee5a85f2f660c3fa4273cf857d8/spring-cloud-aws-autoconfigure-2.4.4-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/io.awspring.cloud/spring-cloud-aws-context/2.4.4/9b6ddc82c1f9da5d655b2a5deecf3a46f59736fa/spring-cloud-aws-context-2.4.4.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/io.awspring.cloud/spring-cloud-aws-context/2.4.4/b561577a3a047420e76e0267cad2383ed2b7a674/spring-cloud-aws-context-2.4.4-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/io.awspring.cloud/spring-cloud-aws-core/2.4.4/62140df3260d354beba9311dd873c0837ff08ac9/spring-cloud-aws-core-2.4.4.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/io.awspring.cloud/spring-cloud-aws-core/2.4.4/4b26c3af8adb397040ac17b8034ab5c111bbc49a/spring-cloud-aws-core-2.4.4-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-logging/3.0.4/31b32774c6ec2eceb3f75bdef7ddd8afd7059255/spring-boot-starter-logging-3.0.4.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-logging/3.0.4/beadc4a70baf7050f9ddcc7822f2c321c5395e41/spring-boot-starter-logging-3.0.4-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.4.5/28e7dc0b208d6c3f15beefd73976e064b4ecfa9b/logback-classic-1.4.5.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.4.5/3e5618488e850ffa5855e04953ccf20760115571/logback-classic-1.4.5-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-to-slf4j/2.19.0/30f4812e43172ecca5041da2cb6b965cc4777c19/log4j-to-slf4j-2.19.0.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-to-slf4j/2.19.0/6da7f8160a76c69a3f904272e31509d6ae45881e/log4j-to-slf4j-2.19.0-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/2.0.6/c4d348977a83a0bfcf42fd6fd1fee6e7904f1a0c/jul-to-slf4j-2.0.6.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/2.0.6/f2e316f1b188afaed5fff35ae9cca8e5985b1d7b/jul-to-slf4j-2.0.6-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.0.6/88c40d8b4f33326f19a7d3c0aaf2c7e8721d4953/slf4j-api-2.0.6.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.0.6/e5127f7758d47c789645d37725ab9262ea38873e/slf4j-api-2.0.6-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-autoconfigure/3.0.4/7eb11bff0f965807f1088da20bc169bff27d284/spring-boot-autoconfigure-3.0.4.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-autoconfigure/3.0.4/8017c6389ae98e557bc0842c27e9d0763515bc25/spring-boot-autoconfigure-3.0.4-sources.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/3.0.4/27e5fceb2faf8ec399df70a2ff4e626a3423ae35/spring-boot-3.0.4.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/3.0.4/7f5e6aa75673506aa12cc5c83c680b7c27ad514/spring-boot-3.0.4-sources.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-logging/3.0.4/31b32774c6ec2eceb3f75bdef7ddd8afd7059255/spring-boot-starter-logging-3.0.4.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-logging/3.0.4/beadc4a70baf7050f9ddcc7822f2c321c5395e41/spring-boot-starter-logging-3.0.4-sources.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
@@ -170,26 +210,6 @@
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.4.5/28e7dc0b208d6c3f15beefd73976e064b4ecfa9b/logback-classic-1.4.5.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.4.5/3e5618488e850ffa5855e04953ccf20760115571/logback-classic-1.4.5-sources.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-to-slf4j/2.19.0/30f4812e43172ecca5041da2cb6b965cc4777c19/log4j-to-slf4j-2.19.0.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-to-slf4j/2.19.0/6da7f8160a76c69a3f904272e31509d6ae45881e/log4j-to-slf4j-2.19.0-sources.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/2.0.6/c4d348977a83a0bfcf42fd6fd1fee6e7904f1a0c/jul-to-slf4j-2.0.6.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.slf4j/jul-to-slf4j/2.0.6/f2e316f1b188afaed5fff35ae9cca8e5985b1d7b/jul-to-slf4j-2.0.6-sources.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.0.6/88c40d8b4f33326f19a7d3c0aaf2c7e8721d4953/slf4j-api-2.0.6.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.0.6/e5127f7758d47c789645d37725ab9262ea38873e/slf4j-api-2.0.6-sources.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.14.2/796518148a385b2728d44886cc0f8852eb8eeb53/jackson-datatype-jsr310-2.14.2.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.14.2/a231b700c2f0c6e4b2d36cf70a6fc87ed648c0dd/jackson-datatype-jsr310-2.14.2-sources.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
@@ -205,12 +225,42 @@
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-java-sdk-s3/1.12.395/95efd39290c6417873c00b9b39ce67b8f2da663/aws-java-sdk-s3-1.12.395.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-java-sdk-s3/1.12.395/189a1313c3fbc996a1acfdbbcc5988b7e0a0c1f6/aws-java-sdk-s3-1.12.395-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-java-sdk-ec2/1.12.395/17945305eaa3677283bcc981b1c574e4107ad54a/aws-java-sdk-ec2-1.12.395.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-java-sdk-ec2/1.12.395/37500dfc32238aa5a77c4231a3da18588c832950/aws-java-sdk-ec2-1.12.395-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-java-sdk-kms/1.12.395/82100b68eba8738e260404bb651103c079c961d1/aws-java-sdk-kms-1.12.395.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-java-sdk-kms/1.12.395/9e7203a4694d319d7d84d3f07cb7ff591a7445cd/aws-java-sdk-kms-1.12.395-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-java-sdk-core/1.12.395/f7a0f469a554d8e21d7418cda9bd7574c21d50d/aws-java-sdk-core-1.12.395.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-java-sdk-core/1.12.395/f69e2047cb9aa5883b84d0b17fdeca0b5ba49948/aws-java-sdk-core-1.12.395-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.dataformat/jackson-dataformat-cbor/2.14.2/5999f5365e27b63b27a52e671d15c0f8f8346873/jackson-dataformat-cbor-2.14.2.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.dataformat/jackson-dataformat-cbor/2.14.2/a9a8df58a9c62fa19abab226f1be40d67492644f/jackson-dataformat-cbor-2.14.2-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.14.2/f804090e6399ce0cf78242db086017512dd71fcc/jackson-core-2.14.2.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.14.2/8217d78341a78cd2fbc69f26372e40d38f8767da/jackson-core-2.14.2-sources.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.datatype/jackson-datatype-jdk8/2.14.2/2f3c71211b6ea7a978eba33574d7135d536e07fb/jackson-datatype-jdk8-2.14.2.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.datatype/jackson-datatype-jdk8/2.14.2/19d7ede81986c96579683097237be03c35124a4e/jackson-datatype-jdk8-2.14.2-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.amazonaws/jmespath-java/1.12.395/123a47e3b83f64e61bb64b5c5bbb07b88412f8bd/jmespath-java-1.12.395.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.amazonaws/jmespath-java/1.12.395/223000aa26f93101151f1fd74723ed5158a8b35e/jmespath-java-1.12.395-sources.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
@@ -285,6 +335,31 @@
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5.14/1194890e6f56ec29177673f2f12d0b8e627dec98/httpclient-4.5.14.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5.14/14321a360aa0e037c56d4c820747a84954d9196e/httpclient-4.5.14-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.15/49d94806b6e3dc933dacbd8acb0fdbab8ebd1e5d/commons-codec-1.15.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.15/843bc57fd042051e994846da8167bb7ca677a6d/commons-codec-1.15-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/software.amazon.ion/ion-java/1.0.2/ee9dacea7726e495f8352b81c12c23834ffbc564/ion-java-1.0.2.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/software.amazon.ion/ion-java/1.0.2/3077203a7e79dd126a480da0491ec60238bbb872/ion-java-1.0.2-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.8.1/f5bfc718c95a7b1d3c371bb02a188a4df18361a9/joda-time-2.8.1.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.8.1/bf0996237b66ce00cd3132af179612df02ff9771/joda-time-2.8.1-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.16/51cf043c87253c9f58b539c9f7e44c8894223850/httpcore-4.4.16.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.16/229e4c0eae80465381ae02adf61bca5558360777/httpcore-4.4.16-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-devtools/3.0.4/8131f487196a02a5a48ecfe337f358b75977fbd5/spring-boot-devtools-3.0.4.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-devtools/3.0.4/80267543e0683b6464a3d31f70f7be920be8ba84/spring-boot-devtools-3.0.4-sources.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main"/>
@@ -306,6 +381,12 @@
 			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.jayway.jsonpath/json-path/2.7.0/f9d7d9659f2694e61142046ff8a216c047f263e8/json-path-2.7.0.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.jayway.jsonpath/json-path/2.7.0/f98abbc2176cd35716cbad60d7f1d4c97ac89dd1/json-path-2.7.0-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test-autoconfigure/3.0.4/3d28e21dc5cea68949d1f0b6a4051e7deeacf6cc/spring-boot-test-autoconfigure-3.0.4.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test-autoconfigure/3.0.4/199cbf1424dbc44cae2e56bf7b06e8bacf8b7e0e/spring-boot-test-autoconfigure-3.0.4-sources.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="test"/>
@@ -313,12 +394,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test/3.0.4/4c1c72ff838b4f1191321aa01d1e98d68f882280/spring-boot-test-3.0.4.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test/3.0.4/bac15a9d0efd477fc414b38b36d1c93d116e312/spring-boot-test-3.0.4-sources.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="test"/>
-			<attribute name="test" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.jayway.jsonpath/json-path/2.7.0/f9d7d9659f2694e61142046ff8a216c047f263e8/json-path-2.7.0.jar" sourcepath="C:/Users/JYKIM/.gradle/caches/modules-2/files-2.1/com.jayway.jsonpath/json-path/2.7.0/f98abbc2176cd35716cbad60d7f1d4c97ac89dd1/json-path-2.7.0-sources.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="test"/>
 			<attribute name="test" value="true"/>

@@ -7,8 +7,7 @@ import bitcamp.myapp.vo.MountainInfo;
 @Mapper
 public interface MountainInfoDao {
   List<MountainInfo> findAll(String keyword);
-  MountainInfo findByNo(int no);
-  MountainInfo findByRegion(String region);
+  List<MountainInfo> findByRegionId(int regionId);
 }
 
 

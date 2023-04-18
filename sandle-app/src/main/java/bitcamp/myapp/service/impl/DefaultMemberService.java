@@ -13,7 +13,6 @@ import bitcamp.myapp.vo.Member;
 @Service
 public class DefaultMemberService implements MemberService {
 
-
   @Autowired private MemberDao memberDao;
 
   @Transactional
@@ -49,19 +48,14 @@ public class DefaultMemberService implements MemberService {
   @Transactional
   @Override
   public void update(Member member) {
-    if (memberDao.update(member) == 1) {
-    } else {
+    if (memberDao.update(member) == 0) {
       throw new RuntimeException("회원이 존재하지 않습니다.");
     }
   }
 
-  @Transactional
   @Override
-  public void delete(int no) {
-    if (memberDao.delete(no) == 1) {
-    } else {
-      throw new RuntimeException("회원이 존재하지 않습니다.");
-    }
+  public void updateProfile(Member member) {
+    memberDao.updateProfile(member);
   }
 
   @Override
@@ -76,6 +70,13 @@ public class DefaultMemberService implements MemberService {
     int cnt = memberDao.nickCheck(nickname);
     System.out.println("cnt: " + cnt);
     return cnt;
+  }
+
+  @Override
+  public void delete(int no) {
+    if (memberDao.delete(no) == 0) {
+      throw new RuntimeException("회원이 존재하지 않습니다!");
+    }
   }
 
 }

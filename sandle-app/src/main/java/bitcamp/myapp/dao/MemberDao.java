@@ -13,6 +13,7 @@ public interface MemberDao {
   Member findByEmail(String email);
   Member findByEmailAndPassword(Map<String, Object> paramMap);
   int update(Member m);
+  int updateProfile(Member m);
   int delete(int no);
   int idCheck(String email);
   int nickCheck(String nickname);

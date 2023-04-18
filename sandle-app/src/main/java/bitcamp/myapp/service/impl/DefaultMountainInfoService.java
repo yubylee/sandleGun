@@ -18,14 +18,10 @@ public class DefaultMountainInfoService implements MountainInfoService {
   }
 
   @Override
-  public MountainInfo get(int no) {
-    return mountainInfoDao.findByNo(no);
+  public List<MountainInfo> get(int regionId) {
+    return mountainInfoDao.findByRegionId(regionId);
   }
 
-  @Override
-  public MountainInfo get(String region) {
-    return mountainInfoDao.findByRegion(region);
-  }
 }
 
 

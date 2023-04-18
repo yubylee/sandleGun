@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.myapp.dao.QnaDao">
+
+  <resultMap type="qna" id="qnaMap">
+    <id column="qna_id" property="no"/>
+    <result column="member_id" property="memberId"/>
+    <result column="title" property="title"/>
+    <result column="content" property="content"/>
+    <result column="created_date" property="createdDate"/>
+  </resultMap>
+
+  <insert id="insert" parameterType="qna" 
+          useGeneratedKeys="true" keyColumn="qna_id" keyProperty="no">
+    insert into hms_qna(member_id, title, content) 
+    values(#{memberId}, #{title}, #{content})
+  </insert>
+
+  <select id="findAll" resultMap="qnaMap" parameterType="string">
+    select 
+      qna_id,
+      member_id,
+      title,
+      content,
+      response,
+      created_date
+    from 
+      hms_qna
+    <if test="keyword != '' and keyword != null">
+    where 
+      title like(concat('%',#{keyword},'%'))
+      or content like(concat('%',#{keyword},'%'))
+    </if> 
+    order by 
+      qna_id desc
+  </select>
+
+  <select id="findByNo" parameterType="int" resultMap="qnaMap">
+    select 
+      qna_id, 
+      title, 
+      content,
+      response,
+      member_id
+      created_date, 
+    from 
+      hms_qna
+    where 
+      qna_id=#{no}
+  </select>
+  
+  <update id="update" parameterType="qna">
+    update hms_qna set 
+      title=#{title}, 
+      content=#{content} 
+    where qna_id=#{no}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from hms_qna 
+    where qna_id=#{no}
+  </delete>
+</mapper>
+
+
+
+
+

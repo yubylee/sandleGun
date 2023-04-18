@@ -6,7 +6,6 @@
 
   <resultMap type="sandleboard" id="boardMap">
     <id column="board_id" property="no"/>
-    <result column="title" property="title"/>
     <result column="content" property="content"/>
     <result column="tag" property="tag"/>
     <result column="photo" property="photo"/>
@@ -27,14 +26,14 @@
 
   <insert id="insert" parameterType="sandleboard" 
           useGeneratedKeys="true" keyColumn="board_id" keyProperty="no">
-    insert into app_board(title, content, writer) 
-    values(#{title}, #{content}, #{writer.no})
+INSERT INTO hms_board (member_id, content, tag)
+values #{writerNo}, #{content}, #{tag}
   </insert>
+
 
   <select id="findAll" resultMap="boardMap">
     select 
       b.board_id, 
-      b.title, 
       b.content,
       b.tag,
       b.created_date, 
@@ -47,7 +46,7 @@
   <select id="findByNo" parameterType="int" resultMap="boardMap">
 select 
       b.board_id, 
-      b.title, 
+
       b.content,      
       b.tag,
       b.created_date, 

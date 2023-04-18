@@ -1,18 +1,20 @@
 form {
-  width: 450px;
+  padding: 20px;
+  width: 600px;
   margin-inline: auto;
   margin-bottom: 20px;
   text-align: center;
 }
 input {
-  width: 420px;
+  width: 100%;
   border: 1px solid #28544b;
   padding: 5px 10px;
-  height: 30px;
-  margin-bottom: 20px;
-  box-shadow: 2px 2px 2px 2px #000000;
-  border-radius: 10px;
-  font-size: 20px;
+  height: 45px;
+  margin: 0px 0px 20px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 17px;
+  outline: none;
 }
 
 button {
@@ -27,6 +29,8 @@ button {
   border-radius: 10px;
   cursor: pointer;
   outline: none;
+  border: 1px #28544b solid;
+  box-shadow: 2px 2px 2px 2px #000000;
 }
 
 .Remember {

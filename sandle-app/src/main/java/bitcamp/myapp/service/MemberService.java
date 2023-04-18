@@ -10,9 +10,12 @@ public interface MemberService {
   Member get(String email);
   Member get(String email, String password);
   void update(Member member);
+  void updateProfile(Member member);
   void delete(int no);
+
   int idCheck(String email);
   int nickCheck(String nickname);
+
 }
 
 

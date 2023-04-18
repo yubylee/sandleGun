@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import bitcamp.myapp.service.MemberService;
 import bitcamp.myapp.vo.Member;
 import bitcamp.util.RestResult;
@@ -42,7 +43,7 @@ public class UserPageController {
     if (loginUser != null) {
       return new RestResult()
           .setStatus(RestStatus.SUCCESS)
-          .setData(loginUser);
+          .setData(memberService.get(loginUser.getNo()));
     } else {
       return new RestResult()
           .setStatus(RestStatus.FAILURE);
@@ -67,5 +68,9 @@ public class UserPageController {
     System.out.println("nickname##########" + nickname);
     int cnt = memberService.nickCheck(nickname);
     return cnt;
+  }
+
+  public Object update(int no, MultipartFile profilePhoto, HttpSession session) {
+    return null;
   }
 }

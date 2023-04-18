@@ -20,11 +20,21 @@
 
   <insert id="insert" parameterType="member" 
           useGeneratedKeys="true" keyProperty="no" keyColumn="member_id">
-    insert into hms_member(name, tel, email, profile_photo, password, nickname, post_no, basic_address, detail_address,  authority, birth)
+    insert into hms_member(
+      name,
+      tel,
+      email,
+      profile_photo,
+      password,
+      nickname,
+      post_no,
+      basic_address,
+      detail_address,
+      authority, birth)
     values(#{name}, #{tel}, #{email}, #{profilePhoto}, sha2(#{password},256), #{nickname}, #{postNo}, #{basicAddress}, #{detailAddress}, #{authority}, #{birth})
   </insert>
 
-  <select id="findAll" resultMap="memberMap">
+  <select id="findAll" resultMap="memberMap" parameterType="String">
     select 
       member_id, 
       name,
@@ -51,6 +61,7 @@
       tel,
       email,
       nickname,
+      profile_photo,
       post_no,
       basic_address,
       detail_address,
@@ -109,8 +120,17 @@
       basic_address=#{basicAddress},
       detail_address=#{detailAddress},
       email=#{email},
+      <if test="profilePhoto != null"> 
+        profile_photo=#{profilePhoto},
+      </if>
       password=sha2(#{password},256),
       tel=#{tel}
+    where member_id=#{no}
+  </update>
+  
+  <update id="updateProfile" parameterType="member">
+    update hms_member set
+      profile_photo=#{profilePhoto}
     where member_id=#{no}
   </update>
   

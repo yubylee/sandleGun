@@ -17,13 +17,7 @@ a {
 body,
 textarea,
 select {
-  font-family: "Source Sans Pro";
-  font-weight: 300;
   color: #28544b;
-  font-size: 14pt;
-  line-height: 1.75em;
-  margin: 0;
-  padding: 0;
 }
 
 /* Header */
@@ -33,16 +27,14 @@ select {
   background: #ffffff;
   padding: 2em 0 3em 0;
   text-align: center;
-  min-height: 83px;
-  max-height: 83px;
+  min-height: 70px;
+  max-height: 70px;
 }
 
-#header h1 {
+#header-title {
   color: #28544b;
   font-weight: 900;
-  font-size: 2em;
-  min-height: 33px;
-  max-height: 33px;
+  font-size: 45px;
 }
 
 .login,
