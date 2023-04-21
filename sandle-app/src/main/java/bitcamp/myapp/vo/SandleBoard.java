@@ -14,7 +14,8 @@ public class SandleBoard implements Serializable {
 
   private String content;
   private String tag;
-  private String photo;
+  private String fileName;
+
 
   //Jackson 라이브러리가 Date 타입 값을 JSON 문자열로 변환할 때 사용할 규칙을 설정한다.
   @JsonFormat(
@@ -24,8 +25,10 @@ public class SandleBoard implements Serializable {
   private Member writer;
   private int viewCount;
   private int writerNo;
+  private int likeCount;
   private String writerEmail;
   private String nickname;
+  private String profilePhoto;
   private List<Comment> comments;
   private List<BoardFile> attachedFiles;
 }

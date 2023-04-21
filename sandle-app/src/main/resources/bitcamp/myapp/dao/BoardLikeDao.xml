@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.myapp.dao.BoardLikeDao">
+
+  <resultMap type="boardLike" id="boardLikeMap">
+    <id column="board_id" property="boardNo"/>
+    <id column="member_id" property="memberNo"/>
+  </resultMap>
+
+  <insert id="insert" parameterType="boardLike">
+    insert into hms_board_like(board_id, member_id)
+    values(#{boardNo}, #{memberNo})
+  </insert>
+  
+  <delete id="delete" parameterType="boardLike">
+    delete from hms_board_like
+    where board_id=#{boardNo} and member_id=#{memberNo}
+  </delete>
+</mapper>
+
+
+
+
+

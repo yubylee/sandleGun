@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <title>SANDLE - 산들산들</title>
+    <link rel="stylesheet" href="/sandle/index.css" />
+    <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div id="header-title"><a href="/sandle/index.html">SANDLE</a></div>
+
+      <div id="login" class="login">
+        <a href="/sandle/auth/login_form.html">LOGIN</a>
+      </div>
+
+      <div id="logout" class="logout">
+        <a href="sandle/auth/logout" onclick="logout(); return false;">
+          LOGOUT</a
+        >
+      </div>
+
+      <div id="sign-up" class="sign-up">
+        <a href="/sandle/member/member.html">SIGN UP</a>
+      </div>
+
+      <div class="default_logo" id="default_logo">
+        <a href="/sandle/userPage/userPage.html"
+          ><span id="userEmail"></span
+        ></a>
+        <a href="/sandle/userPage/userPage.html"
+          ><img src="/sandle/assets/images/default_logo.jpg"
+        /></a>
+      </div>
+    </header>
+
+    <!-- Nav -->
+    <nav id="nav">
+      <ul>
+        <li class="current">
+          <a href="/sandle/index.html">산들 소개</a>
+          <ul>
+            <ol>
+              산들 소개
+            </ol>
+            <li><a href="#">산들산들을 소개합니다.</a></li>
+            <li><a href="#">제작 동기</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="/sandle/mountain_info/mountain_info.html"
+            >전국 등산로 정보</a
+          >
+        </li>
+
+        <li>
+          <a href="#">산악 소식</a>
+          <ul>
+            <ol>
+              산악 소식
+            </ol>
+            <li><a href="#">공지 사항</a></li>
+            <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
+            <li><a href="#">지역 행사 정보</a></li>
+            <li><a href="#">이벤트</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">커뮤니티</a>
+          <ul>
+            <ol>
+              커뮤니티
+            </ol>
+            <li><a href="/sandle/sandleboard/photofeed.html">포토 피드</a></li>
+            <li><a href="#">맛집 피드</a></li>
+            <li><a href="#">등산 일지</a></li>
+            <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Banner -->
+    <section id="banner"></section>
+
+    <!-- Container -->
+    <section id="intro">
+      <div id="row">
+        <div id="intro-menu1">
+          <div id="main_images">
+            <a href="/sandle/mountain_info/mountain_info.html"
+              ><img
+                src="/sandle/assets/images/main_image_1.jpg"
+                id="main-images"
+            /></a>
+          </div>
+          <h4>
+            <a href="/sandle/mountain_info/mountain_info.html"
+              ><h3>전국 등산로 정보</h3></a
+            >
+          </h4>
+          <p>전국 등산로를 한번에 찾아 보세요</p>
+        </div>
+        <div id="intro-menu2">
+          <div id="main_images">
+            <a href="/sandle/sandleboard/photofeed.html"
+              ><img
+                src="/sandle/assets/images/main_image_2.jpg"
+                id="main-images"
+            /></a>
+          </div>
+          <h4>
+            <a href="/sandle/sandleboard/photofeed.html"><h3>커뮤니티</h3></a>
+          </h4>
+          <p>등산했던 산과 여러 정보를 공유해보세요</p>
+        </div>
+      </div>
+      <div id="row">
+        <div id="intro-menu3">
+          <div id="main_images">
+            <a href="/sandle/news/news.html"
+              ><img
+                src="/sandle/assets/images/main_image_3.jpg"
+                id="main-images"
+            /></a>
+          </div>
+          <h4>
+            <a href="/sandle/news/news.html"><h3>산악 소식</h3></a>
+          </h4>
+          <p>산악뉴스를 통해 빠르게 소식을 받아보세요</p>
+        </div>
+
+        <div id="intro-menu4">
+          <div id="main_images">
+            <a href="#"
+              ><img
+                src="/sandle/assets/images/main_image_4.jpg"
+                id="main-images"
+            /></a>
+          </div>
+          <h4>
+            <a href="#"><h3>이벤트 정보</h3></a>
+          </h4>
+          <p>행사정보나 맛집 정보를 알려드립니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div id="footer-title">
+        <p>SANDLE</p>
+      </div>
+
+      <div id="creater">
+        <div id="creater-name-email">
+          <h2>creater</h2>
+          팀장 : 서영훈 | <a>email : darktemi@nate.com</a><br />
+          조원 : 안진수 | <a>email : </a><br />
+          조원 : 김종현 | <a>email : </a><br />
+          조원 : 이건형 | <a>email : </a><br />
+          조원 : 박경한 | <a>email : </a>
+        </div>
+        <div id="creater-github">
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/sandle/assets/js/jquery.min.js"></script>
+    <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
+    <script src="/sandle/assets/js/breakpoints.min.js"></script>
+    <script src="/sandle/assets/js/util.js"></script>
+    <script src="/sandle/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.myapp.dao.BoardFileDao">
+
+  <resultMap type="boardFile" id="boardFileMap">
+    <id column="photo_id" property="photoNo"/>
+    <result column="board_id" property="boardNo"/>
+    <result column="photo" property="fileName"/>
+    <result column="filepath" property="filepath"/>
+    <result column="filepath" property="filepath"/>
+  </resultMap>
+
+<insert id="insert" parameterType="boardFile">
+  insert into hms_photo(board_id, photo) 
+  values(#{boardNo}, #{photo})
+</insert>
+
+<update id="updatePhoto" parameterType="sandleBoard">
+  update hms_photo set 
+    photo=COALESCE(#{fileName}, photo) 
+  where board_id=#{no}
+</update>
+
+<delete id="delete" parameterType="int">
+    delete from hms_photo 
+    where board_id=#{no}
+</delete>
+</mapper>
+
+
+
+
+

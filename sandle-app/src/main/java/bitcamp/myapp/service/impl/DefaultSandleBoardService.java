@@ -23,17 +23,18 @@ public class DefaultSandleBoardService implements SandleBoardService{
   public void add(SandleBoard sandleBoard) {
     sandleBoardDao.insert(sandleBoard);
 
-    if (sandleBoard.getAttachedFiles().size() > 0) {
-      for (BoardFile boardFile : sandleBoard.getAttachedFiles()) {
-        boardFile.setBoardNo(sandleBoard.getNo());
-      }
-      boardFileDao.insertList(sandleBoard.getAttachedFiles());
-    }
-    //    BoardFile boardFile = new BoardFile();
-    //    boardFile.setBoardNo(sandleBoard.getNo());
-    //    boardFile.setFileName(sandleBoard.getPhoto());
+    //    if (sandleBoard.getAttachedFiles().size() > 0) {
+    //      for (BoardFile boardFile : sandleBoard.getAttachedFiles()) {
+    //        boardFile.setBoardNo(sandleBoard.getNo());
+    //      }
+    //    boardFileDao.insertList(sandleBoard.getAttachedFiles());
+    //    }
+    BoardFile boardFile = new BoardFile();
+    boardFile.setBoardNo(sandleBoard.getNo());
+    //    boardFile.setFilepath(sandleBoard.getPhoto());
+    boardFile.setPhoto(sandleBoard.getFileName());
     //
-    //    boardFileDao.insert(boardFile);
+    boardFileDao.insert(boardFile);
   }
 
   @Override
@@ -57,6 +58,11 @@ public class DefaultSandleBoardService implements SandleBoardService{
   }
 
   @Override
+  public List<SandleBoard> listUserBoard(int no) {
+    return sandleBoardDao.findUserBoard(no);
+  }
+
+  @Override
   public Comment getComment(int commentNo) {
     return commentDao.findByNo(commentNo);
   }
@@ -66,8 +72,27 @@ public class DefaultSandleBoardService implements SandleBoardService{
     commentDao.insert(comment);
   }
 
+  @Transactional
+  @Override
+  public void update(SandleBoard sandleBoard) {
+    sandleBoardDao.updateBoard(sandleBoard);
+    boardFileDao.updatePhoto(sandleBoard);
+  }
+
+
+
+
+
   @Override
   public void deleteComment(int no) {
     commentDao.delete(no);
+  }
+
+  @Transactional
+  @Override
+  public void deleteUserBoard(int no) {
+    commentDao.deleteBoard(no);
+    boardFileDao.delete(no);
+    sandleBoardDao.deleteUserBoard(no);
   }
 }

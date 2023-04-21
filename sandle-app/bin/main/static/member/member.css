@@ -1,0 +1,158 @@
+input {
+  border: none;
+  outline: none;
+  width: 250px;
+}
+
+#head {
+  font-size: 30px;
+  font-weight: 900;
+  text-align: center;
+  color: #28544b;
+  margin: 30px 0 30px 0;
+}
+
+#head-next {
+  font-weight: 700;
+  text-align: center;
+  color: #28544b;
+  margin-bottom: 30px;
+}
+
+#m-password,
+#m-tel {
+  width: 330px;
+}
+
+#m-birth {
+  width: 100%;
+  font-size: 15px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.b-no {
+  display: none;
+}
+
+.b-email,
+.b-password,
+.b-password-chk,
+.b-name,
+.b-nickname,
+.b-tel,
+.b-postNo,
+.b-basicAddress,
+.b-detailAddress,
+.b-birth {
+  box-sizing: border-box;
+
+  position: relative;
+  transform: translateX(-50%);
+  max-width: 550px;
+  min-height: 30px;
+  left: 50%;
+
+  background: #ffffff;
+  mix-blend-mode: normal;
+  border-bottom: 3px solid #28544b;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 3%;
+}
+
+b {
+  padding-top: 10px;
+  padding-left: 5px;
+}
+
+::placeholder {
+  font-size: 13px;
+  padding-left: 5px;
+}
+
+#btns {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#btn-insert,
+#btn-update,
+#btn-cancel {
+  box-shadow: 3px 3px 3px 3px #000000;
+  border-radius: 10px;
+  position: relative;
+  margin-top: 30px;
+  width: 100px;
+  height: 30px;
+  outline: none;
+  font-size: 13px;
+}
+
+#btn-insert,
+#btn-update {
+  border: none;
+  background-color: #28544b;
+  color: #ffffff;
+}
+
+#btn-cancel {
+  margin-left: 50px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+#find-button {
+  position: absolute;
+  margin-top: -10px;
+  font-size: 13px;
+  right: 10px;
+  width: 90px;
+  height: 20px;
+  background-color: #28544b;
+  color: #ffffff;
+  box-shadow: 2px 2px 2px 2px #000000;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#btn-insert:active,
+#btn-update:active,
+#find-button:active {
+  background-color: white;
+  color: #28544b;
+  border: 1px #28544b solid;
+  box-shadow: 2px 2px 2px 2px #000000;
+}
+
+#btn-cancel:active {
+  background-color: #28544b;
+  color: white;
+  border: 1px #28544b solid;
+  box-shadow: 2px 2px 2px 2px #000000;
+}
+
+.id_ok,
+.ni_ok {
+  color: #28544b;
+  display: none;
+}
+.id_already,
+.id_no,
+.ni_already,
+.ni_no {
+  color: red;
+  display: none;
+}
+
+#logo {
+  text-align: center;
+  margin-top: 50px;
+}

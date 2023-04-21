@@ -10,4 +10,5 @@ public interface CommentDao {
   Comment findByNo(int commentNo);
   List<Comment> list(int boardNo);
   void delete(int no);
+  void deleteBoard(int no);
 }

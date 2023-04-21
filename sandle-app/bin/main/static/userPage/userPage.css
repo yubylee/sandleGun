@@ -1,0 +1,65 @@
+hr {
+  width: 1400px;
+  border: 2px solid #28544B;
+}
+.user-name > hr {
+width: 100px;
+border: solid 1px #28544B;
+}
+
+#top {
+  text-align: center;
+  font-weight: 700;
+}
+
+.up{
+  text-align: center;
+  margin-top: 100px;
+  display: inline-block;
+  width: 1200px;
+  max-height: auto;
+  
+}
+
+.user-photo-profile{
+  width: auto;
+}
+
+.user-photo-profile > img {
+  margin-bottom: 10px;
+}
+
+.user-name{
+  width: auto;
+}
+
+#bottom {
+  text-align: center;
+  font-weight: 700;
+}
+
+#user-button{
+  margin-top: 30px;
+  justify-content: space-between;
+  margin-bottom: 150px;
+  display: inline-flex;
+  width: 1200px;
+  height: auto;
+  /* border:  solid 1px red; */
+  
+}
+.user1, .user2, .user3, .user4{
+  
+  text-align: center;
+  padding-top: 30px;
+  width: 280px;
+  height: 50px;
+  
+  border-bottom: 3px solid #28544B;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 17px;
+}
+
+.b-no {
+  display: none;
+}

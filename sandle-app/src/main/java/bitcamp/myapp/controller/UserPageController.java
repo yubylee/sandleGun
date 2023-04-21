@@ -20,7 +20,6 @@ import jakarta.servlet.http.HttpSession;
 @RestController
 @RequestMapping("/users")
 public class UserPageController {
-
   Logger log = LogManager.getLogger(getClass());
 
   {
@@ -73,4 +72,7 @@ public class UserPageController {
   public Object update(int no, MultipartFile profilePhoto, HttpSession session) {
     return null;
   }
+
+
+
 }

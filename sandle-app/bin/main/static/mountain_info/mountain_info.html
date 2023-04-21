@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <title>산들산들 - 산 정보</title>
+    <link rel="stylesheet" href="mountain_info.css" />
+    <link rel="stylesheet" href="/sandle/index.css" />
+    <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div id="header-title"><a href="/sandle/index.html">SANDLE</a></div>
+
+      <div id="login" class="login">
+        <a href="/sandle/auth/login_form.html">LOGIN</a>
+      </div>
+
+      <div id="logout" class="logout">
+        <a href="sandle/auth/logout" onclick="logout(); return false;">
+          LOGOUT</a
+        >
+      </div>
+
+      <div id="sign-up" class="sign-up">
+        <a href="/sandle/member/member.html">SIGN UP</a>
+      </div>
+
+      <div class="default_logo" id="default_logo">
+        <a href="/sandle/userPage/userPage.html"
+          ><span id="userEmail"></span
+        ></a>
+        <a href="/sandle/userPage/userPage.html"
+          ><img src="/sandle/assets/images/default_logo.jpg"
+        /></a>
+      </div>
+    </header>
+
+    <!-- Nav -->
+    <nav id="nav">
+      <ul>
+        <li class="current">
+          <a href="/sandle/index.html">산들 소개</a>
+          <ul>
+            <ol>
+              산들 소개
+            </ol>
+            <li><a href="#">산들산들을 소개합니다.</a></li>
+            <li><a href="#">제작 동기</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="/sandle/mountain_info/mountain_info.html"
+            >전국 등산로 정보</a
+          >
+        </li>
+
+        <li>
+          <a href="#">산악 소식</a>
+          <ul>
+            <ol>
+              산악 소식
+            </ol>
+            <li><a href="#">공지 사항</a></li>
+            <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
+            <li><a href="#">지역 행사 정보</a></li>
+            <li><a href="#">이벤트</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">커뮤니티</a>
+          <ul>
+            <ol>
+              커뮤니티
+            </ol>
+            <li><a href="/sandle/sandleboard/photofeed.html">포토 피드</a></li>
+            <li><a href="#">맛집 피드</a></li>
+            <li><a href="#">등산 일지</a></li>
+            <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="main-container">
+      <div id="container">
+        <div id="map">
+          <!-- 전국 -->
+          <div class="seoul" onclick="getRegion(event)" data-regionId="1"></div>
+          <div
+            class="incheon"
+            onclick="getRegion(event)"
+            data-regionId="2"
+          ></div>
+          <div
+            class="daejeon"
+            onclick="getRegion(event)"
+            data-regionId="3"
+          ></div>
+          <div class="daegu" onclick="getRegion(event)" data-regionId="4"></div>
+          <div
+            class="gwangju"
+            onclick="getRegion(event)"
+            data-regionId="5"
+          ></div>
+          <div class="ulsan" onclick="getRegion(event)" data-regionId="6"></div>
+          <div class="busan" onclick="getRegion(event)" data-regionId="7"></div>
+          <div
+            class="gyeonggi"
+            onclick="getRegion(event)"
+            data-regionId="8"
+          ></div>
+          <div
+            class="gangwon"
+            onclick="getRegion(event)"
+            data-regionId="9"
+          ></div>
+          <div
+            class="chungbuk"
+            onclick="getRegion(event)"
+            data-regionId="10"
+          ></div>
+          <div
+            class="chungnam"
+            onclick="getRegion(event)"
+            data-regionId="11"
+          ></div>
+          <div
+            class="jeonbuk"
+            onclick="getRegion(event)"
+            data-regionId="12"
+          ></div>
+          <div
+            class="jeonnam"
+            onclick="getRegion(event)"
+            data-regionId="13"
+          ></div>
+          <div
+            class="gyeongbuk"
+            onclick="getRegion(event)"
+            data-regionId="14"
+          ></div>
+          <div
+            class="gyeongnam"
+            onclick="getRegion(event)"
+            data-regionId="15"
+          ></div>
+          <div
+            class="sejong"
+            onclick="getRegion(event)"
+            data-regionId="16"
+          ></div>
+          <div class="jeju" onclick="getRegion(event)" data-regionId="17"></div>
+        </div>
+
+        <!-- 서울 -->
+        <div id="seoul-map">
+          <div class="gangnam"></div>
+          <div class="gangdong"></div>
+          <div class="gangbuk"></div>
+          <div class="gangseo"></div>
+          <div class="gwanak"></div>
+          <div class="gwangjin"></div>
+          <div class="guro"></div>
+          <div class="geumcheon"></div>
+          <div class="nowon"></div>
+          <div class="dobong"></div>
+          <div class="dongdaemun"></div>
+          <div class="dongjak"></div>
+          <div class="mapo"></div>
+          <div class="seodaemun"></div>
+          <div class="seocho"></div>
+          <div class="seongdong"></div>
+          <div class="seongbuk"></div>
+          <div class="songpa"></div>
+          <div class="yangcheon"></div>
+          <div class="yeongdeungpo"></div>
+          <div class="yongsan"></div>
+          <div class="eunpyeong"></div>
+          <div class="jongno"></div>
+          <div class="junggu"></div>
+          <div class="joongnang"></div>
+        </div>
+
+        <!-- 인천 -->
+        <div id="incheon-map">
+          <div class="bupyeong"></div>
+          <div class="donggu-incheon"></div>
+          <div class="ganghwa"></div>
+          <div class="gyeyang"></div>
+          <div class="junggu-incheon"></div>
+          <div class="namdonggu"></div>
+          <div class="namgu-incheon"></div>
+          <div class="ongjin"></div>
+          <div class="seogu-incheon"></div>
+          <div class="yeonsu"></div>
+        </div>
+
+        <!-- 대전 -->
+        <div id="daejeon-map">
+          <div class="daedeok"></div>
+          <div class="donggu-daejeon"></div>
+          <div class="junggu-daejeon"></div>
+          <div class="seogu-daejeon"></div>
+          <div class="yuseong"></div>
+        </div>
+
+        <!-- 대구 -->
+        <div id="daegu-map">
+          <div class="bukgu-daegu"></div>
+          <div class="dalseo"></div>
+          <div class="dalseong"></div>
+          <div class="donggu-daegu"></div>
+          <div class="junggu-daegu"></div>
+          <div class="namgu-daegu"></div>
+          <div class="seogu-daegu"></div>
+          <div class="susung"></div>
+        </div>
+
+        <!-- 광주 -->
+        <div id="gwangju-map">
+          <div class="bukgu-gwangju"></div>
+          <div class="donggu-gwangju"></div>
+          <div class="gwangsan"></div>
+          <div class="namgu-gwangju"></div>
+          <div class="seogu-gwangju"></div>
+        </div>
+
+        <!-- 울산 -->
+        <div id="ulsan-map">
+          <div class="bukgu-ulsan"></div>
+          <div class="donggu-ulsan"></div>
+          <div class="junggu-ulsan"></div>
+          <div class="namgu-ulsan"></div>
+          <div class="ulju"></div>
+        </div>
+
+        <!-- 부산 -->
+        <div id="busan-map">
+          <div class="bukgu-busan"></div>
+          <div class="busanjin"></div>
+          <div class="donggu-busan"></div>
+          <div class="dongnae"></div>
+          <div class="gangseo-busan"></div>
+          <div class="geumjeong"></div>
+          <div class="gijang"></div>
+          <div class="haeundae"></div>
+          <div class="junggu-busan"></div>
+          <div class="namgu-busan"></div>
+          <div class="saha"></div>
+          <div class="sasang"></div>
+          <div class="seogu-busan"></div>
+          <div class="suyeong"></div>
+          <div class="yeongdo"></div>
+          <div class="yeonje"></div>
+        </div>
+
+        <!-- 경기도 -->
+        <div id="gyeonggi-map">
+          <div class="ansan"></div>
+          <div class="anseong"></div>
+          <div class="anyang"></div>
+          <div class="bucheon"></div>
+          <div class="dongducheon"></div>
+          <div class="gapyeong"></div>
+          <div class="gimpo"></div>
+          <div class="goyang"></div>
+          <div class="gunpo"></div>
+          <div class="guri"></div>
+          <div class="gwacheon"></div>
+          <div class="gwangmyeong"></div>
+          <div class="gwangju-si"></div>
+          <div class="hanam"></div>
+          <div class="hwaseong"></div>
+          <div class="icheon"></div>
+          <div class="namyangju"></div>
+          <div class="osan"></div>
+          <div class="paju"></div>
+          <div class="pocheon"></div>
+          <div class="pyeongtaek"></div>
+          <div class="seongnam"></div>
+          <div class="siheung"></div>
+          <div class="sungnam"></div>
+          <div class="suwon"></div>
+          <div class="uijeongbu"></div>
+          <div class="uiwang"></div>
+          <div class="yangju"></div>
+          <div class="yangpyeong"></div>
+          <div class="yeoju"></div>
+          <div class="yeoncheon"></div>
+          <div class="yongin"></div>
+        </div>
+
+        <!-- 강원도 -->
+        <div id="gangwon-map">
+          <div class="cheorwon"></div>
+          <div class="chuncheon"></div>
+          <div class="donghae"></div>
+          <div class="gangneung"></div>
+          <div class="goseong-gangwon"></div>
+          <div class="hoengseong"></div>
+          <div class="hongcheon"></div>
+          <div class="hwacheon"></div>
+          <div class="inje"></div>
+          <div class="jeongseon"></div>
+          <div class="pyeongchang"></div>
+          <div class="samcheok"></div>
+          <div class="sokcho"></div>
+          <div class="taebaek"></div>
+          <div class="wonju"></div>
+          <div class="yanggu"></div>
+          <div class="yangyang"></div>
+          <div class="yeongwol"></div>
+        </div>
+
+        <!-- 충북 -->
+        <div id="chungbuk-map">
+          <div class="boeun"></div>
+          <div class="cheongju"></div>
+          <div class="chungju"></div>
+          <div class="danyang"></div>
+          <div class="eumseong"></div>
+          <div class="goesan"></div>
+          <div class="jecheon"></div>
+          <div class="jeungpyeong"></div>
+          <div class="jincheon"></div>
+          <div class="okcheon"></div>
+          <div class="yeongdong"></div>
+        </div>
+
+        <!-- 충남 -->
+        <div id="chungnam-map">
+          <div class="asan"></div>
+          <div class="boryeong"></div>
+          <div class="buyeo"></div>
+          <div class="cheonan"></div>
+          <div class="cheongyang"></div>
+          <div class="dangjin"></div>
+          <div class="geumsan"></div>
+          <div class="gongju"></div>
+          <div class="gyeryong"></div>
+          <div class="hongseong"></div>
+          <div class="nonsan"></div>
+          <div class="seocheon"></div>
+          <div class="seosan"></div>
+          <div class="taean"></div>
+          <div class="yesan"></div>
+        </div>
+
+        <!-- 전북 -->
+        <div id="jeonbuk-map">
+          <div class="buan"></div>
+          <div class="gimje"></div>
+          <div class="gochang"></div>
+          <div class="gunsan"></div>
+          <div class="iksan"></div>
+          <div class="imsil"></div>
+          <div class="jangsu"></div>
+          <div class="jeongeup"></div>
+          <div class="jeonju"></div>
+          <div class="jinan"></div>
+          <div class="muju"></div>
+          <div class="namwon"></div>
+          <div class="sunchang"></div>
+          <div class="wanju"></div>
+          <div class="wansan"></div>
+        </div>
+
+        <!-- 전남 -->
+        <div id="jeonnam-map">
+          <div class="boseong"></div>
+          <div class="damyang"></div>
+          <div class="gangjin"></div>
+          <div class="goheung"></div>
+          <div class="gokseong"></div>
+          <div class="gurye"></div>
+          <div class="gwangyang"></div>
+          <div class="haenam"></div>
+          <div class="hampyeong"></div>
+          <div class="hwasun"></div>
+          <div class="jangheung"></div>
+          <div class="jangseong"></div>
+          <div class="jindo"></div>
+          <div class="mokpo"></div>
+          <div class="muan"></div>
+          <div class="naju"></div>
+          <div class="sinan"></div>
+          <div class="suncheon"></div>
+          <div class="wando"></div>
+          <div class="yeongam"></div>
+          <div class="yeonggwang"></div>
+          <div class="yeosu"></div>
+        </div>
+
+        <!-- 경북 -->
+        <div id="gyeongbuk-map">
+          <div class="andong"></div>
+          <div class="bonghwa"></div>
+          <div class="cheongdo"></div>
+          <div class="cheongsong"></div>
+          <div class="chilgok"></div>
+          <div class="gimcheon"></div>
+          <div class="goryeong"></div>
+          <div class="gumi"></div>
+          <div class="gunwi"></div>
+          <div class="gyeongju"></div>
+          <div class="gyeongsan"></div>
+          <div class="mungyeong"></div>
+          <div class="pohang"></div>
+          <div class="sangju"></div>
+          <div class="seongju"></div>
+          <div class="uiseong"></div>
+          <div class="uljin"></div>
+          <div class="ulleung"></div>
+          <div class="yecheon"></div>
+          <div class="yeongcheon"></div>
+          <div class="yeongdeok"></div>
+          <div class="yeongju"></div>
+          <div class="yeongyang"></div>
+        </div>
+
+        <!-- 경남 -->
+        <div id="gyeongnam-map">
+          <div class="changnyeong"></div>
+          <div class="changwon"></div>
+          <div class="geochang"></div>
+          <div class="geoje"></div>
+          <div class="gimhae"></div>
+          <div class="goseong-gyeongnam"></div>
+          <div class="hadong"></div>
+          <div class="haman"></div>
+          <div class="hamyang"></div>
+          <div class="hapcheon"></div>
+          <div class="jinju"></div>
+          <div class="miryang"></div>
+          <div class="namhae"></div>
+          <div class="sacheon"></div>
+          <div class="sancheong"></div>
+          <div class="tongyeong"></div>
+          <div class="uiryeong"></div>
+          <div class="yangsan"></div>
+        </div>
+
+        <!-- 세종 -->
+        <div id="sejong-map">
+          <div class="areum"></div>
+          <div class="bugang"></div>
+          <div class="dodam"></div>
+          <div class="geumnam"></div>
+          <div class="hansol"></div>
+          <div class="janggun"></div>
+          <div class="jeondong"></div>
+          <div class="jeonui"></div>
+          <div class="jochiwon"></div>
+          <div class="jongchon"></div>
+          <div class="sojeong"></div>
+          <div class="yeondong"></div>
+          <div class="yeongi"></div>
+          <div class="yeonseo"></div>
+        </div>
+
+        <!-- 제주 -->
+        <div id="jeju-map">
+          <div class="aewol"></div>
+          <div class="andeok"></div>
+          <div class="biangdo"></div>
+          <div class="chagwido"></div>
+          <div class="chujado"></div>
+          <div class="daejeong"></div>
+          <div class="gapado"></div>
+          <div class="gujwa"></div>
+          <div class="hankyung"></div>
+          <div class="hanrim"></div>
+          <div class="jejusi"></div>
+          <div class="jocheon"></div>
+          <div class="jungmun"></div>
+          <div class="marado"></div>
+          <div class="namwoneup"></div>
+          <div class="pyoseon"></div>
+          <div class="seogwipo"></div>
+          <div class="seongsan"></div>
+          <div class="udo"></div>
+        </div>
+
+        <!-- tab list -->
+        <div id="tabs">
+          <button id="reset" onclick="map()">처음으로</button>
+          <ul>
+            <li><a href="#tabs-1">지역별</a></li>
+            <li><a href="#tabs-2">높이별</a></li>
+          </ul>
+
+          <!-- 지역별 -->
+          <div id="tabs-1">
+            <!-- 전국 -->
+            <div id="height_list">
+              <button class="h1" onclick="getRegion(event)" data-regionId="1">
+                서울특별시
+              </button>
+              <button class="h2" onclick="getRegion(event)" data-regionId="2">
+                인천광역시
+              </button>
+              <button class="h3" onclick="getRegion(event)" data-regionId="3">
+                대전광역시
+              </button>
+              <button class="h4" onclick="getRegion(event)" data-regionId="4">
+                대구광역시
+              </button>
+              <button class="h5" onclick="getRegion(event)" data-regionId="5">
+                광주광역시
+              </button>
+              <button class="h6" onclick="getRegion(event)" data-regionId="6">
+                울산광역시
+              </button>
+              <button class="h7" onclick="getRegion(event)" data-regionId="7">
+                부산광역시
+              </button>
+              <button class="h8" onclick="getRegion(event)" data-regionId="8">
+                경기도
+              </button>
+              <button class="h9" onclick="getRegion(event)" data-regionId="9">
+                강원도
+              </button>
+              <button class="h10" onclick="getRegion(event)" data-regionId="10">
+                충청북도
+              </button>
+              <button class="h11" onclick="getRegion(event)" data-regionId="11">
+                충청남도
+              </button>
+              <button class="h12" onclick="getRegion(event)" data-regionId="12">
+                전라북도
+              </button>
+              <button class="h13" onclick="getRegion(event)" data-regionId="13">
+                전라남도
+              </button>
+              <button class="h14" onclick="getRegion(event)" data-regionId="14">
+                경상북도
+              </button>
+              <button class="h15" onclick="getRegion(event)" data-regionId="15">
+                경상남도
+              </button>
+              <button class="h16" onclick="getRegion(event)" data-regionId="16">
+                세종특별자치시
+              </button>
+              <button class="h17" onclick="getRegion(event)" data-regionId="17">
+                제주특별자치도
+              </button>
+            </div>
+
+            <!-- 서울 -->
+            <div id="height_list_seoul">
+              <button class="h1" onclick="">강남구</button>
+              <button class="h2" onclick="">강동구</button>
+              <button class="h3" onclick="">강북구</button>
+              <button class="h4" onclick="">강서구</button>
+              <button class="h5" onclick="">관악구</button>
+              <button class="h6" onclick="">광진구</button>
+              <button class="h7" onclick="">구로구</button>
+              <button class="h8" onclick="">금천구</button>
+              <button class="h9" onclick="">노원구</button>
+              <button class="h10" onclick="">도봉구</button>
+              <button class="h11" onclick="">동대문구</button>
+              <button class="h12" onclick="">동작구</button>
+              <button class="h13" onclick="">마포구</button>
+              <button class="h14" onclick="">서대문구</button>
+              <button class="h15" onclick="">서초구</button>
+              <button class="h16" onclick="">성동구</button>
+              <button class="h17" onclick="">성북구</button>
+              <button class="h18" onclick="">송파구</button>
+              <button class="h19" onclick="">양천구</button>
+              <button class="h20" onclick="">영등포구</button>
+              <button class="h21" onclick="">용산구</button>
+              <button class="h22" onclick="">은평구</button>
+              <button class="h23" onclick="">종로구</button>
+              <button class="h24" onclick="">중구</button>
+              <button class="h25" onclick="">중랑구</button>
+            </div>
+
+            <!-- 인천 -->
+            <div id="height_list_incheon"></div>
+
+            <!-- 대전 -->
+            <div id="height_list_daejeon"></div>
+
+            <!-- 대구 -->
+            <div id="height_list_daegu"></div>
+
+            <!-- 광주 -->
+            <div id="height_list_gwangju"></div>
+
+            <!-- 울산 -->
+            <div id="height_list_ulsan"></div>
+
+            <!-- 부산 -->
+            <div id="height_list_busan"></div>
+
+            <!-- 경기 -->
+            <div id="height_list_gyeonggi">
+              <button class="h1" onclick="">가평군</button>
+              <button class="h2" onclick="">고양시</button>
+              <button class="h3" onclick="">과천시</button>
+              <button class="h4" onclick="">광명시</button>
+              <button class="h5" onclick="">광주시</button>
+              <button class="h6" onclick="">구리시</button>
+              <button class="h7" onclick="">군포시</button>
+              <button class="h8" onclick="">김포시</button>
+              <button class="h9" onclick="">남양주시</button>
+              <button class="h10" onclick="">동두천시</button>
+              <button class="h11" onclick="">부천시</button>
+              <button class="h12" onclick="">성남시</button>
+              <button class="h13" onclick="">수원시</button>
+              <button class="h14" onclick="">시흥시</button>
+              <button class="h15" onclick="">안산시</button>
+              <button class="h16" onclick="">안성시</button>
+              <button class="h17" onclick="">안양시</button>
+              <button class="h18" onclick="">양주시</button>
+              <button class="h19" onclick="">양평군</button>
+              <button class="h20" onclick="">여주시</button>
+              <button class="h21" onclick="">연천군</button>
+              <button class="h22" onclick="">오산시</button>
+              <button class="h23" onclick="">용인시</button>
+              <button class="h24" onclick="">의왕시</button>
+              <button class="h25" onclick="">의정부시</button>
+              <button class="h26" onclick="">이천시</button>
+              <button class="h27" onclick="">파주시</button>
+              <button class="h28" onclick="">평택시</button>
+              <button class="h29" onclick="">포천시</button>
+              <button class="h30" onclick="">하남시</button>
+              <button class="h31" onclick="">화성시</button>
+            </div>
+
+            <!-- 강원 -->
+            <div id="height_list_gangwon"></div>
+
+            <!-- 충북 -->
+            <div id="height_list_chungbuk"></div>
+
+            <!-- 충남 -->
+            <div id="height_list_chungnam"></div>
+
+            <!-- 전북 -->
+            <div id="height_list_jeonbuk"></div>
+
+            <!-- 전남 -->
+            <div id="height_list_jeonnam"></div>
+
+            <!-- 경북 -->
+            <div id="height_list_gyeongbuk"></div>
+
+            <!-- 경남 -->
+            <div id="height_list_gyeongnam"></div>
+
+            <!-- 세종 -->
+            <div id="height_list_sejong"></div>
+
+            <!-- 제주 -->
+            <div id="height_list_jeju"></div>
+          </div>
+
+          <!-- 높이별 -->
+          <div id="tabs-2">
+            <button class="h1">100m</button>
+            <button class="h2">200m</button>
+            <button class="h3">300m</button>
+            <button class="h4">400m</button>
+            <button class="h5">500m</button>
+            <button class="h6">600m</button>
+            <button class="h7">700m</button>
+            <button class="h8">800m</button>
+            <button class="h9">900m</button>
+            <button class="h10">1000m</button>
+            <button class="h11">1100m</button>
+            <button class="h12">1200m</button>
+            <button class="h13">1300m</button>
+            <button class="h14">1400m</button>
+            <button class="h15">1500m</button>
+            <button class="h16">1600m</button>
+            <button class="h17">1700m</button>
+            <button class="h18">1800m</button>
+            <button class="h19">1900m</button>
+            <button class="h20">2000m</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="main-mountain_info">
+      <div id="mountain_detail_title">
+        <h2>산정보</h2>
+      </div>
+      <div id="mountain_detail_list">
+        <input value="번호" />
+        <input value="산 이름" />
+        <input value="주소" />
+        <input value="높이" />
+        <input value="난이도" />
+      </div>
+    </div>
+    <div id="accordion-form">
+      <div class="accordion"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div id="footer-title">
+        <p>SANDLE</p>
+      </div>
+
+      <div id="creater">
+        <div id="creater-name-email">
+          <h2>creater</h2>
+          팀장 : 서영훈 | <a>email : darktemi@nate.com</a><br />
+          조원 : 안진수 | <a>email : </a><br />
+          조원 : 김종현 | <a>email : </a><br />
+          조원 : 이건형 | <a>email : </a><br />
+          조원 : 박경한 | <a>email : </a>
+        </div>
+        <div id="creater-github">
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script id="accordion-template" type="text/x-handlebars-template">
+      {{#each this}}
+        <div class="accordion-item">
+          <input value="{{no}}" readonly />
+          <input value="{{mountainName}}" readonly />
+          <input style="width: 300px;" value="{{address}}" readonly />
+          <input value="{{height}}" readonly />
+          <input value="{{level}}" readonly />
+        </div>
+        <div></div>
+      {{/each}}
+    </script>
+
+    <script src="../node_modules/handlebars/dist/handlebars.js"></script>
+    <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
+    <script src="/sandle/assets/js/breakpoints.min.js"></script>
+    <script src="/sandle/assets/js/util.js"></script>
+    <script src="/sandle/navLogin.js"></script>
+    <script src="mountain_info.js"></script>
+  </body>
+</html>

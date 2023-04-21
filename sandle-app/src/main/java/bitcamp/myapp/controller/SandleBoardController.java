@@ -2,21 +2,19 @@ package bitcamp.myapp.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import bitcamp.myapp.service.ObjectStorageService;
 import bitcamp.myapp.service.SandleBoardService;
-import bitcamp.myapp.vo.BoardFile;
 import bitcamp.myapp.vo.Comment;
 import bitcamp.myapp.vo.Member;
 import bitcamp.myapp.vo.SandleBoard;
@@ -35,29 +33,32 @@ public class SandleBoardController {
 
   @PostMapping("/post")
   public Object insert(
-      @RequestBody SandleBoard sandleBoard,
-      List<MultipartFile> files,
+      SandleBoard sandleBoard,
+      MultipartFile files,
       HttpSession session) {
 
+
     Member loginUser = (Member) session.getAttribute("loginUser");
-    SandleBoard board = new SandleBoard();
-    board.setWriterNo(loginUser.getNo());
-    board.setNickname(loginUser.getNickname());
 
-    List<BoardFile> boardFiles = new ArrayList<>();
-    for (MultipartFile file : files) {
-      String filename = objectStorageService.uploadFile(bucketName, "photofeed/", file);
-      if (filename == null) {
-        continue;
-      }
 
-      BoardFile boardFile = new BoardFile();
-      boardFile.setOriginalFilename(file.getOriginalFilename());
-      boardFile.setFilepath(filename);
-      boardFile.setMimeType(file.getContentType());
-      boardFiles.add(boardFile);
-    }
-    board.setAttachedFiles(boardFiles);
+
+    sandleBoard.setWriterNo(loginUser.getNo());
+    sandleBoard.setNickname(loginUser.getNickname());
+    System.out.println(files);
+    //    for (MultipartFile file : files) {
+    String filename = objectStorageService.uploadFile(bucketName, "photofeed/", files);
+    sandleBoard.setFileName(filename);
+    //      if (filename == null) {
+    //        continue;
+    //      }
+    //
+    //      BoardFile boardFile = new BoardFile();
+    //      boardFile.setOriginalFilename(file.getOriginalFilename());
+    //      boardFile.setFilepath(filename);
+    //      boardFile.setMimeType(file.getContentType());
+    //      boardFiles.add(boardFile);
+    //    }
+    sandleBoard.setAttachedFiles(new ArrayList<>());
 
 
     sandleBoardService.add(sandleBoard);
@@ -83,6 +84,14 @@ public class SandleBoardController {
     return new RestResult()
         .setStatus(RestStatus.SUCCESS)
         .setData(sandleBoardService.list());
+  }
+
+  @GetMapping("/userBoard")
+  public Object listUserBoard(HttpSession session) {
+    Member loginUser = (Member) session.getAttribute("loginUser");
+    return new RestResult()
+        .setStatus(RestStatus.SUCCESS)
+        .setData(sandleBoardService.listUserBoard(loginUser.getNo()));
   }
 
   @PostMapping
@@ -129,5 +138,36 @@ public class SandleBoardController {
           .setStatus(RestStatus.SUCCESS);
     }
   }
+
+  @DeleteMapping("{no}/userBoard/")
+  public Object deleteUserBoard(
+      @PathVariable int no) {
+    sandleBoardService.deleteUserBoard(no);
+    return new RestResult()
+        .setStatus(RestStatus.SUCCESS);
+  }
+
+  @PutMapping("{no}/update/")
+  public Object update(
+      @PathVariable int no,
+      SandleBoard sandleBoard,
+      MultipartFile files) throws Exception {
+
+    // URL 의 번호와 요청 파라미터의 번호가 다를 경우를 방지하기 위해
+    // URL의 번호를 게시글 번호로 설정한다.
+    //    board.setNo(no);
+
+
+    String filename = objectStorageService.uploadFile(bucketName, "photofeed/", files);
+
+    sandleBoard.setFileName(filename);
+
+    sandleBoardService.update(sandleBoard);
+
+    return new RestResult()
+        .setStatus(RestStatus.SUCCESS);
+
+  }
+
 
 }

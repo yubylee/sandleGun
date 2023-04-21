@@ -9,11 +9,12 @@ public interface SandleBoardService {
   void add(SandleBoard sandleBoard);
   SandleBoard get(int no);
   List<SandleBoard> list();
-
+  List<SandleBoard> listUserBoard(int no);
   Comment getComment(int commentNo);
   void addComment(Comment comment);
+  void update(SandleBoard sandleBoard);
   void deleteComment(int no);
-
+  void deleteUserBoard(int no);
   BoardFile getFile(int fileNo);
 
 
