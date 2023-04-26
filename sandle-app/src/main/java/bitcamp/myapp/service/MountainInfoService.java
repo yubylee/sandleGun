@@ -6,6 +6,7 @@ import bitcamp.myapp.vo.MountainInfo;
 public interface MountainInfoService {
   List<MountainInfo> list(String keyword);
   List<MountainInfo> get(int regionId);
+  List<MountainInfo> get(int regionId, String title);
 }
 
 

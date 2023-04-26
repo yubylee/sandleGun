@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <meta
+      name="google-signin-client_id"
+      content="870603954510-0q81tje9asfus9jh50fmdnltd74dqvtf.apps.googleusercontent.com"
+    />
+    <title>산들산들 - 로그인</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="login_form.css" />
+    <link rel="stylesheet" href="/sandle/index.css" />
+    <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div id="header-title"><a href="/sandle/index.html">SANDLE</a></div>
+
+      <div id="login" class="login">
+        <a href="/sandle/auth/login_form.html">LOGIN</a>
+      </div>
+
+      <div id="logout" class="logout">
+        <a href="sandle/auth/logout" onclick="logout(); return false;">
+          LOGOUT</a
+        >
+      </div>
+
+      <div id="sign-up" class="sign-up">
+        <a href="/sandle/member/member.html">SIGN UP</a>
+      </div>
+
+      <div id="profilePhoto" class="profilePhoto">
+        <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
+          <img id="u-photo" class="edit" />
+          <span id="userEmail"></span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Nav -->
+    <nav id="nav">
+      <ul>
+        <li class="current">
+          <a href="/sandle/index.html">산들 소개</a>
+          <ul>
+            <ol>
+              산들 소개
+            </ol>
+            <li><a href="#">산들산들을 소개합니다.</a></li>
+            <li><a href="#">제작 동기</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="/sandle/mountain_info/mountain_info.html"
+            >전국 등산로 정보</a
+          >
+        </li>
+
+        <li>
+          <a href="#">산악 소식</a>
+          <ul>
+            <ol>
+              산악 소식
+            </ol>
+            <li><a href="/sandle/notice/list.html">공지 사항</a></li>
+            <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
+            <li><a href="#">지역 행사 정보</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">커뮤니티</a>
+          <ul>
+            <ol>
+              커뮤니티
+            </ol>
+            <li><a href="/sandle/sandleboard/photofeed.html">포토 피드</a></li>
+            <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="logo">
+      <a href="/sandle/index.html"
+        ><img src="/sandle/assets/images/logo.jpg"
+      /></a>
+    </div>
+
+    <form id="login-form" action="login" method="post">
+      <input
+        type="email"
+        placeholder="사용자 이메일 주소 입력해주세요."
+        name="email"
+        value=""
+        required
+      />
+      <input
+        type="password"
+        placeholder="비밀번호를 입력해주세요."
+        name="password"
+        required
+      />
+      <label class="Remember"
+        ><input type="checkbox" name="remember" />이메일 기억</label
+      >
+
+      <button id="btn-login" type="submit">로그인</button>
+
+      <div
+        class="fb-login-button"
+        data-size="large"
+        data-button-type="login_with"
+        data-layout="default"
+        data-auto-logout-link="false"
+        data-use-continue-as="false"
+        data-width=""
+        scope="public_profile,email"
+        onlogin="checkLoginState();"
+      >
+        Login with Facebook
+      </div>
+
+      <!-- 구글 로그인-->
+      <ul>
+        <li id="GgCustomLogin">
+          <a href="javascript:void(0)" id="google-login">
+            <span>Login with Google</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- 카카오톡 로그인 -->
+
+      <a href="javascript:void(0)" id="kakao-login">
+        <ol onclick="kakaoLogin();">
+          <span>카카오 로그인</span>
+        </ol>
+      </a>
+      <a href="javascript:void(0)" id="kakao-logout">
+        <ol onclick="kakaoLogout();">
+          <span>카카오 로그아웃</span>
+        </ol>
+      </a>
+
+      <div class="bottom-container">
+        <div class="row">
+          <div class="col">
+            <a href="#" style="color: white" class="btn">Sign up</a><br />
+            <a href="#" style="color: white" class="btn">Forgot password?</a>
+          </div>
+        </div>
+      </div>
+    </form>
+    <!-- Footer -->
+    <footer id="footer">
+      <div id="footer-title">
+        <p>SANDLE</p>
+      </div>
+
+      <div id="creater">
+        <div id="creater-name-email">
+          <h2>creater</h2>
+          팀장 : 서영훈 | <a>email : darktemi@nate.com</a><br />
+          조원 : 안진수 | <a>email : </a><br />
+          조원 : 김종현 | <a>email : </a><br />
+          조원 : 이건형 | <a>email : </a><br />
+          조원 : 박경한 | <a>email : </a>
+        </div>
+        <div id="creater-github">
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+
+    <script>
+      window.fbAsyncInit = function () {
+        FB.init({
+          appId: "202698975829375",
+          cookie: true,
+          xfbml: true,
+          version: "v16.0",
+        });
+
+        FB.AppEvents.logPageView();
+      };
+    </script>
+
+    <!-- 구글 로그인 스크립트 -->
+    <script>
+      //처음 실행하는 함수
+      function init() {
+        gapi.load("auth2", function () {
+          gapi.auth2.init();
+          options = new gapi.auth2.SigninOptionsBuilder();
+          options.setPrompt("select_account");
+          // 추가는 Oauth 승인 권한 추가 후 띄어쓰기 기준으로 추가
+          options.setScope(
+            "email profile openid https://www.googleapis.com/auth/user.birthday.read"
+          );
+          // 인스턴스의 함수 호출 - element에 로그인 기능 추가
+          // GgCustomLogin은 li태그안에 있는 ID, 위에 설정한 options와 아래 성공,실패시 실행하는 함수들
+          gapi.auth2
+            .getAuthInstance()
+            .attachClickHandler(
+              "GgCustomLogin",
+              options,
+              onSignIn,
+              onSignInFailure
+            );
+        });
+      }
+
+      function onSignIn(googleUser) {
+        var access_token = googleUser.getAuthResponse().access_token;
+        $.ajax({
+          // people api를 이용하여 프로필 및 생년월일에 대한 선택동의후 가져온다.
+          url: "https://people.googleapis.com/v1/people/me",
+          // key에 자신의 API 키를 넣습니다.
+          data: {
+            personFields: "birthdays",
+            key: "AIzaSyDPlx87dND70tPR2CvBDae3KBNsqPhtXMk",
+            access_token: access_token,
+          },
+          method: "GET",
+        })
+          .done(function (e) {
+            //프로필을 가져온다.
+            var profile = googleUser.getBasicProfile();
+            console.log(profile);
+            location.href = "/sandle/index.html";
+          })
+          .fail(function (e) {
+            console.log(e);
+          });
+      }
+      function onSignInFailure(t) {
+        console.log(t);
+      }
+    </script>
+
+    <!-- 구글 api 사용을 위한 스크립트 -->
+    <script
+      src="https://apis.google.com/js/platform.js?onload=init"
+      async
+      defer
+    ></script>
+
+    <script src="/sandle/assets/js/jquery.min.js"></script>
+    <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
+    <script src="/sandle/assets/js/breakpoints.min.js"></script>
+    <script src="/sandle/assets/js/util.js"></script>
+    <script src="/sandle/navLogin.js"></script>
+    <script src="login_form.js"></script>
+  </body>
+</html>

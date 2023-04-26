@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import bitcamp.myapp.dao.BoardFileDao;
+import bitcamp.myapp.dao.BoardLikeDao;
 import bitcamp.myapp.dao.CommentDao;
 import bitcamp.myapp.dao.SandleBoardDao;
 import bitcamp.myapp.service.SandleBoardService;
@@ -17,24 +18,26 @@ public class DefaultSandleBoardService implements SandleBoardService{
   @Autowired private SandleBoardDao sandleBoardDao;
   @Autowired private CommentDao commentDao;
   @Autowired private BoardFileDao boardFileDao;
+  @Autowired private BoardLikeDao boardLikeDao;
 
   @Transactional
   @Override
   public void add(SandleBoard sandleBoard) {
     sandleBoardDao.insert(sandleBoard);
 
-    //    if (sandleBoard.getAttachedFiles().size() > 0) {
-    //      for (BoardFile boardFile : sandleBoard.getAttachedFiles()) {
-    //        boardFile.setBoardNo(sandleBoard.getNo());
-    //      }
-    //    boardFileDao.insertList(sandleBoard.getAttachedFiles());
-    //    }
-    BoardFile boardFile = new BoardFile();
-    boardFile.setBoardNo(sandleBoard.getNo());
-    //    boardFile.setFilepath(sandleBoard.getPhoto());
-    boardFile.setPhoto(sandleBoard.getFileName());
-    //
-    boardFileDao.insert(boardFile);
+    if (sandleBoard.getAttachedFiles().size() > 0) {
+      for (BoardFile boardFile : sandleBoard.getAttachedFiles()) {
+        boardFile.setBoardNo(sandleBoard.getNo());
+        //        boardFile.setPhoto(sandleBoard.getFileName());
+      }
+      boardFileDao.insertList(sandleBoard.getAttachedFiles());
+    }
+    //    BoardFile boardFile = new BoardFile();
+    //    boardFile.setBoardNo(sandleBoard.getNo());
+    //        boardFile.setFilepath(sandleBoard.getPhoto());
+    //    boardFile.setPhoto(sandleBoard.getFileName());
+    //    
+    //    boardFileDao.insert(boardFile);
   }
 
   @Override
@@ -47,9 +50,9 @@ public class DefaultSandleBoardService implements SandleBoardService{
 
     SandleBoard b = sandleBoardDao.findByNo(no);
     b.setComments(commentDao.list(no));
-    //    if (b != null) {
-    //      boardDao.increaseViewCount(no);
-    //    }
+    if (b != null) {
+      sandleBoardDao.increaseViewCount(no);
+    }
     return b;
   }
   @Override
@@ -91,6 +94,7 @@ public class DefaultSandleBoardService implements SandleBoardService{
   @Transactional
   @Override
   public void deleteUserBoard(int no) {
+    boardLikeDao.deleteBoard(no);
     commentDao.deleteBoard(no);
     boardFileDao.delete(no);
     sandleBoardDao.deleteUserBoard(no);

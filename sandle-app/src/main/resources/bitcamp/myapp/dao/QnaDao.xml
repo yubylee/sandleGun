@@ -7,25 +7,28 @@
   <resultMap type="qna" id="qnaMap">
     <id column="qna_id" property="no"/>
     <result column="member_id" property="memberId"/>
+    <result column="nickname" property="nickname"/>
     <result column="title" property="title"/>
     <result column="content" property="content"/>
+    <result column="response" property="response"/>
     <result column="created_date" property="createdDate"/>
   </resultMap>
 
   <insert id="insert" parameterType="qna" 
           useGeneratedKeys="true" keyColumn="qna_id" keyProperty="no">
-    insert into hms_qna(member_id, title, content) 
-    values(#{memberId}, #{title}, #{content})
+    insert into hms_qna(member_id, nickname, title, content, response) 
+    values(#{memberId}, #{nickname}, #{title}, #{content}, #{response})
   </insert>
 
   <select id="findAll" resultMap="qnaMap" parameterType="string">
     select 
       qna_id,
       member_id,
+      nickname,
       title,
       content,
       response,
-      created_date
+      DATE_FORMAT(created_date, '%Y-%m-%d %H:%i:%s') as created_date
     from 
       hms_qna
     <if test="keyword != '' and keyword != null">
@@ -39,12 +42,13 @@
 
   <select id="findByNo" parameterType="int" resultMap="qnaMap">
     select 
-      qna_id, 
+      qna_id,
+      member_id,
+      nickname,
       title, 
       content,
       response,
-      member_id
-      created_date, 
+      created_date
     from 
       hms_qna
     where 
@@ -54,7 +58,8 @@
   <update id="update" parameterType="qna">
     update hms_qna set 
       title=#{title}, 
-      content=#{content} 
+      content=#{content},
+      response=#{response}
     where qna_id=#{no}
   </update>
   

@@ -13,4 +13,5 @@ public interface SandleBoardDao {
   List<SandleBoard> findUserBoard(int no);
   int updateBoard(SandleBoard sandleBoard);
   void deleteUserBoard(int no);
+  void increaseViewCount(int no);
 }

@@ -22,6 +22,11 @@ public class DefaultMountainInfoService implements MountainInfoService {
     return mountainInfoDao.findByRegionId(regionId);
   }
 
+  @Override
+  public List<MountainInfo> get(int regionId, String title) {
+    return mountainInfoDao.findByRegionIdAndAddress(regionId, title);
+  }
+
 }
 
 

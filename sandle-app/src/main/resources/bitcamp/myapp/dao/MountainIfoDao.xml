@@ -10,80 +10,70 @@
     <result column="height" property="height"/>
     <result column="photo" property="photo"/>
     <result column="address" property="address"/>
-    <result column="sunrise" property="sunrise"/>
-    <result column="sunset" property="sunset"/>
     <result column="region_id" property="regionId"/>
     <result column="region_list" property="regionList"/>
     <result column="course_info_id" property="courseNo"/>
     <result column="course_name" property="courseName"/>
+    <result column="course_path" property="coursePath"/>
     <result column="length" property="length"/>
     <result column="time" property="time"/>
     <result column="level" property="level"/>
   </resultMap>
+  
+  <sql id="select">
+    select
+      m.mountain_info_id,
+      m.mountain_name,
+      m.height,
+      m.photo,
+      m.address,
+      r.region_id,
+      r.region_list,
+      c.course_info_id,
+      c.course_name,
+      c.course_path,
+      c.length,
+      c.time,
+      c.level
+    from 
+      hms_mountain_info m
+      inner join hms_region r on m.region_id = r.region_id
+      inner join hms_course_info c on m.mountain_info_id = c.mountain_info_id
+  </sql>
 
   <select id="findAll" resultMap="mountainInfoMap">
-    select
-      m.mountain_info_id,
-      m.mountain_name,
-      m.height,
-      m.photo,
-      m.address,
-      m.sunrise,
-      m.sunset,
-      r.region_id,
-      r.region_list,
-      c.course_info_id,
-      c.course_name,
-      c.length,
-      c.time,
-      c.level
-    from 
-      hms_mountain_info m
-      inner join hms_region r on m.region_id = r.region_id
-      inner join hms_course_info c on m.mountain_info_id = c.mountain_info_id
+    <include refid="select"/>
     <if test="keyword != '' and keyword != null">
     where
-      m.mountain_info_id like(concat('%', #{keyword}, '%'))
-      or m.mountain_name like(concat('%', #{keyword}, '%'))
-      or m.height like(concat('%', #{keyword}, '%'))
-      or m.photo like(concat('%', #{keyword}, '%'))
-      or m.address like(concat('%', #{keyword}, '%'))
-      or m.sunrise like(concat('%', #{keyword}, '%'))
-      or m.sunset like(concat('%', #{keyword}, '%'))
-      or r.region_id like(concat('%', #{keyword}, '%'))
-      or r.region_list like(concat('%', #{keyword}, '%'))
-      or c.course_info_id like(concat('%', #{keyword}, '%'))
-      or c.course_name like(concat('%', #{keyword}, '%'))
-      or c.time like(concat('%', #{keyword}, '%'))
-      or c.level like(concat('%', #{keyword}, '%'))
+      c.course_info_id = 1
+      and (
+        m.mountain_name
+        or m.height
+        or m.photo like concat('%',#{keyword},'%')
+        or m.address
+        or r.region_id
+        or r.region_list
+        or c.course_name
+        or c.course_path
+        or c.time
+        or c.level
+      )
     </if>
     order by
-      m.mountain_info_id desc
+      m.mountain_info_id asc
   </select>
   
-    <select id="findByRegionId" parameterType="int" resultMap="mountainInfoMap">
-    select
-      m.mountain_info_id,
-      m.mountain_name,
-      m.height,
-      m.photo,
-      m.address,
-      m.sunrise,
-      m.sunset,
-      r.region_id,
-      r.region_list,
-      c.course_info_id,
-      c.course_name,
-      c.length,
-      c.time,
-      c.level
-    from 
-      hms_mountain_info m
-      inner join hms_region r on m.region_id = r.region_id
-      inner join hms_course_info c on m.mountain_info_id = c.mountain_info_id
-    <if test="regionId != '' and regionId != null">
-    where m.region_id like(concat(#{regionId}))
-    </if>
+  <select id="findByRegionId" parameterType="int" resultMap="mountainInfoMap">
+    <include refid="select"/>
+    where m.region_id = #{regionId}
+      and c.course_info_id = 1
+  </select>
+  
+  <select id="findByRegionIdAndAddress" resultMap="mountainInfoMap">
+    <include refid="select"/>
+    where m.region_id = #{regionId}
+      and m.address like concat('%', #{title}, '%') 
+      and c.course_info_id
   </select>
 </mapper>
 

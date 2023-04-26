@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SANDLE - 산들산들</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="/sandle/index.css" />
+    <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
+    <style>
+      #head {
+        font-size: 30px;
+        font-weight: 900;
+        text-align: center;
+        color: #28544b;
+        margin: 0;
+      }
+
+      #head-next {
+        margin-left: 20px;
+        font-weight: 700;
+        text-align: center;
+        color: #28544b;
+        margin-bottom: 30px;
+      }
+
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: auto;
+        margin-top: 40px;
+      }
+
+      input {
+        border: none;
+        outline: none;
+        width: 500px;
+        font-size: 20px;
+      }
+
+      textarea {
+        border: none;
+        outline: none;
+        width: 500px;
+        font-size: 20px;
+        height: 250px;
+      }
+
+      ::placeholder {
+        font-size: 15px;
+      }
+
+      .q-title {
+        max-height: 90px;
+      }
+
+      .q-content,
+      .q-response {
+        max-height: 300px;
+      }
+
+      .q-title,
+      .q-content,
+      .q-response {
+        margin-top: 30px;
+        position: relative;
+        transform: translateX(-50%);
+        max-width: 530px;
+        left: 50%;
+        font-size: 18px;
+
+        background: #ffffff;
+        mix-blend-mode: normal;
+        border-bottom: 3px solid #28544b;
+        box-shadow: 3px 3px 3px 3px;
+        border-radius: 10px;
+        padding: 5px 0 10px 10px;
+      }
+
+      #btns {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      #btn-insert,
+      #btn-list,
+      #btn-update,
+      #btn-delete {
+        box-shadow: 3px 3px 3px 3px #000000;
+        border-radius: 10px;
+        position: relative;
+        margin-top: 30px;
+        width: 120px;
+        height: 40px;
+        outline: none;
+        font-size: 20px;
+      }
+
+      #btn-insert,
+      #btn-update {
+        border: none;
+        background-color: #28544b;
+        color: #ffffff;
+      }
+
+      #btn-list,
+      #btn-update,
+      #btn-delete {
+        margin-left: 50px;
+      }
+
+      button:hover {
+        cursor: pointer;
+      }
+
+      #btn-insert:active,
+      #btn-update:active {
+        background-color: white;
+        color: #28544b;
+        border: 1px #28544b solid;
+        box-shadow: 2px 2px 2px 2px #000000;
+      }
+
+      #btn-list:active,
+      #btn-delete:active {
+        background-color: #28544b;
+        color: white;
+        border: 1px #28544b solid;
+        box-shadow: 2px 2px 2px 2px #000000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div id="header-title"><a href="/sandle/index.html">SANDLE</a></div>
+
+      <div id="login" class="login">
+        <a href="/sandle/auth/login_form.html">LOGIN</a>
+      </div>
+
+      <div id="logout" class="logout">
+        <a href="sandle/auth/logout" onclick="logout(); return false;">
+          LOGOUT</a
+        >
+      </div>
+
+      <div id="sign-up" class="sign-up">
+        <a href="/sandle/member/member.html">SIGN UP</a>
+      </div>
+
+      <div id="profilePhoto" class="profilePhoto">
+        <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
+          <img id="u-photo" class="edit" />
+          <span id="userEmail"></span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Nav -->
+    <nav id="nav">
+      <ul>
+        <li class="current">
+          <a href="/sandle/index.html">산들 소개</a>
+          <ul>
+            <ol>
+              산들 소개
+            </ol>
+            <li><a href="#">산들산들을 소개합니다.</a></li>
+            <li><a href="#">제작 동기</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="/sandle/mountain_info/mountain_info.html"
+            >전국 등산로 정보</a
+          >
+        </li>
+
+        <li>
+          <a href="#">산악 소식</a>
+          <ul>
+            <ol>
+              산악 소식
+            </ol>
+            <li><a href="/sandle/notice/list.html">공지 사항</a></li>
+            <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
+            <li><a href="#">지역 행사 정보</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">커뮤니티</a>
+          <ul>
+            <ol>
+              커뮤니티
+            </ol>
+            <li><a href="/sandle/sandleboard/photofeed.html">포토 피드</a></li>
+            <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- 1:1 문의하기 -->
+    <main>
+      <div id="head">
+        <p>1:1 문의하기</p>
+      </div>
+      <div id="head-next">
+        <p>문의를 남겨주시면 자세히 안내드리겠습니다.</p>
+      </div>
+
+      <article>
+        <form id="member-form" action="update" method="post">
+          <div class="q-title">
+            <div style="display: none">
+              <b>게시글 번호</b>
+              <input id="f-no" type="text" name="no" readonly />
+            </div>
+
+            <div>
+              <b>유저번호</b>
+              <input id="f-member-id" type="text" name="memberId" readonly />
+            </div>
+
+            <div style="display: none">
+              <b>닉네임</b><br />
+              <input id="f-nickname" type="text" name="nickname" readonly />
+            </div>
+
+            <b>제목</b><br />
+            <input
+              id="qna-title"
+              type="text"
+              name="title"
+              placeholder="제목을 입력하세요."
+              maxlength="60"
+            />
+          </div>
+          <div class="q-content">
+            <b>문의내용</b><br />
+            <textarea
+              id="qna-content"
+              type="text"
+              placeholder="문의하실 내용을 기입해주세요."
+              name="content"
+            ></textarea>
+          </div>
+          <div class="q-response">
+            <b>답변</b><br />
+            <textarea id="qna-response" type="text" name="response"></textarea>
+          </div>
+          <div id="btns">
+            <button id="btn-list" type="button">목록</button>
+            <button id="btn-update" type="button">수정</button>
+            <button id="btn-delete" type="button">삭제</button>
+          </div>
+        </form>
+      </article>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div id="footer-title">
+        <p>SANDLE</p>
+      </div>
+
+      <div id="creater">
+        <div id="creater-name-email">
+          <h2>creater</h2>
+          팀장 : 서영훈 | <a>email : darktemi@nate.com</a><br />
+          조원 : 안진수 | <a>email : </a><br />
+          조원 : 김종현 | <a>email : </a><br />
+          조원 : 이건형 | <a>email : </a><br />
+          조원 : 박경한 | <a>email : </a>
+        </div>
+        <div id="creater-github">
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      const values = location.href.split("?");
+      if (values.length == 1) {
+        alert("URL이 옳지 않습니다.");
+        location.href = "list.html";
+      }
+
+      // no=100
+      const param = values[1].split("=");
+      if (param.length == 1 || param[0] != "no") {
+        alert("URL이 옳지 않습니다.");
+        location.href = "list.html";
+      }
+
+      let no = parseInt(param[1]);
+      if (isNaN(no)) {
+        alert("URL이 옳지 않습니다.");
+        location.href = "list.html";
+      }
+      fetch("../qnas/" + no)
+        .then((response) => {
+          return response.json();
+        })
+        .then((result) => {
+          console.log(result.data);
+          let qna = result.data;
+          document.querySelector("#f-no").value = qna.no;
+          document.querySelector("#f-member-id").value = qna.memberId;
+          document.querySelector("#qna-title").value = qna.title;
+          document.querySelector("#qna-content").value = qna.content;
+          document.querySelector("#qna-response").value = qna.response;
+        });
+
+      document.querySelector("#btn-list").onclick = function () {
+        location.href = "list.html";
+      };
+
+      document.querySelector("#btn-update").onclick = function () {
+        const form = document.querySelector("#member-form");
+        const formData = new FormData(form);
+
+        fetch("../qnas/" + document.querySelector("input[name='no']").value, {
+          method: "PUT",
+          body: formData,
+        })
+          .then((response) => {
+            return response.json();
+          })
+          .then((result) => {
+            console.log(result);
+            if (result.status == "success") {
+              location.href = "list.html";
+            } else {
+              alert("변경 실패!");
+            }
+          })
+          .catch((exception) => {
+            alert("변경 중 오류 발생!");
+            console.log(exception);
+          });
+      };
+
+      document.querySelector("#btn-delete").onclick = function () {
+        fetch("../qnas/" + document.querySelector('input[name="no"]').value, {
+          method: "DELETE",
+        })
+          .then((response) => {
+            return response.json();
+          })
+          .then((result) => {
+            if (result.status == "success") {
+              location.href = "list.html";
+            } else {
+              alert("삭제 실패!");
+            }
+          })
+          .catch((exception) => {
+            alert("삭제 중 오류 발생!");
+            console.log(exception);
+          });
+      };
+    </script>
+    <script src="/sandle/assets/js/jquery.min.js"></script>
+    <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
+    <script src="/sandle/assets/js/breakpoints.min.js"></script>
+    <script src="/sandle/assets/js/util.js"></script>
+    <script src="/sandle/navLogin.js"></script>
+  </body>
+</html>

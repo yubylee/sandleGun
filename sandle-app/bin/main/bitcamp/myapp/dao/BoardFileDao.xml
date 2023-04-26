@@ -7,14 +7,21 @@
   <resultMap type="boardFile" id="boardFileMap">
     <id column="photo_id" property="photoNo"/>
     <result column="board_id" property="boardNo"/>
-    <result column="photo" property="fileName"/>
-    <result column="filepath" property="filepath"/>
+    <result column="photo" property="photo"/>
     <result column="filepath" property="filepath"/>
   </resultMap>
 
 <insert id="insert" parameterType="boardFile">
   insert into hms_photo(board_id, photo) 
   values(#{boardNo}, #{photo})
+</insert>
+
+<insert id="insertList">
+  insert into hms_photo (board_id, photo) 
+  values
+  <foreach collection="list" item="file" separator=",">
+    (#{file.boardNo}, #{file.photo})
+  </foreach>
 </insert>
 
 <update id="updatePhoto" parameterType="sandleBoard">

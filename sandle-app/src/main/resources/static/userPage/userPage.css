@@ -1,10 +1,10 @@
 hr {
   width: 1400px;
-  border: 2px solid #28544B;
+  border: 2px solid #28544b;
 }
 .user-name > hr {
-width: 100px;
-border: solid 1px #28544B;
+  width: 100px;
+  border: solid 1px #28544b;
 }
 
 #top {
@@ -12,16 +12,15 @@ border: solid 1px #28544B;
   font-weight: 700;
 }
 
-.up{
+.up {
   text-align: center;
   margin-top: 100px;
   display: inline-block;
   width: 1200px;
   max-height: auto;
-  
 }
 
-.user-photo-profile{
+.user-photo-profile {
   width: auto;
 }
 
@@ -29,7 +28,7 @@ border: solid 1px #28544B;
   margin-bottom: 10px;
 }
 
-.user-name{
+.user-name {
   width: auto;
 }
 
@@ -38,7 +37,7 @@ border: solid 1px #28544B;
   font-weight: 700;
 }
 
-#user-button{
+#user-button {
   margin-top: 30px;
   justify-content: space-between;
   margin-bottom: 150px;
@@ -46,20 +45,45 @@ border: solid 1px #28544B;
   width: 1200px;
   height: auto;
   /* border:  solid 1px red; */
-  
 }
-.user1, .user2, .user3, .user4{
-  
+.user1,
+.user2,
+.user3,
+.user4 {
   text-align: center;
   padding-top: 30px;
   width: 280px;
   height: 50px;
-  
-  border-bottom: 3px solid #28544B;
+
+  border-bottom: 3px solid #28544b;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 17px;
 }
 
 .b-no {
   display: none;
+}
+
+#selected-image {
+  width: 200px;
+  height: 200px;
+}
+
+.modal-content {
+  position: relative;
+  margin: 15% 37%;
+  padding: 0;
+  border: none;
+  width: 700px;
+  height: 500px;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  animation-name: modalopen;
+  animation-duration: 0.5s;
+}
+
+#member-form {
+  text-align: center;
 }

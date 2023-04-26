@@ -31,28 +31,19 @@
         <a href="/sandle/member/member.html">SIGN UP</a>
       </div>
 
-      <div class="default_logo" id="default_logo">
-        <a href="/sandle/userPage/userPage.html"
-          ><span id="userEmail"></span
-        ></a>
-        <a href="/sandle/userPage/userPage.html"
-          ><img src="/sandle/assets/images/default_logo.jpg"
-        /></a>
+      <div id="profilePhoto" class="profilePhoto">
+        <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
+          <img id="u-photo" class="edit" />
+          <span id="userEmail"></span>
+        </a>
       </div>
     </header>
 
     <!-- Nav -->
     <nav id="nav">
       <ul>
-        <li class="current">
+        <li>
           <a href="/sandle/index.html">산들 소개</a>
-          <ul>
-            <ol>
-              산들 소개
-            </ol>
-            <li><a href="#">산들산들을 소개합니다.</a></li>
-            <li><a href="#">제작 동기</a></li>
-          </ul>
         </li>
 
         <li>
@@ -61,16 +52,17 @@
           >
         </li>
 
-        <li>
+        <li class="current">
           <a href="#">산악 소식</a>
           <ul>
             <ol>
               산악 소식
             </ol>
-            <li><a href="#">공지 사항</a></li>
+            <li><a href="/sandle/notice/list.html">공지 사항</a></li>
             <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
-            <li><a href="#">지역 행사 정보</a></li>
-            <li><a href="#">이벤트</a></li>
+            <li>
+              <a href="/sandle/festival/festival.html">지역 행사 정보</a>
+            </li>
           </ul>
         </li>
         <li>
@@ -79,9 +71,12 @@
             <ol>
               커뮤니티
             </ol>
-            <li><a href="/sandle/sandleboard/photofeed.html">포토 피드</a></li>
-            <li><a href="#">맛집 피드</a></li>
-            <li><a href="#">등산 일지</a></li>
+            <li>
+              <a href="/sandle/sandleboard/photofeed.html">포토 피드</a>
+            </li>
+            <li>
+              <a href="/sandle/userPage/userPage.html">마이페이지</a>
+            </li>
             <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
           </ul>
         </li>

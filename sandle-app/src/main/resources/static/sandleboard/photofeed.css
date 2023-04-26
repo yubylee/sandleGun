@@ -5,13 +5,13 @@
   display: grid;
   margin-left: 80px;
   margin-top: 30px;
-  grid-template-columns: 380px 380px;
+  grid-template-columns: 380px 380px 380px;
   grid-template-rows: auto auto;
 }
 
 .item {
   border: 1px solid black;
-  height: 380px;
+  height: 384px;
   width: 320px;
   /* margin: auto; */
   border-radius: 20px;
@@ -21,8 +21,8 @@
 
 .photo-a {
   border: 1px solid black;
-  height: 350px;
-  width: 285px;
+  height: 360px;
+  width: 300px;
   margin: auto;
   border-radius: 20px;
   position: absolute;
@@ -43,6 +43,7 @@
   background-position: center;
   background-size: cover;
 }
+
 
 /* -----------------------------------------Modal area----------------------------- */
 .modal {
@@ -133,7 +134,8 @@
   align-items: center;
 }
 
-#x-circle, #insert-x-circle {
+#x-circle,
+#insert-x-circle {
   margin-right: 5px;
   margin-top: 2px;
   cursor: pointer;
@@ -148,12 +150,97 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+/* 이전/다음 버튼 스타일 */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.prev {
+  margin-right: 360px;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+  margin-right: 425px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+#attach-img {
+  height: 520px;
+  width: 400px;
+  border-radius: 30px;
+
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+#insert-img {
+  height: 520px;
+  width: 400px;
+  border-radius: 30px;
+}
+
+#post-prev-btn {
+  margin-right: 330px;
+  margin-top: 2px;
+}
+
+#post-next-btn {
+  margin-right: 460px;
+  margin-top: 2px;
 }
 
 #modal-content-creater {
   /* border: 1px solid black; */
   height: 160px;
   margin-bottom: 10px;
+  justify-content: space-between;
 }
 
 #comment {
@@ -181,7 +268,7 @@
 #user-info-content {
   display: flex;
   align-items: center;
-  width: 170px;
+  width: 270px;
   text-align: left;
   font-size: 15px;
   color: black;
@@ -219,11 +306,6 @@
   font-weight: 600;
   margin-bottom: 7px;
 }
-
-
-
-
-
 
 #modal-user-image {
   height: 50px;
@@ -268,7 +350,6 @@
   padding-left: 50px;
 }
 
-
 #board-plus {
   width: 35px;
   height: 35px;
@@ -280,7 +361,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10%;
+  margin-top: 6%;
+  margin-bottom: 5%;
 }
 
 #photo-head-photofeed {
@@ -291,7 +373,7 @@
 #head-underline {
   display: flex;
   align-items: center;
-  width: 800px;
+  width: 1050px;
   height: 60px;
   border-bottom: 5px solid black;
 }
@@ -309,12 +391,10 @@
   border-bottom: 3px solid black;
 }
 
-
 #post-area {
   display: flex;
   justify-content: center;
 }
-
 
 #post-substance {
   /* border: 1px solid black; */
@@ -323,7 +403,7 @@
   flex-wrap: wrap;
 }
 
-#post-image{
+#post-image {
   /* border: 1px solid black; */
   height: 500px;
   display: flex;
@@ -331,7 +411,7 @@
   align-items: center;
   flex: 1;
 }
-#post-contents{
+#post-contents {
   /* border: 1px solid black; */
   height: 500px;
   flex: 1;
@@ -341,7 +421,7 @@
   align-items: center;
 }
 
-#post-photo{
+#post-photo {
   background-color: #f4f5f5;
   border: 2px solid black;
   width: 370px;
@@ -361,16 +441,15 @@
   cursor: pointer;
 }
 
-#post-tag{
+#post-tag {
   border: 1px solid black;
   width: 300px;
   height: 100px;
   border-radius: 30px;
   margin-bottom: 30px;
-
 }
 
-#post-write{
+#post-write {
   border: 1px solid black;
   width: 300px;
   height: 200px;
@@ -381,20 +460,20 @@
 #btn-post {
   color: white;
   font-size: 18px;
-  background-color: #0062FF;
+  background-color: #0062ff;
   width: 90px;
   height: 40px;
   border-radius: 10px;
   margin-left: 200px;
+  cursor: pointer;
 }
 
-#post-tag::placeholder, #post-write::placeholder {
+#post-tag::placeholder,
+#post-write::placeholder {
   font-size: 20px;
-  font-weight: bolder;  
+  font-weight: bolder;
   padding-left: 10px;
 }
-
-
 
 #file-input + label {
   cursor: pointer;
@@ -436,11 +515,17 @@
   padding-left: 20px;
 }
 
+.selected-image {
+  width: 373px;
+  height: 463px;
+  
+}
+
 #selected-image {
+  z-index: 1;
   width: 373px;
   height: 463px;
 }
-
 
 .like-button {
   background: none;
@@ -454,7 +539,7 @@
 .like-icon {
   color: gray;
   margin-right: 4px;
-  
+  font-size: 30px;
 }
 
 .like-icon.active {
@@ -463,4 +548,104 @@
 
 .like-count {
   margin-left: 4px;
+}
+
+#board-date{
+  color: black;
+  margin-left: 90px;
+}
+
+.view-count {
+  display: flex;
+  align-items: center;
+  color: black;
+  margin-right: 30px;
+}
+
+
+#bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.count-name {
+  margin-left: 180px;
+  color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.mySlides {
+  position: relative;
+}
+
+/* 이전/다음 버튼 스타일 */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -10px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.prev {
+  left: 0;
+  margin-left: 35px;
+}
+
+/* 다음 버튼 스타일 */
+.next {
+  margin-left: 330px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* 마우스를 버튼 위로 올렸을 때 스타일 */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* 이미지 캡션 텍스트 스타일 */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* 이미지 페이드 애니메이션 스타일 */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
 }

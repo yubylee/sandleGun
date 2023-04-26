@@ -14,145 +14,153 @@
   </head>
 
   <body>
-    <!-- Header -->
-    <header id="header">
-      <div id="header-title"><a href="/sandle/index.html">SANDLE</a></div>
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no"
+        />
+        <title>SANDLE - 산들산들</title>
+        <link rel="stylesheet" href="/sandle/index.css" />
+        <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
+      </head>
 
-      <div id="login" class="login">
-        <a href="/sandle/auth/login_form.html">LOGIN</a>
-      </div>
+      <body>
+        <!-- Header -->
+        <header id="header">
+          <div id="header-title"><a href="/sandle/index.html">SANDLE</a></div>
 
-      <div id="logout" class="logout">
-        <a href="sandle/auth/logout" onclick="logout(); return false;">
-          LOGOUT</a
-        >
-      </div>
-
-      <div id="sign-up" class="sign-up">
-        <a href="/sandle/member/member.html">SIGN UP</a>
-      </div>
-
-      <div class="default_logo" id="default_logo">
-        <a href="/sandle/userPage/userPage.html"
-          ><span id="userEmail"></span
-        ></a>
-        <a href="/sandle/userPage/userPage.html"
-          ><img src="/sandle/assets/images/default_logo.jpg"
-        /></a>
-      </div>
-    </header>
-
-    <!-- Nav -->
-    <nav id="nav">
-      <ul>
-        <li class="current">
-          <a href="/sandle/index.html">산들 소개</a>
-          <ul>
-            <ol>
-              산들 소개
-            </ol>
-            <li><a href="#">산들산들을 소개합니다.</a></li>
-            <li><a href="#">제작 동기</a></li>
-          </ul>
-        </li>
-
-        <li>
-          <a href="/sandle/mountain_info/mountain_info.html"
-            >전국 등산로 정보</a
-          >
-        </li>
-
-        <li>
-          <a href="#">산악 소식</a>
-          <ul>
-            <ol>
-              산악 소식
-            </ol>
-            <li><a href="#">공지 사항</a></li>
-            <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
-            <li><a href="#">지역 행사 정보</a></li>
-            <li><a href="#">이벤트</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">커뮤니티</a>
-          <ul>
-            <ol>
-              커뮤니티
-            </ol>
-            <li><a href="/sandle/sandleboard/photofeed.html">포토 피드</a></li>
-            <li><a href="#">맛집 피드</a></li>
-            <li><a href="#">등산 일지</a></li>
-            <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-
-    <!-- 프로필 사진 변경 -->
-    <div id="top">
-      <div class="up">
-        <div class="user-photo-profile">
-          <div>
-            <a id="m-photo-origin"><img id="m-photo" class="edit" /></a>
+          <div id="login" class="login">
+            <a href="/sandle/auth/login_form.html">LOGIN</a>
           </div>
-          <button class="change-profile-photo-btn">프로필 사진 변경</button>
-        </div>
-        <div class="user-name">
-          <span id="f-name">name</span><br />
-          <span id="f-nickname">nickname</span>
-          <hr />
-        </div>
-      </div>
-    </div>
 
-    <!-- 모달창 -->
-    <div class="modal">
-      <div class="modal-content">
-        <form id="member-form" enctype="multipart/form-data">
-          <span class="close-modal-btn">&times;</span>
-          <h2>프로필 사진 변경</h2>
-          <div class="b-no">
-            <b>번호</b><br />
-            <input id="f-no" type="text" name="no" readonly />
+          <div id="logout" class="logout">
+            <a href="sandle/auth/logout" onclick="logout(); return false;">
+              LOGOUT</a
+            >
           </div>
-          <div class="b-profilePhoto">
-            <b>프로필 사진</b><br />
-            <td>
-              <a id="u-photo-origin"><img id="u-photo" class="edit" /></a>
-            </td>
+
+          <div id="sign-up" class="sign-up">
+            <a href="/sandle/member/member.html">SIGN UP</a>
           </div>
-          <input id="profile-photo" type="file" name="profilePhoto" />
-          <button id="btn-profile" type="button">업로드</button>
-        </form>
-      </div>
-    </div>
 
-    <hr />
+          <div id="profilePhoto" class="profilePhoto">
+            <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
+              <img id="u-photo" class="edit" />
+              <span id="userEmail"></span>
+            </a>
+          </div>
+        </header>
 
-    <div id="bottom">
-      <div id="user-button">
-        <div class="user1">
-          <a href="userUpdate.html">개인정보 변경</a>
-        </div>
-        <div class="user2">
-          <a href="">내 등산기록</a>
-        </div>
-        <div class="user3">
-          <a href="userBoard.html">게시물 관리</a>
-        </div>
-        <div class="user4">
-          <a href="/sandle/qna/list.html">1:1 문의</a>
-        </div>
-      </div>
-    </div>
+        <!-- Nav -->
+        <nav id="nav">
+          <ul>
+            <li>
+              <a href="/sandle/index.html">산들 소개</a>
+            </li>
 
-    <script src="userPage.js"></script>
-    <script src="modal.js"></script>
-    <script src="/sandle/assets/js/jquery.min.js"></script>
-    <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
-    <script src="/sandle/assets/js/breakpoints.min.js"></script>
-    <script src="/sandle/assets/js/util.js"></script>
-    <script src="/sandle/navLogin.js"></script>
+            <li>
+              <a href="/sandle/mountain_info/mountain_info.html"
+                >전국 등산로 정보</a
+              >
+            </li>
+
+            <li>
+              <a href="#">산악 소식</a>
+              <ul>
+                <ol>
+                  산악 소식
+                </ol>
+                <li><a href="/sandle/notice/list.html">공지 사항</a></li>
+                <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
+                <li>
+                  <a href="/sandle/festival/festival.html">지역 행사 정보</a>
+                </li>
+              </ul>
+            </li>
+            <li class="current">
+              <a href="#">커뮤니티</a>
+              <ul>
+                <ol>
+                  커뮤니티
+                </ol>
+                <li>
+                  <a href="/sandle/sandleboard/photofeed.html">포토 피드</a>
+                </li>
+                <li>
+                  <a href="/sandle/userPage/userPage.html">마이페이지</a>
+                </li>
+                <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- 프로필 사진 변경 -->
+        <div id="top">
+          <div class="up">
+            <div class="user-photo-profile">
+              <div>
+                <img id="m-photo" />
+              </div>
+              <button class="change-profile-photo-btn">프로필 사진 변경</button>
+            </div>
+            <div class="user-name">
+              <span id="f-name">name</span><br />
+              <span id="f-nickname">nickname</span>
+              <hr />
+            </div>
+          </div>
+        </div>
+
+        <!-- 모달창 -->
+        <div class="modal">
+          <div class="modal-content">
+            <form id="member-form" enctype="multipart/form-data">
+              <span class="close-modal-btn">&times;</span>
+              <h2>프로필 사진 변경</h2>
+              <div class="b-no">
+                <b>번호</b><br />
+                <input id="f-no" type="text" name="no" readonly />
+              </div>
+              <div class="b-profilePhoto"><b>프로필 사진</b><br /></div>
+              <img id="p-photo" />
+              <img id="selected-image" style="display: none" /><br />
+              <input id="profile-photo" type="file" name="profilePhoto" />
+              <button id="btn-profile" type="button">업로드</button>
+            </form>
+          </div>
+        </div>
+
+        <hr />
+
+        <div id="bottom">
+          <div id="user-button">
+            <div class="user1">
+              <a href="userUpdate.html">개인정보 변경</a>
+            </div>
+            <div class="user2">
+              <a href="">내 등산기록</a>
+            </div>
+            <div class="user3">
+              <a href="userBoard.html">게시물 관리</a>
+            </div>
+            <div class="user4">
+              <a href="/sandle/qna/list.html">1:1 문의</a>
+            </div>
+          </div>
+        </div>
+
+        <script src="modal.js"></script>
+        <script src="/sandle/assets/js/jquery.min.js"></script>
+        <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
+        <script src="/sandle/assets/js/breakpoints.min.js"></script>
+        <script src="/sandle/assets/js/util.js"></script>
+        <script src="userPage.js"></script>
+        <script src="/sandle/navLogin.js"></script>
+      </body>
+    </html>
   </body>
 </html>

@@ -26,6 +26,7 @@ public class MountainInfo {
 
   private int courseNo;
   private String courseName;
+  private String coursePath;
   private String length;
   private String time;
   private String level;

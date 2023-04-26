@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.myapp.dao.CommentDao">
+
+  <resultMap type="comment" id="commentMap">
+  <id column="comment_id" property="no"/>
+    <result column="board_id" property="boardNo"/>
+    <result column="member_id" property="writerNo"/>
+    <result column="cmt_content" property="commentContent"/>
+    <result column="writer_email" property="nickname"/>
+    <result column="profile_photo" property="profilePhoto"/>
+    <result column="created_date" property="createdDate"/>
+  </resultMap>
+
+
+<insert id="insert" parameterType="comment">
+  insert into hms_comment(member_id, board_id, cmt_content, writer_email) 
+  values(#{writerNo}, #{boardNo}, #{commentContent}, #{nickname})
+</insert>
+
+
+
+<!-- select 문 -->
+<select id="findByNo" parameterType="int" resultMap="commentMap">
+  SELECT 
+    c.comment_id,
+    c.cmt_content,
+    m.email,
+    m.member_id,
+    c.created_date
+  FROM 
+    hms_comment c
+    inner join hms_member m on c.member_id = m.member_id
+  WHERE 
+    comment_id = #{no}
+</select>
+  
+<!-- select 문 -->
+<select id="list" parameterType="int" resultMap="commentMap">
+  SELECT
+    c.board_id,
+    c.member_id, 
+    c.comment_id,
+    c.writer_email,
+    m.profile_photo,
+    c.cmt_content,
+    c.created_date
+  FROM 
+    hms_comment c
+    inner join hms_member m on c.member_id = m.member_id
+  WHERE 
+    board_id = #{no}
+    ORDER BY created_date DESC
+</select> 
+  
+<delete id="delete" parameterType="int">
+    delete from hms_comment 
+    where comment_id=#{no}
+</delete>
+
+<delete id="deleteBoard" parameterType="int">
+    delete from hms_comment 
+    where board_id=#{no}
+</delete>
+</mapper>
+
+
+
+
+

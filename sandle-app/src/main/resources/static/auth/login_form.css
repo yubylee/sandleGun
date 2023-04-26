@@ -48,26 +48,42 @@ input[type="checkbox"] {
   accent-color: #28544b;
 }
 
-.Social button.google-btn,
-.Social button.facebook-btn,
-.Social button.naver-btn,
-.Social button.kakao-btn {
-  width: 100%;
-  font-size: 18px;
-  margin: 0px 0px 10px;
-}
-.Social button.google-btn {
-  background-color: #26abfd;
-}
 .Social button.facebook-btn {
   background-color: #3f68be;
 }
 .Social button.naver-btn {
   background-color: #03c75a;
 }
-.Social button.kakao-btn {
-  background-color: #fee500;
+
+#google-login > ol {
+  width: 93%;
+  height: 30px;
+  font-size: 18px;
+  background-color: #26abfd;
+  box-shadow: 2px 2px 2px 2px black;
+  border-radius: 10px;
+  margin-bottom: 5px;
 }
+
+#kakao-login > ol {
+  width: 93%;
+  height: 30px;
+  font-size: 18px;
+  background-color: #fee500;
+  box-shadow: 2px 2px 2px 2px black;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#kakao-logout > ol {
+  width: 93%;
+  height: 30px;
+  font-size: 18px;
+  background-color: #fee500;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px black;
+}
+
 .Social {
   border-top: 1px solid #ddd;
   padding-top: 30px;

@@ -237,7 +237,7 @@ photo.addEventListener('mouseleave', function() {
               }
             })
             .catch((exception) => {
-              alert("삭제 중 오류 발생!");
+              // alert("삭제 중 오류 발생!");
               console.log(exception);
             });
         });
@@ -302,7 +302,7 @@ photo.addEventListener('mouseleave', function() {
           }
         })
         .catch((exception) => {
-          alert("삭제 중 오류 발생!");
+          // alert("삭제 중 오류 발생!");
           console.log(exception);
         });
     };
@@ -325,7 +325,7 @@ photo.addEventListener('mouseleave', function() {
             }
           })
           .catch((exception) => {
-            alert("삭제 중 오류 발생!");
+            // alert("삭제 중 오류 발생!");
             console.log(exception);
           });
       });
@@ -423,6 +423,8 @@ postClose.addEventListener("click", closeModal);
 
 
 
+
+
 const btnPost = document.getElementById("btn-post"); // 버튼 요소 가져오기
 
 btnPost.addEventListener("click", (event) => {
@@ -455,8 +457,6 @@ btnPost.addEventListener("click", (event) => {
       console.error(exception); // 오류 처리
     });
 });
-
-
 
 
 

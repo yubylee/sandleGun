@@ -30,13 +30,11 @@
         <a href="/sandle/member/member.html">SIGN UP</a>
       </div>
 
-      <div class="default_logo" id="default_logo">
-        <a href="/sandle/userPage/userPage.html"
-          ><span id="userEmail"></span
-        ></a>
-        <a href="/sandle/userPage/userPage.html"
-          ><img src="/sandle/assets/images/default_logo.jpg"
-        /></a>
+      <div id="profilePhoto" class="profilePhoto">
+        <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
+          <img id="u-photo" class="edit" />
+          <span id="userEmail"></span>
+        </a>
       </div>
     </header>
 
@@ -45,13 +43,6 @@
       <ul>
         <li class="current">
           <a href="/sandle/index.html">산들 소개</a>
-          <ul>
-            <ol>
-              산들 소개
-            </ol>
-            <li><a href="#">산들산들을 소개합니다.</a></li>
-            <li><a href="#">제작 동기</a></li>
-          </ul>
         </li>
 
         <li>
@@ -66,10 +57,9 @@
             <ol>
               산악 소식
             </ol>
-            <li><a href="#">공지 사항</a></li>
+            <li><a href="/sandle/notice/list.html">공지 사항</a></li>
             <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
-            <li><a href="#">지역 행사 정보</a></li>
-            <li><a href="#">이벤트</a></li>
+            <li><a href="/sandle/festival/festival.html">지역 행사 정보</a></li>
           </ul>
         </li>
         <li>
@@ -79,79 +69,443 @@
               커뮤니티
             </ol>
             <li><a href="/sandle/sandleboard/photofeed.html">포토 피드</a></li>
-            <li><a href="#">맛집 피드</a></li>
-            <li><a href="#">등산 일지</a></li>
+            <li>
+              <a href="/sandle/userPage/userPage.html">마이페이지</a>
+            </li>
             <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
           </ul>
         </li>
       </ul>
     </nav>
 
-    <!-- Banner -->
-    <section id="banner"></section>
+    <!-- content_top -->
+    <div class="about_top">
+      <div style="opacity: 1; transition: opacity 0.3s ease-in-out 0s">
+        <img
+          src="/sandle/assets/main-images/top.png"
+          width="1920"
+          height="1080"
+          class="top_image"
+          style="color: transparent"
+        />
+      </div>
+      <div class="about_top_inner">
+        <h1 class="about_top_title">About Sandle</h1>
+        <span class="about_top_content">We connect people to the nature</span>
+      </div>
+      <div class="top_arrow_area">
+        <button class="arrow_1 arrow_2 arrow_3" type="button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            role="presentation"
+            aria-hidden="true"
+            focusable="false"
+            style="
+              transition: transform 200ms ease-in-out;
+              transform: rotate(180deg);
+              height: 24px;
+              width: 24px;
+              fill: currentColor;
+            "
+          >
+            <path
+              d="M6.48 8.125a.75.75 0 0 0 1.06 1.06l3.71-3.708v15.156a.75.75 0 0 0 1.5 0V5.477l3.71 3.709a.75.75 0 1 0 1.06-1.06l-4.99-4.99a.75.75 0 0 0-1.06 0l-4.99 4.99Z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- content_navi  -->
+    <div class="content_navi">
+      <div class="styles_navBar__mfB01">
+        <span class="styles_heading400__WmiY3 styles_navTitle__4pK8U"
+          >About Sandle</span
+        >
+        <div
+          class="styles_tabBar__Mj4or _3Z2U53jyl6Jg1PMfOeeiog== _4y9laQPKvTIfaKoIOXRyNQ=="
+        >
+          <div class="tab_button_box tab_button_box2" role="tablist">
+            <button
+              class="tab_button tab_initial"
+              data-section-id="who-we-are"
+              role="tab"
+              tabindex="0"
+              type="button"
+            >
+              <span>Who we are</span></button
+            ><button
+              class="tab_button"
+              data-section-id="our-values"
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              <span>Our values</span></button
+            ><button
+              class="tab_button"
+              data-section-id="our-culture"
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              <span>Our culture</span>
+            </button>
+            <div
+              class="tab_underline"
+              style="
+                width: 89px;
+                left: 0px;
+                transition: all 0.4s ease-in-out 0s;
+              "
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- who we are -->
+    <div id="who-we-are" class="section">
+      <div class="styles_container__SoxzY">
+        <div
+          class="styles_heading600__ckoZo styles_mb24__HCjpR styles_primary__k4jWY styles_header___ZKKs"
+        >
+          We believe hiking is what
+          <span class="styles_greenHeader__hc5YP">unites us all</span>
+        </div>
+        <div
+          class="styles_text300__ETJg0 styles_mb64__2kYLy styles_primary__k4jWY styles_subHeader__yTBIN"
+        >
+          <span class="styles_boldSubHeader__2q2Z7">Our mission:</span>
+          Spark a passion for adventure
+        </div>
+        <div class="collageStyles_collage__P0OQO">
+          <div
+            class="collageStyles_collageCol__PFfjz collageStyles_leftCol__ZxYO5"
+          >
+            <div class="collageStyles_wideImage__6Sw17">
+              <div style="opacity: 1; transition: opacity 0.3s ease-in-out 0s">
+                <img
+                  src="/sandle/assets/main-images/img1.png"
+                  width="720"
+                  height="358"
+                  class="collageStyles_collageImage__VGnou"
+                  loading="lazy"
+                  style="color: transparent"
+                />
+              </div>
+            </div>
+            <div
+              class="collageStyles_collageRow__mS_Jw collageStyles_bottomRow__ilq2u"
+            >
+              <div class="">
+                <div
+                  style="opacity: 1; transition: opacity 0.3s ease-in-out 0s"
+                >
+                  <img
+                    src="/sandle/assets/main-images/img2.png"
+                    width="351"
+                    height="240"
+                    class="collageStyles_collageImage__VGnou"
+                    loading="lazy"
+                    style="color: transparent"
+                  />
+                </div>
+              </div>
+              <div class="">
+                <div
+                  style="opacity: 1; transition: opacity 0.3s ease-in-out 0s"
+                >
+                  <img
+                    src="/sandle/assets/main-images/img3.png"
+                    width="351"
+                    height="240"
+                    class="collageStyles_collageImage__VGnou"
+                    loading="lazy"
+                    style="color: transparent"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="collageStyles_collageCol__PFfjz collageStyles_rightCol__2ig9c"
+          >
+            <div class="">
+              <div style="opacity: 1; transition: opacity 0.3s ease-in-out 0s">
+                <img
+                  src="/sandle/assets/main-images/img4.png"
+                  width="300"
+                  height="300"
+                  class="collageStyles_collageImage__VGnou"
+                  loading="lazy"
+                  style="color: transparent"
+                />
+              </div>
+            </div>
+            <div class="">
+              <div style="opacity: 1; transition: opacity 0.3s ease-in-out 0s">
+                <img
+                  src="/sandle/assets/main-images/img5.png"
+                  width="300"
+                  height="300"
+                  class="collageStyles_collageImage__VGnou"
+                  loading="lazy"
+                  style="color: transparent"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- our_values -->
+    <div id="our-values" class="section">
+      <div class="styles_container__3blin">
+        <div class="styles_innerContainer__zyX36">
+          <div class="styles_textContainer__39Y0Y styles_title__YXDEJ">
+            <h2
+              class="styles_heading600__ckoZo styles_mb16__O3cMp styles_header__BZyJc"
+            >
+              Values inspired by the hiking
+            </h2>
+            <div class="styles_text300__ETJg0">
+              산들(Sandle)은 모두가 자연 속에서 시간을 보내면 더 나은 사람이 될
+              수 있다는 생각에서 출발했습니다. 등산은 우리에게 도전을 제공하며,
+              어려움을 극복하면서 성취감을 느낄 수 있습니다. 이는 자신감을
+              강화하고, 문제 해결 능력을 향상시키며, 삶의 목표에 대한 생각을
+              가질 수 있는 계기가 됩니다.
+            </div>
+          </div>
+          <div class="styles_textContainer__39Y0Y">
+            <div class="styles_valueContainer__h3WV3">
+              <div class="styles_heading400__WmiY3 styles_value__jAqEU">
+                Achieve Harmony with Nature
+              </div>
+              <div
+                class="styles_text200__7X2_O styles_mb16__O3cMp styles_valueDesc__rJvT_"
+              >
+                자연과 조화를 이루며 지속 가능한 삶의 방식을 모색합니다.
+              </div>
+            </div>
+            <div class="styles_valueContainer__h3WV3">
+              <div class="styles_heading400__WmiY3 styles_value__jAqEU">
+                Embrace Challenges
+              </div>
+              <div
+                class="styles_text200__7X2_O styles_mb16__O3cMp styles_valueDesc__rJvT_"
+              >
+                어려움과 위험 요소를 동반하지만, 이를 극복하면서 자신의 한계를
+                넘어 성취감을 느끼며, 삶의 목표를 향해 전진하는 원동력이 됩니다.
+              </div>
+            </div>
+            <div class="styles_valueContainer__h3WV3">
+              <div class="styles_heading400__WmiY3 styles_value__jAqEU">
+                Cultivate Inner Growth
+              </div>
+              <div
+                class="styles_text200__7X2_O styles_mb16__O3cMp styles_valueDesc__rJvT_"
+              >
+                육체적인 능력뿐 아니라, 인내와 근성을 키우는데 큰 도움을 줍니다.
+              </div>
+            </div>
+            <div class="styles_valueContainer__h3WV3">
+              <div class="styles_heading400__WmiY3 styles_value__jAqEU">
+                Collaboration & Communication
+              </div>
+              <div
+                class="styles_text200__7X2_O styles_mb16__O3cMp styles_valueDesc__rJvT_"
+              >
+                안전한 등산을 위해서는 팀워크, 소통, 상호 존중이 중요합니다.
+                이를 통해 더욱 원활한 소통과 협력이 가능해집니다.
+              </div>
+            </div>
+            <div class="styles_valueContainer__h3WV3">
+              <div class="styles_heading400__WmiY3 styles_value__jAqEU">
+                Pursue Self-Development
+              </div>
+              <div
+                class="styles_text200__7X2_O styles_mb16__O3cMp styles_valueDesc__rJvT_"
+              >
+                자신에 대한 깊은 생각을 할 수 있으며, 이를 통해 자신의 성장을
+                추구합니다.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- our_culture -->
+    <div id="our-culture" class="section">
+      <div class="styles_container__NunAZ">
+        <div role="button" tabindex="0" class="styles_embedFlex__xpo__">
+          <div class="styles_embedContainer__Sbcif">
+            <div style="opacity: 1; transition: opacity 0.3s ease-in-out 0s">
+              <img
+                src="/sandle/assets/main-images/img6.png"
+                width="2560"
+                height="1440"
+                class="styles_embedVid__3NHjj"
+                loading="lazy"
+                style="color: transparent"
+              />
+              <iframe
+                class="styles_embedVid__3NHjj"
+                src="https://www.youtube.com/embed/hOx_XnVLJU0?autoplay=1"
+                frameborder="0"
+                allowfullscreen
+                style="display: none"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="styles_textContent__HYVg8">
+          <h2
+            class="styles_heading700__xu3SR styles_mb8__XFu5S styles_header__HHhZL"
+          >
+            The Endless Joys in Nature
+          </h2>
+          <div class="styles_text300__ETJg0 styles_mb32__nmAdc">
+            자연 속에서 시간을 보낼수록, 우리의 삶을 더욱 풍요롭게 만듦을
+            발견합니다. 자기 자신, 살아가는 환경, 그리고 우리 주변의 사람들과
+            더욱 깊게 연결됩니다.
+            <br /><br />우리 모두는 탐험가입니다. <br /><br />
+            새로운 경험과 연결을 찾아 자연의 놀이터에서 함께 탐험하며 자연의
+            아름다움을 만끽해보세요!
+          </div>
+          <div class="styles_divider__8zyVu"></div>
+          <div class="styles_statsContainer__r7a4X">
+            <div class="styles_stat__0Ctnu">
+              <div
+                class="styles_heading600__ckoZo styles_primary__k4jWY styles_title__0MNwh"
+              >
+                2.9k+
+              </div>
+              <div class="styles_text300bold__COLDk styles_subtitle__c25ZA">
+                Total courses
+              </div>
+            </div>
+            <div class="styles_stat__0Ctnu">
+              <div
+                class="styles_heading600__ckoZo styles_primary__k4jWY styles_title__0MNwh"
+              >
+                10,000 km
+              </div>
+              <div class="styles_text300bold__COLDk styles_subtitle__c25ZA">
+                Course length
+              </div>
+            </div>
+            <div class="styles_stat__0Ctnu">
+              <div
+                class="styles_heading600__ckoZo styles_primary__k4jWY styles_title__0MNwh"
+              >
+                1
+              </div>
+              <div class="styles_text300bold__COLDk styles_subtitle__c25ZA">
+                Only community
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Container -->
     <section id="intro">
-      <div id="row">
-        <div id="intro-menu1">
-          <div id="main_images">
-            <a href="/sandle/mountain_info/mountain_info.html"
-              ><img
-                src="/sandle/assets/images/main_image_1.jpg"
-                id="main-images"
-            /></a>
-          </div>
-          <h4>
-            <a href="/sandle/mountain_info/mountain_info.html"
-              ><h3>전국 등산로 정보</h3></a
-            >
-          </h4>
-          <p>전국 등산로를 한번에 찾아 보세요</p>
+      <div id="intro-menu1">
+        <div id="main_images">
+          <a href="/sandle/mountain_info/mountain_info.html"
+            ><img src="/sandle/assets/images/main_image_1.jpg" id="main-images"
+          /></a>
         </div>
-        <div id="intro-menu2">
-          <div id="main_images">
-            <a href="/sandle/sandleboard/photofeed.html"
-              ><img
-                src="/sandle/assets/images/main_image_2.jpg"
-                id="main-images"
-            /></a>
-          </div>
-          <h4>
-            <a href="/sandle/sandleboard/photofeed.html"><h3>커뮤니티</h3></a>
-          </h4>
-          <p>등산했던 산과 여러 정보를 공유해보세요</p>
-        </div>
+        <h4>
+          <a href="/sandle/mountain_info/mountain_info.html"
+            ><h3>전국 등산로 정보</h3></a
+          >
+        </h4>
+        <p>전국 등산로를 한번에 찾아 보세요</p>
       </div>
-      <div id="row">
-        <div id="intro-menu3">
-          <div id="main_images">
-            <a href="/sandle/news/news.html"
-              ><img
-                src="/sandle/assets/images/main_image_3.jpg"
-                id="main-images"
-            /></a>
-          </div>
-          <h4>
-            <a href="/sandle/news/news.html"><h3>산악 소식</h3></a>
-          </h4>
-          <p>산악뉴스를 통해 빠르게 소식을 받아보세요</p>
+      <div id="intro-menu2">
+        <div id="main_images">
+          <a href="/sandle/sandleboard/photofeed.html"
+            ><img src="/sandle/assets/images/main_image_2.jpg" id="main-images"
+          /></a>
         </div>
+        <h4>
+          <a href="/sandle/sandleboard/photofeed.html"><h3>커뮤니티</h3></a>
+        </h4>
+        <p>등산했던 산과 여러 정보를 공유해보세요</p>
+      </div>
+      <div id="intro-menu3">
+        <div id="main_images">
+          <a href="/sandle/news/news.html"
+            ><img src="/sandle/assets/images/main_image_3.jpg" id="main-images"
+          /></a>
+        </div>
+        <h4>
+          <a href="/sandle/news/news.html"><h3>산악 소식</h3></a>
+        </h4>
+        <p>산악뉴스를 통해 빠르게 소식을 받아보세요</p>
+      </div>
 
-        <div id="intro-menu4">
-          <div id="main_images">
-            <a href="#"
-              ><img
-                src="/sandle/assets/images/main_image_4.jpg"
-                id="main-images"
-            /></a>
-          </div>
-          <h4>
-            <a href="#"><h3>이벤트 정보</h3></a>
-          </h4>
-          <p>행사정보나 맛집 정보를 알려드립니다.</p>
+      <div id="intro-menu4">
+        <div id="main_images">
+          <a href="#"
+            ><img src="/sandle/assets/images/main_image_4.jpg" id="main-images"
+          /></a>
         </div>
+        <h4>
+          <a href="#"><h3>지역 행사 정보</h3></a>
+        </h4>
+        <p>전국 지역 행사정보를 알려드립니다.</p>
       </div>
     </section>
+
+    <!-- bottom_photo -->
+    <div class="styles_container__DxySU">
+      <div style="opacity: 1; transition: opacity 0.3s ease-in-out 0s">
+        <img
+          sizes="100vw"
+          src="/sandle/assets/main-images/bottom.png"
+          class="styles_heroImage__18Q8d"
+          loading="lazy"
+          style="
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            inset: 0px;
+            color: transparent;
+          "
+        />
+      </div>
+      <div class="styles_contentContainer__aNDsr">
+        <div class="styles_heading700__xu3SR styles_mb8__XFu5S">
+          발걸음을 함께 해요
+        </div>
+        <div class="styles_text300__ETJg0 styles_mb24__HCjpR">
+          <br />
+          새로운 챕터를 열 준비가 되셨나요?<br />
+          함께 이야기를 만들고 싶나요?<br />
+          등산의 기쁨을 함께 느껴요.
+        </div>
+        <div class="styles_ctaContainer___kr0d">
+          <a
+            href="/sandle/member/member.html"
+            class="styles_ctaButton__PxbFE GiyqJKhU9Wi22cfIGuPzKA== wP2SH2JrfFE589d9aAJxGA== q4PKlCIJK6EpJIZLpeiCHg=="
+            tabindex="0"
+            ><span style="color: white">가입하기</span></a
+          ><a
+            href="/sandle/mountain_info/mountain_info.html"
+            class="styles_ctaButton__PxbFE GiyqJKhU9Wi22cfIGuPzKA== wP2SH2JrfFE589d9aAJxGA== yInh8YFKk+PYfGixnBuVOg=="
+            tabindex="0"
+            ><span style="color: black">둘러보기</span></a
+          >
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer id="footer">

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.myapp.dao.SandleBoardDao">
+
+  <resultMap type="sandleboard" id="sandleboardMap">
+    <id column="board_id" property="no"/>
+    <result column="content" property="content"/>
+    <result column="tag" property="tag"/>
+    <result column="photo" property="fileName"/>
+    <result column="nickname" property="nickname"/>
+    <result column="profile_photo" property="profilePhoto"/>
+    <result column="member_id" property="writerNo"/>
+    <result column="created_date" property="createdDate"/>
+    
+     <collection property="attachedFiles" ofType="boardfile">
+      <id column="boardfile_id" property="no"/>
+      <result column="filepath" property="filepath"/>
+      <result column="photo" property="photo"/>
+      <result column="origin_filename" property="originalFilename"/>
+      <result column="mime_type" property="mimeType"/>
+      <result column="board_id" property="boardNo"/>
+    </collection>
+    
+    <collection property="comments" ofType="comment">
+      <id column="comment_id" property="no"/>
+      <result column="board_id" property="boardNo"/>
+      <result column="cmt_content" property="commentContent"/>
+      <result column="created_date" property="createdDate"/>
+    </collection>
+  </resultMap>
+
+  <insert id="insert" parameterType="sandleboard" 
+          useGeneratedKeys="true" keyColumn="board_id" keyProperty="no">
+INSERT INTO hms_board (member_id, content, tag)
+values (#{writerNo}, #{content}, #{tag})
+  </insert>
+
+
+  <select id="findAll" resultMap="sandleboardMap">
+    select 
+      b.board_id, 
+      b.content,
+      b.tag,
+      b.created_date, 
+      m.photo 
+    from 
+      hms_board b
+      inner join hms_photo m on b.board_id = m.board_id
+  </select>
+
+    <select id="findUserBoard" resultMap="sandleboardMap" parameterType="int">
+    select 
+      b.board_id, 
+      b.content,
+      b.created_date, 
+      m.photo 
+    from 
+      hms_board b
+      inner join hms_photo m on b.board_id = m.board_id
+      inner join hms_member a on b.member_id = a.member_id
+    where
+      b.member_id = #{no}
+  </select>
+
+  <select id="findByNo" parameterType="int" resultMap="sandleboardMap">
+select 
+      b.board_id, 
+      b.content,      
+      b.tag,
+      b.created_date, 
+      m.photo,
+      s.nickname,
+      s.profile_photo,
+      c.comment_id,
+      c.writer_email,
+      c.cmt_content,
+      c.created_date
+    from 
+      hms_board b
+      inner join hms_photo m on b.board_id = m.board_id
+      left outer join hms_comment c on b.board_id = c.board_id
+      inner join hms_member s on b.member_id = s.member_id
+    where 
+      b.board_id=#{no}
+  </select>
+  
+  <delete id="deleteUserBoard" parameterType="int">
+    delete from hms_board 
+    where board_id=#{no}
+</delete>
+
+  <update id="updateBoard" parameterType="sandleBoard">
+    update hms_board set 
+      tag=#{tag}, 
+      content=#{content}
+    where board_id=#{no}
+  </update>
+</mapper>
+
+
+
+
+

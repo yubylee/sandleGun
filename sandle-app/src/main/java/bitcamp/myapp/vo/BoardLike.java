@@ -1,3 +1,4 @@
+
 package bitcamp.myapp.vo;
 
 import lombok.Data;

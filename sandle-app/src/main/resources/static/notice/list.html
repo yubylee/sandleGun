@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <title>SANDLE - 산들산들</title>
+    <link rel="stylesheet" href="list.css" />
+    <link rel="stylesheet" href="/sandle/index.css" />
+    <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no"
+        />
+        <title>SANDLE - 산들산들</title>
+        <link rel="stylesheet" href="/sandle/index.css" />
+        <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
+      </head>
+
+      <body>
+        <!-- Header -->
+        <header id="header">
+          <div id="header-title"><a href="/sandle/index.html">SANDLE</a></div>
+
+          <div id="login" class="login">
+            <a href="/sandle/auth/login_form.html">LOGIN</a>
+          </div>
+
+          <div id="logout" class="logout">
+            <a href="sandle/auth/logout" onclick="logout(); return false;">
+              LOGOUT</a
+            >
+          </div>
+
+          <div id="sign-up" class="sign-up">
+            <a href="/sandle/member/member.html">SIGN UP</a>
+          </div>
+
+          <div id="profilePhoto" class="profilePhoto">
+            <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
+              <img id="u-photo" class="edit" />
+              <span id="userEmail"></span>
+            </a>
+          </div>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+          <ul>
+            <li>
+              <a href="/sandle/index.html">산들 소개</a>
+            </li>
+
+            <li>
+              <a href="/sandle/mountain_info/mountain_info.html"
+                >전국 등산로 정보</a
+              >
+            </li>
+
+            <li class="current">
+              <a href="#">산악 소식</a>
+              <ul>
+                <ol>
+                  산악 소식
+                </ol>
+                <li><a href="/sandle/notice/list.html">공지 사항</a></li>
+                <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
+                <li>
+                  <a href="/sandle/festival/festival.html">지역 행사 정보</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">커뮤니티</a>
+              <ul>
+                <ol>
+                  커뮤니티
+                </ol>
+                <li>
+                  <a href="/sandle/sandleboard/photofeed.html">포토 피드</a>
+                </li>
+                <li>
+                  <a href="/sandle/userPage/userPage.html">마이페이지</a>
+                </li>
+                <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+
+        <container>
+          <section class="notice">
+            <div class="page-title">
+              <div class="container">
+                <h3>공지사항</h3>
+                <div>
+                  <a id="new" href="form.html" style="display: none">NEW</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- board seach area -->
+
+            <div id="board-search">
+              <div class="container">
+                <div class="search-window">
+                  <form action="list" method="get">
+                    <div class="search-wrap">
+                      <label for="search" class="blind"
+                        >공지사항 게시판 내용 검색</label
+                      >
+                      <input
+                        id="search"
+                        type="text"
+                        name="keyword"
+                        placeholder="검색어를 입력해주세요."
+                        value=""
+                      />
+                      <button type="submit" class="btn btn-dark">검색</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- board list area -->
+
+          <div id="accordion-form">
+            <div class="accordion"></div>
+          </div>
+        </container>
+
+        <!-- Footer -->
+        <footer id="footer">
+          <div id="footer-title">
+            <p>SANDLE</p>
+          </div>
+
+          <div id="creater">
+            <div id="creater-name-email">
+              <h2>creater</h2>
+              팀장 : 서영훈 | <a>email : darktemi@nate.com</a><br />
+              조원 : 안진수 | <a>email : </a><br />
+              조원 : 김종현 | <a>email : </a><br />
+              조원 : 이건형 | <a>email : </a><br />
+              조원 : 박경한 | <a>email : </a>
+            </div>
+            <div id="creater-github">
+              <a href="#" id="git"></a>
+              <a href="#" id="git"></a>
+              <a href="#" id="git"></a>
+              <a href="#" id="git"></a>
+              <a href="#" id="git"></a>
+            </div>
+          </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script id="tr-template" type="text/x-handlebars-template">
+          {{#each this}}
+            <div>
+              <tr>
+                <td>{{boardId}}</td>
+                <td>
+                  <a href="view.html?boardId={{boardId}}">{{title}}</a></td>
+                <td>{{createdDate}}</td>
+              </tr>
+            </div>
+            <div></div>
+          {{/each}}
+        </script>
+
+        <script src="../node_modules/handlebars/dist/handlebars.js"></script>
+        <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
+        <script src="/sandle/assets/js/breakpoints.min.js"></script>
+        <script src="/sandle/assets/js/util.js"></script>
+        <script src="/sandle/navLogin.js"></script>
+        <script>
+          const template = Handlebars.compile(
+            document.querySelector("#tr-template").innerHTML
+          );
+
+          $(function () {
+            $("#accordion").accordion();
+          });
+
+          fetch("../notices")
+            .then((response) => {
+              return response.json();
+            })
+            .then((result) => {
+              console.log(result);
+              $(".accordion").html(template(result.data));
+              $(".accordion").accordion({
+                collapsible: true,
+                active: false,
+              });
+            });
+
+          fetch("../auth/user")
+            .then((response) => {
+              return response.json();
+            })
+            .then((result) => {
+              console.log(result);
+
+              let member = result.data;
+
+              if (member.email == "darktemi90@nate.com") {
+                document.getElementById("new").style.display = "inline-block";
+              }
+            });
+        </script>
+      </body>
+    </html>
+  </body>
+</html>

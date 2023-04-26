@@ -2,6 +2,7 @@ package bitcamp.myapp.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import bitcamp.myapp.service.ObjectStorageService;
 import bitcamp.myapp.service.SandleBoardService;
+import bitcamp.myapp.vo.BoardFile;
 import bitcamp.myapp.vo.Comment;
 import bitcamp.myapp.vo.Member;
 import bitcamp.myapp.vo.SandleBoard;
@@ -34,32 +36,33 @@ public class SandleBoardController {
   @PostMapping("/post")
   public Object insert(
       SandleBoard sandleBoard,
-      MultipartFile files,
-      HttpSession session) {
-
+      List<MultipartFile> files,
+      HttpSession session) throws Exception {
 
     Member loginUser = (Member) session.getAttribute("loginUser");
-
-
-
     sandleBoard.setWriterNo(loginUser.getNo());
     sandleBoard.setNickname(loginUser.getNickname());
     System.out.println(files);
-    //    for (MultipartFile file : files) {
-    String filename = objectStorageService.uploadFile(bucketName, "photofeed/", files);
-    sandleBoard.setFileName(filename);
-    //      if (filename == null) {
-    //        continue;
-    //      }
-    //
-    //      BoardFile boardFile = new BoardFile();
-    //      boardFile.setOriginalFilename(file.getOriginalFilename());
-    //      boardFile.setFilepath(filename);
-    //      boardFile.setMimeType(file.getContentType());
-    //      boardFiles.add(boardFile);
-    //    }
-    sandleBoard.setAttachedFiles(new ArrayList<>());
 
+    List<BoardFile> boardFiles = new ArrayList<>();
+    for (MultipartFile file : files) {
+      String filename = objectStorageService.uploadFile(bucketName, "photofeed/", file);
+      System.out.println(file);
+      if (filename == null) {
+        continue;
+      }
+
+      //      sandleBoard.setFileName(filename);
+
+
+      BoardFile boardFile = new BoardFile();
+      //      boardFile.setOriginalFilename(file.getOriginalFilename());
+      boardFile.setPhoto(filename);
+      //      boardFile.setMimeType(file.getContentType());
+      boardFiles.add(boardFile);
+    }
+
+    sandleBoard.setAttachedFiles(boardFiles);
 
     sandleBoardService.add(sandleBoard);
 

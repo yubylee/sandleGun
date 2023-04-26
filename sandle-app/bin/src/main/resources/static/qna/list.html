@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <title>SANDLE - 산들산들</title>
+    <link rel="stylesheet" href="/sandle/index.css" />
+    <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
+    <script src="../node_modules/handlebars/dist/handlebars.js"></script>
+    <style>
+      #head {
+        font-size: 30px;
+        font-weight: 900;
+        text-align: center;
+        color: #28544b;
+        margin: 0;
+      }
+
+      .qna-index {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .qna-list {
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: 5px;
+        margin-top: 50px;
+        width: 80%;
+        overflow: auto;
+        padding: 30px;
+      }
+
+      #qna-list-form {
+        float: left;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      #btns button {
+        float: right;
+        background-color: #28544b;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .qna-tbl-common {
+        margin-bottom: 30px;
+      }
+
+      .qna-tbl-common table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .qna-tbl-common th,
+      .qna-tbl-common td {
+        border: 1px solid #e5e5e5;
+        padding: 10px;
+        text-align: center;
+        font-size: 14px;
+      }
+
+      .qna-tbl-common th {
+        background-color: #f5f5f5;
+        color: #666;
+        font-weight: normal;
+      }
+
+      .icon-qna-new {
+        background-color: #28544b;
+        color: white;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-size: 12px;
+        margin-left: 5px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div id="header-title"><a href="/sandle/index.html">SANDLE</a></div>
+
+      <div id="login" class="login">
+        <a href="/sandle/auth/login_form.html">LOGIN</a>
+      </div>
+
+      <div id="logout" class="logout">
+        <a href="sandle/auth/logout" onclick="logout(); return false;">
+          LOGOUT</a
+        >
+      </div>
+
+      <div id="sign-up" class="sign-up">
+        <a href="/sandle/member/member.html">SIGN UP</a>
+      </div>
+
+      <div id="profilePhoto" class="profilePhoto">
+        <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
+          <img id="u-photo" class="edit" />
+          <span id="userEmail"></span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Nav -->
+    <nav id="nav">
+      <ul>
+        <li class="current">
+          <a href="/sandle/index.html">산들 소개</a>
+          <ul>
+            <ol>
+              산들 소개
+            </ol>
+            <li><a href="#">산들산들을 소개합니다.</a></li>
+            <li><a href="#">제작 동기</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="/sandle/mountain_info/mountain_info.html"
+            >전국 등산로 정보</a
+          >
+        </li>
+
+        <li>
+          <a href="#">산악 소식</a>
+          <ul>
+            <ol>
+              산악 소식
+            </ol>
+            <li><a href="/sandle/notice/list.html">공지 사항</a></li>
+            <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
+            <li><a href="#">지역 행사 정보</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">커뮤니티</a>
+          <ul>
+            <ol>
+              커뮤니티
+            </ol>
+            <li><a href="/sandle/sandleboard/photofeed.html">포토 피드</a></li>
+            <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Q&A 내역 -->
+    <main class="qna-index">
+      <div id="head">
+        <p>1:1 문의내역</p>
+      </div>
+      <div class="qna-list">
+        <form id="qna-list-form" action="list" method="get">
+          <input type="text" name="keyword" value="" />
+          <button>검색</button>
+        </form>
+
+        <div id="btns">
+          <button id="new-qna">새 문의글 작성</button>
+        </div>
+        <br />
+
+        <div class="qna-tbl-common">
+          <table>
+            <colgroup>
+              <col style="width: 10%" />
+              <col style="width: 10%" />
+              <col style="width: 25%" />
+              <col style="width: 20%" />
+              <col style="width: 20%" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">번호</th>
+                <th scope="col">닉네임</th>
+                <th scope="col">제목</th>
+                <th scope="col">날짜</th>
+                <th scope="col">처리상태</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+    <br /><br />
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div id="footer-title">
+        <p>SANDLE</p>
+      </div>
+
+      <div id="creater">
+        <div id="creater-name-email">
+          <h2>creater</h2>
+          팀장 : 서영훈 | <a>email : darktemi@nate.com</a><br />
+          조원 : 안진수 | <a>email : </a><br />
+          조원 : 김종현 | <a>email : </a><br />
+          조원 : 이건형 | <a>email : </a><br />
+          조원 : 박경한 | <a>email : </a>
+        </div>
+        <div id="creater-github">
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script id="qna-template" type="text/x-handlebars-template">
+      {{#each this}}
+        <tr class="qna-list-tbl">
+          <td>{{no}}</td>
+          <td>{{nickname}}</td>
+          <td>
+            <a href="view.html?no={{no}}">{{title}}<span
+                class="icon-qna-new"
+              >New</span></a>
+          </td>
+          <td>{{createdDate}}</td>
+          <td>
+            <span class="t_color01">{{response}}</span>
+          </td>
+        </tr>
+      {{/each}}
+    </script>
+    <script>
+      getQna();
+
+      const template = Handlebars.compile(
+        document.querySelector("#qna-template").innerHTML
+      );
+
+      function getQna(keyword) {
+        let qs = "";
+        if (keyword) {
+          qs = `?keyword=${keyword}`;
+        }
+
+        fetch("../qnas" + qs)
+          .then((response) => {
+            return response.json();
+          })
+          .then((result) => {
+            console.log(result.data);
+            $("tbody").html(template(result.data));
+          });
+      }
+
+      document.getElementById("new-qna").addEventListener("click", () => {
+        location.href = "form.html";
+      });
+    </script>
+    <script src="/sandle/assets/js/jquery.min.js"></script>
+    <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
+    <script src="/sandle/assets/js/breakpoints.min.js"></script>
+    <script src="/sandle/assets/js/util.js"></script>
+    <script src="/sandle/navLogin.js"></script>
+  </body>
+</html>

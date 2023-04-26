@@ -9,6 +9,16 @@
     <id column="member_id" property="memberNo"/>
   </resultMap>
 
+  <select id="likeState" parameterType="boardLike" resultType="int">
+    select count(board_id) from hms_board_like
+    where board_id=#{boardNo} and member_id=#{memberNo}
+  </select>
+
+  <select id="likeCount" parameterType="int" resultType="int">
+    select count(member_id) from hms_board_like 
+    where board_id=#{boardNo}
+  </select>
+
   <insert id="insert" parameterType="boardLike">
     insert into hms_board_like(board_id, member_id)
     values(#{boardNo}, #{memberNo})
@@ -17,6 +27,11 @@
   <delete id="delete" parameterType="boardLike">
     delete from hms_board_like
     where board_id=#{boardNo} and member_id=#{memberNo}
+  </delete>
+  
+  <delete id="deleteBoard" parameterType="int">
+    delete from hms_board_like 
+    where board_id=#{no}
   </delete>
 </mapper>
 

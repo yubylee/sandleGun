@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.myapp.dao.MemberDao">
+
+  <resultMap type="member" id="memberMap">
+    <id column="member_id" property="no"/>
+    <result column="name" property="name"/>
+    <result column="tel" property="tel"/>
+    <result column="email" property="email"/>
+    <result column="profile_photo" property="profilePhoto"/>
+    <result column="post_no" property="postNo"/>
+    <result column="basic_address" property="basicAddress"/>
+    <result column="detail_address" property="detailAddress"/>
+    <result column="authority" property="authority"/>
+    <result column="birth" property="birth"/>
+    <result column="created_date" property="createdDate"/>
+  </resultMap>
+
+  <insert id="insert" parameterType="member" 
+          useGeneratedKeys="true" keyProperty="no" keyColumn="member_id">
+    insert into hms_member(
+      name,
+      tel,
+      email,
+      profile_photo,
+      password,
+      nickname,
+      post_no,
+      basic_address,
+      detail_address,
+      authority, birth)
+    values(#{name}, #{tel}, #{email}, #{profilePhoto}, sha2(#{password},256), #{nickname}, #{postNo}, #{basicAddress}, #{detailAddress}, #{authority}, #{birth})
+  </insert>
+
+  <select id="findAll" resultMap="memberMap" parameterType="String">
+    select 
+      member_id, 
+      name,
+      tel,
+      email,
+      profile_photo,
+      nickname,
+      post_no,
+      basic_address,
+      detail_address,
+      birth,
+      created_date, 
+      authority
+    from 
+      hms_member
+    order by 
+      member_id desc
+  </select>
+
+  <select id="findByNo" parameterType="int" resultMap="memberMap">
+    select 
+      member_id,
+      name,
+      tel,
+      email,
+      nickname,
+      profile_photo,
+      post_no,
+      basic_address,
+      detail_address,
+      birth
+    from 
+      hms_member
+    where 
+      member_id=#{no}
+  </select>
+  
+    <select id="findByEmailAndPassword" parameterType="map" resultMap="memberMap">
+    select
+      member_id,
+      name,
+      tel,
+      email,
+      profile_photo,
+      nickname,
+      post_no,
+      basic_address,
+      detail_address,
+      authority,
+      birth,
+      created_date 
+    from 
+      hms_member
+    where 
+      email = #{email}
+      and password = sha2(#{password},256)
+  </select>
+  
+  <select id="findByEmail" parameterType="string" resultMap="memberMap">
+    select
+      member_id,
+      name,
+      tel,
+      email,
+      profile_photo,
+      nickname,
+      post_no,
+      basic_address,
+      detail_address,
+      authority,
+      birth,
+      created_date 
+    from 
+      hms_member
+    where 
+      email = #{email}
+  </select>
+  
+  <update id="update" parameterType="member">
+    update hms_member set
+      nickname=#{nickname},
+      post_no=#{postNo},
+      basic_address=#{basicAddress},
+      detail_address=#{detailAddress},
+      email=#{email},
+      <if test="profilePhoto != null"> 
+        profile_photo=#{profilePhoto},
+      </if>
+      password=sha2(#{password},256),
+      tel=#{tel}
+    where member_id=#{no}
+  </update>
+  
+  <update id="updateProfile" parameterType="member">
+    update hms_member set
+      profile_photo=#{profilePhoto}
+    where member_id=#{no}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from hms_member
+    where member_id=#{no}
+  </delete>
+  
+    <!-- 아이디 중복 체크 -->
+  <select id="idCheck" parameterType="String" resultType="int">
+    SELECT COUNT(email) FROM hms_member WHERE email= #{email}
+  </select>
+
+      <!-- 닉네임 중복 체크 -->
+  <select id="nickCheck" parameterType="String" resultType="int">
+    SELECT COUNT(nickname) FROM hms_member WHERE nickname= #{nickname}
+  </select>
+</mapper>
+
+
+
+
+
