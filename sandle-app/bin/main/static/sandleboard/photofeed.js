@@ -6,7 +6,7 @@ function showImages() {
 
   for (let i = 0; i < sandleboard.attachedFiles.length; i++) {
     const file = sandleboard.attachedFiles[i];
-    console.log(file.photo);
+    // console.log(file.photo);
     var img = document.createElement("img");
     img.src = `http://mcjpfbyigjei16837664.cdn.ntruss.com/photofeed/${file.photo}?type=u&w=286&h=351&ttype=jpg`;
     img.id = "attach-img";
@@ -51,19 +51,23 @@ $btnClosePopup.on("click", function () {
   $modal.css("display", "none");
   $body.css("overflow", "auto");
   $olderPhoto.css("display", "block");
-  $("#photo").empty();
+  $olderPhoto.empty();
+
+  images = [];
+  currentIndex = 0;
 });
 
 
 
 
 const $modal = $(".modal");
+const $viewContainer = $(".view-con");
 const cmt = document.querySelector("#comment");
 const $body = $("body");
 const html = document.querySelector("#image-template").innerHTML;
 const templateEngine = Handlebars.compile(html);
 let container = document.querySelector(".container");
-const loadData = () => {
+const loadData = (event) => {
   fetch("../sandleboards")
     .then((response) => {
       return response.json();
@@ -75,7 +79,6 @@ const loadData = () => {
       let currentPage = 0;
       console.log(dividedImages);
 
-      
       //스크롤 이벤트 핸들러
       window.addEventListener("scroll", () => {
         const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
@@ -117,7 +120,7 @@ function getSandleBoard(e) {
       return response.json();
     })
     .then((result) => {
-      console.log(result.data);
+      // console.log(result.data);
       if (result.status == "failure") {
         alert("게시글을 조회할 수 없습니다.");
         location.href = "photofeed.html";
@@ -201,6 +204,7 @@ function getSandleBoard(e) {
       cmt.scrollTop = cmt.scrollHeight;
       $modal.css("display", "block");
       $body.css("overflow", "hidden");
+      $viewContainer.css("overflow", "hidden");
 
       //삭제버튼 클릭 리스너--------------------------------------------------------
       document.querySelectorAll(".cmt-x-logo").forEach(function (element) {
@@ -430,6 +434,13 @@ $(document).keydown(function(event) {
     $modal.css("display", "none");
     $body.css("overflow", "auto");
     $olderPhoto.css("display", "block");
+
+
+
+    $olderPhoto.empty();
+  
+    images = [];
+    currentIndex = 0;
   }
 });
 

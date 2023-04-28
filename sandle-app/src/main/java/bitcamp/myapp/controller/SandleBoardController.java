@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import bitcamp.myapp.service.BoardLikeService;
 import bitcamp.myapp.service.ObjectStorageService;
 import bitcamp.myapp.service.SandleBoardService;
 import bitcamp.myapp.vo.BoardFile;
@@ -30,6 +31,7 @@ import jakarta.servlet.http.HttpSession;
 public class SandleBoardController {
 
   @Autowired private SandleBoardService sandleBoardService;
+  @Autowired private BoardLikeService boardLikeService;
   @Autowired private ObjectStorageService objectStorageService;
   private String bucketName = "sandle-images";
 
@@ -83,11 +85,37 @@ public class SandleBoardController {
   }
 
   @GetMapping
-  public Object list() {
+  public Object list(HttpSession session) {
+    List<Object> boardList = new ArrayList<>();
+
+    for(SandleBoard b : sandleBoardService.list()) {
+      Map<String, Object> boardData = new HashMap<>();
+      boardData.put("board", b);
+      boardData.put("likeCount", boardLikeService.likeCount(b.getNo()));
+      boardList.add(boardData);
+    }
+
     return new RestResult()
         .setStatus(RestStatus.SUCCESS)
-        .setData(sandleBoardService.list());
+        .setData(boardList);
   }
+  //  @GetMapping
+  //  public Object list(HttpSession session) {
+  //    List<Object[]> boardList = new ArrayList<>();
+  //
+  //    for(SandleBoard b : sandleBoardService.list()) {
+  //      Object[] boardData = new Object[2];
+  //      boardData[0] = b;
+  //      boardData[1] = boardLikeService.likeCount(b.getNo());
+  //
+  //      boardList.add(boardData);
+  //    }
+  //
+  //    return new RestResult()
+  //        .setStatus(RestStatus.SUCCESS)
+  //        .setData(boardList);
+  //  }
+
 
   @GetMapping("/userBoard")
   public Object listUserBoard(HttpSession session) {

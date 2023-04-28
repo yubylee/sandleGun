@@ -5,26 +5,27 @@
   display: grid;
   margin-left: 80px;
   margin-top: 30px;
-  grid-template-columns: 380px 380px 380px;
+  grid-template-columns: 480px 480px 480px 480px;
   grid-template-rows: auto auto;
 }
 
 .item {
-  border: 1px solid black;
-  height: 384px;
-  width: 320px;
+
+  height: 390px;
+  width: 430px;
   /* margin: auto; */
   border-radius: 20px;
   position: relative;
-  margin-bottom: 10%;
+  /* margin-bottom: 10%; */
+  margin-top: -20px;
+  transition: transform 0.5s ease-in-out;
 }
 
 .photo-a {
-  border: 1px solid black;
-  height: 360px;
-  width: 300px;
+  /* border: 1px solid black; */
+  height: 300px;
+  width: 430px;
   margin: auto;
-  border-radius: 20px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -33,6 +34,11 @@
   background-position: center;
   background-size: cover;
   cursor: pointer;
+  
+}
+
+.item:hover {
+  transform: scale(1.1);
 }
 
 .image-container {
@@ -44,7 +50,71 @@
   background-size: cover;
 }
 
+.view-container {
+  position: absolute;
+  /* border: 1px solid black; */
+  height: 40px;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
 
+.view-title {
+  /* border: 1px solid black; */
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.view-like {
+  /* border: 1px solid black; */
+  flex-grow: 1;
+  width: 15%;
+}
+
+#view-heart {
+  color: red;
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.view-like {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+}
+
+.view-like-count {
+  font-weight: bolder;
+  color: black;
+}
+
+.view-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 60%;
+  margin-left: 5px;
+  margin-top: 2px;
+
+  font-size: 16px;
+    color: rgb(153,153,153);
+    line-height: 28px;
+}
+
+.view-icon {
+  margin-top: 2px;
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+}
 /* -----------------------------------------Modal area----------------------------- */
 .modal {
   position: fixed;
@@ -56,7 +126,7 @@
 
   display: none;
 
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-insert {
@@ -108,7 +178,7 @@
 }
 
 #session2-1 {
-  width: 30px;
+  width: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -201,7 +271,7 @@
 
 #attach-img {
   height: 520px;
-  width: 400px;
+  width: 410px;
   border-radius: 30px;
 
   -webkit-animation-name: fade;
@@ -218,6 +288,14 @@
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
+}
+
+#prev-btn{
+  margin-left: 25px;
+}
+
+#next-btn {
+  margin-right: 435px;
 }
 
 #insert-img {
@@ -649,3 +727,4 @@
   from {opacity: .4}
   to {opacity: 1}
 }
+

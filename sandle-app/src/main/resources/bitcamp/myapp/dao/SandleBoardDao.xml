@@ -16,7 +16,7 @@
     <result column="created_date" property="createdDate"/>
     
      <collection property="attachedFiles" ofType="boardfile">
-      <id column="boardfile_id" property="no"/>
+          <id column="photo_id" property="photoNo"/>
       <result column="filepath" property="filepath"/>
       <result column="photo" property="photo"/>
       <result column="origin_filename" property="originalFilename"/>
@@ -75,6 +75,7 @@ select
       b.view_cnt,
       b.created_date, 
       m.photo,
+      m.photo_id,
       s.nickname,
       s.profile_photo,
       c.comment_id,

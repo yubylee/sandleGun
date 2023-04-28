@@ -171,7 +171,7 @@
 
             <div id="post-image">
               <div id="post-photo">
-                <label for="file-input">
+                <label for="file-input" id="post-label">
                   <img src="../assets/photofeed_images/post-photo-icon.png" id="post-photo-icon" />
                 </label>
                 <input id="file-input" type="file" style="display: none" name="files" multiple/>
@@ -184,7 +184,7 @@
 
 
             <div id="post-contents">
-              <input id="post-tag" type="text" name="tag" placeholder="태그 작성란" />
+              <input id="post-tag" type="text" name="tag" placeholder="제목 작성란" />
               <input id="post-write" type="text" name="content" placeholder="코멘트를 작성해주세요." />
               <button id="btn-post" type="button">게시하기</button>
             </div>
@@ -194,18 +194,30 @@
     </div>
 
     <script id="image-template" type="text/x-handlebars-template">
-          {{#each this}}
-            <div class="item">
-              <div
-                class="photo-a"
-                id="photo-ex1"
-                data-no="{{no}}"
-                onclick="getSandleBoard(event)"
-                style="background-image: url(http://mcjpfbyigjei16837664.cdn.ntruss.com/photofeed/{{fileName}}?type=u&w=286&h=351&ttype=jpg)"
-              >
-              </div>
+      {{#each this}}
+      <div class="item">
+        <div
+          class="photo-a"
+          id="photo-ex1"
+          data-no="{{board.no}}"
+          onclick="getSandleBoard(event)"
+          style="background-image: url(http://mcjpfbyigjei16837664.cdn.ntruss.com/photofeed/{{board.fileName}}?type=u&w=430&h=300&ttype=jpg)"
+        >
+        </div>
+        <div id="view-container-{{no}}" class="view-container">
+          <div class="view-title">{{board.tag}}
+            <div class="view-like">
+              <span class="like-icon" id="view-heart">♥</span>
+              <span class="view-like-count">{{likeCount}}</span>
+              <img src="../assets/photofeed_images/view-icon.png" class="view-icon"/>
+              <span class="view-counts">{{board.viewCount}}</span>
             </div>
-          {{/each}}
+          </div>
+          <!-- <div class="view-content">{{board.content}}</div> -->
+
+        </div>
+      </div>
+    {{/each}}
         </script>
 
 

@@ -125,11 +125,14 @@
                 <div class="session2-s" id="session2-1"></div>
                 <div class="session2-s" id="session2-2">
                   <div id="photo"></div>
+                  <a class="prev" id="prev-btn">&#10094;</a>
+                  <a class="next" id="next-btn">&#10095;</a>
                   <input
                     id="file-input"
                     type="file"
                     style="display: none"
                     name="files"
+                    multiple
                   />
                   <img id="selected-image" style="display: none" />
                   <label for="file-input">
@@ -146,12 +149,13 @@
                         <div id="user-info-image">
                           <img id="modal-user-image" />
                         </div>
+
                         <div id="user-info-content">
                           <span id="user-info-id"></span>
                         </div>
                       </div>
                       <input id="tag" name="tag" />
-                      <input id="content" name="content" />
+                      <input id="content" name="content" /> 
                     </div>
                     <div id="comment"></div>
                     <button id="edit-board">수정하기</button>
