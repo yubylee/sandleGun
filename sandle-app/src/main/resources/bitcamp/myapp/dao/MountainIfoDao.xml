@@ -49,7 +49,7 @@
       and (
         m.mountain_name
         or m.height
-        or m.photo like concat('%',#{keyword},'%')
+        or m.photo
         or m.address
         or r.region_id
         or r.region_list

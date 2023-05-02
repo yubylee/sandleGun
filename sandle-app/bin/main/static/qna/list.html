@@ -15,7 +15,7 @@
         font-size: 30px;
         font-weight: 900;
         text-align: center;
-        color: #28544b;
+        color: black;
         margin: 0;
       }
 
@@ -45,7 +45,7 @@
 
       #btns button {
         float: right;
-        background-color: #28544b;
+        background-color: #007bff;
         color: white;
         border: none;
         border-radius: 3px;
@@ -79,7 +79,7 @@
       }
 
       .icon-qna-new {
-        background-color: #28544b;
+        background-color: #007bff;
         color: white;
         padding: 2px 5px;
         border-radius: 3px;
@@ -91,75 +91,79 @@
   </head>
 
   <body>
-    <!-- Header -->
-    <header id="header">
-      <div id="header-title"><a href="/sandle/index.html">SANDLE</a></div>
+    <!-- Header  -->
+    <div class="content_navi">
+      <div id="header-title">
+        <a href="/sandle/index.html">SANDLE</a>
 
-      <div id="login" class="login">
-        <a href="/sandle/auth/login_form.html">LOGIN</a>
-      </div>
-
-      <div id="logout" class="logout">
-        <a href="sandle/auth/logout" onclick="logout(); return false;">
-          LOGOUT</a
-        >
-      </div>
-
-      <div id="sign-up" class="sign-up">
-        <a href="/sandle/member/member.html">SIGN UP</a>
-      </div>
-
-      <div id="profilePhoto" class="profilePhoto">
-        <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
-          <img id="u-photo" class="edit" />
-          <span id="userEmail"></span>
-        </a>
-      </div>
-    </header>
-
-    <!-- Nav -->
-    <nav id="nav">
-      <ul>
-        <li>
-          <a href="/sandle/index.html">산들 소개</a>
-        </li>
-
-        <li>
-          <a href="/sandle/mountain_info/mountain_info.html"
-            >전국 등산로 정보</a
-          >
-        </li>
-
-        <li>
-          <a href="#">산악 소식</a>
+        <div id="nav">
           <ul>
-            <ol>
-              산악 소식
-            </ol>
-            <li><a href="/sandle/notice/list.html">공지 사항</a></li>
-            <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
+            <li class="current">
+              <a href="/sandle/index.html">산들 소개</a>
+            </li>
             <li>
-              <a href="/sandle/festival/festival.html">지역 행사 정보</a>
+              <a href="/sandle/mountain_info/mountain_info.html"
+                >전국 등산로 정보</a
+              >
+            </li>
+            <li>
+              <a href="#">산악 소식</a>
+              <ul>
+                <ol>
+                  산악 소식
+                </ol>
+                <li><a href="/sandle/notice/view.html">공지 사항</a></li>
+                <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
+                <li>
+                  <a href="/sandle/festival/festival.html">지역 행사 정보</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">커뮤니티</a>
+              <ul>
+                <ol>
+                  커뮤니티
+                </ol>
+                <li>
+                  <a href="/sandle/sandleboard/photofeed.html">포토 피드</a>
+                </li>
+                <li>
+                  <a href="/sandle/userPage/userPage.html" id="my-page"
+                    >마이페이지</a
+                  >
+                </li>
+                <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
+              </ul>
+            </li>
+
+            <li id="profilePhoto" class="profilePhoto">
+              <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
+                <img id="u-photo" class="edit" />
+                <span id="userEmail"></span>
+              </a>
+              <ul>
+                <li>
+                  <div id="login" class="login">
+                    <a href="/sandle/auth/login_form.html">LOGIN</a>
+                  </div>
+                </li>
+                <li>
+                  <div id="logout" class="logout">
+                    <a href="sandle/auth/logout" onclick="logout(); return false;">LOGOUT</a>
+                  </div>
+                </li>
+                <li>
+                  <div id="sign-up" class="sign-up">
+                    <a href="/sandle/member/member.html">SIGN UP</a>
+                  </div>
+                </li>
+              </ul>
             </li>
           </ul>
-        </li>
-        <li class="current">
-          <a href="#">커뮤니티</a>
-          <ul>
-            <ol>
-              커뮤니티
-            </ol>
-            <li>
-              <a href="/sandle/sandleboard/photofeed.html">포토 피드</a>
-            </li>
-            <li>
-              <a href="/sandle/userPage/userPage.html">마이페이지</a>
-            </li>
-            <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
+        </div>
+      </div>
+    </div>
 
     <!-- Q&A 내역 -->
     <main class="qna-index">
@@ -192,7 +196,7 @@
                 <th scope="col">닉네임</th>
                 <th scope="col">제목</th>
                 <th scope="col">날짜</th>
-                <th scope="col">처리상태</th>
+                <th scope="col">답변</th>
               </tr>
             </thead>
             <tbody></tbody>

@@ -15,6 +15,7 @@ public interface SandleBoardService {
   void update(SandleBoard sandleBoard);
   void deleteComment(int no);
   void deleteUserBoard(int no);
+  void delete(int no);
   BoardFile getFile(int fileNo);
 
 

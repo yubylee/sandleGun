@@ -29,6 +29,7 @@
       content,
       response,
       DATE_FORMAT(created_date, '%Y-%m-%d %H:%i:%s') as created_date
+
     from 
       hms_qna
     <if test="keyword != '' and keyword != null">

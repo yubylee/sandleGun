@@ -9,77 +9,39 @@
     <title>SANDLE - 산들산들</title>
     <link rel="stylesheet" href="/sandle/member/member.css" />
     <link rel="stylesheet" href="/sandle/index.css" />
-    <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
+    <link rel="icon" href="/sandle/assets/images/profile_default_logo.png" />
   </head>
 
   <body>
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, user-scalable=no"
-        />
-        <title>SANDLE - 산들산들</title>
-        <link rel="stylesheet" href="/sandle/index.css" />
-        <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
-      </head>
+    <!-- Header  -->
+    <div class="content_navi">
+      <div id="header-title">
+        <a href="/sandle/index.html">SANDLE</a>
 
-      <body>
-        <!-- Header -->
-        <header id="header">
-          <div id="header-title"><a href="/sandle/index.html">SANDLE</a></div>
-
-          <div id="login" class="login">
-            <a href="/sandle/auth/login_form.html">LOGIN</a>
-          </div>
-
-          <div id="logout" class="logout">
-            <a href="sandle/auth/logout" onclick="logout(); return false;">
-              LOGOUT</a
-            >
-          </div>
-
-          <div id="sign-up" class="sign-up">
-            <a href="/sandle/member/member.html">SIGN UP</a>
-          </div>
-
-          <div id="profilePhoto" class="profilePhoto">
-            <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
-              <img id="u-photo" class="edit" />
-              <span id="userEmail"></span>
-            </a>
-          </div>
-        </header>
-
-        <!-- Nav -->
-        <nav id="nav">
+        <div id="nav">
           <ul>
-            <li>
+            <li class="current">
               <a href="/sandle/index.html">산들 소개</a>
             </li>
-
             <li>
               <a href="/sandle/mountain_info/mountain_info.html"
                 >전국 등산로 정보</a
               >
             </li>
-
             <li>
               <a href="#">산악 소식</a>
               <ul>
                 <ol>
                   산악 소식
                 </ol>
-                <li><a href="/sandle/notice/list.html">공지 사항</a></li>
+                <li><a href="/sandle/notice/view.html">공지 사항</a></li>
                 <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
                 <li>
                   <a href="/sandle/festival/festival.html">지역 행사 정보</a>
                 </li>
               </ul>
             </li>
-            <li class="current">
+            <li>
               <a href="#">커뮤니티</a>
               <ul>
                 <ol>
@@ -89,172 +51,207 @@
                   <a href="/sandle/sandleboard/photofeed.html">포토 피드</a>
                 </li>
                 <li>
-                  <a href="/sandle/userPage/userPage.html">마이페이지</a>
+                  <a href="/sandle/userPage/userPage.html" id="my-page"
+                    >마이페이지</a
+                  >
                 </li>
                 <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
               </ul>
             </li>
+
+            <li id="profilePhoto" class="profilePhoto">
+              <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
+                <img id="u-photo" class="edit" />
+                <span id="userEmail"></span>
+              </a>
+              <ul>
+                <li>
+                  <div id="login" class="login">
+                    <a href="/sandle/auth/login_form.html">LOGIN</a>
+                  </div>
+                </li>
+                <li>
+                  <div id="logout" class="logout">
+                    <a href="sandle/auth/logout" onclick="logout(); return false;">LOGOUT</a>
+                  </div>
+                </li>
+                <li>
+                  <div id="sign-up" class="sign-up">
+                    <a href="/sandle/member/member.html">SIGN UP</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
           </ul>
-        </nav>
+        </div>
+      </div>
+    </div>
 
-        <article>
-          <div id="logo">
-            <a href="/sandle/index.html"
-              ><img src="/sandle/assets/images/logo.jpg"
-            /></a>
-          </div>
+    <article>
+      <div id="logo">
+        <a href="/sandle/index.html"
+          ><img src="/sandle/assets/images/logo.jpg"
+        /></a>
+      </div>
 
-          <form id="member-form" action="update" method="post">
-            <div class="b-no">
-              <b>번호</b><br />
-              <input id="f-no" type="text" name="no" readonly />
-            </div>
+      <form id="member-form" action="update" method="post">
+        <div class="b-no" style="display: none">
+          <b>번호</b><br />
+          <input id="f-no" type="text" name="no" readonly />
+        </div>
+        <div class="b-profilePhoto" style="display: none">
+          <b>프로필사진</b><br />
+          <input
+            id="f-profilePhoto"
+            type="text"
+            name="profilePhoto"
+            readonly
+          />
+        </div>
 
-            <div class="b-email">
-              <b>이메일</b><br />
-              <input id="email" type="email" name="email" readonly />
-            </div>
-            <div class="b-password">
-              <b>비밀번호</b><br />
-              <input
-                class="pw"
-                id="m-password"
-                type="password"
-                placeholder="문자, 숫자, 특수문자 포함(6~16자)"
-                name="password"
-                onchange="check_pw()"
-              />
-            </div>
-            <div class="b-password-chk">
-              <b>비밀번호 확인</b><br />
-              <input
-                class="pw"
-                id="m-password-chk"
-                type="password"
-                placeholder="비밀번호 재입력"
-                name="passwordChk"
-                onchange="check_pw()"
-              /><span id="check"></span>
-            </div>
-            <div class="b-name">
-              <b>이름</b><br />
-              <input
-                class="sign-input"
-                id="m-name"
-                type="text"
-                placeholder="이름을 입력해주세요"
-                name="name"
-              />
-            </div>
-            <div class="b-nickname">
-              <b>닉네임</b><br />
-              <input
-                class="sign-input"
-                id="nickname"
-                type="text"
-                placeholder="닉네임을 입력해주세요"
-                name="nickname"
-                oninput="checkNick()"
-              />
-              <span class="ni_ok">사용 가능한 닉네임입니다.</span>
-              <span class="ni_already">누군가 이 닉을 사용하고 있어요.</span>
-              <span class="ni_no"
-                >닉네임에 공백이나 특수문자가 포함되어있습니다.</span
-              >
-            </div>
-            <div class="b-tel">
-              <b>전화</b><br />
-              <input
-                class="sign-input"
-                id="m-tel"
-                type="tel"
-                oninput="hypenTel(this)"
-                maxlength="13"
-                placeholder="휴대폰 번호(숫자를 입력하세요.)"
-                name="tel"
-              />
-            </div>
-            <div class="b-postNo">
-              <b>우편번호</b><br />
-              <input
-                class="sign-input"
-                id="m-postNo"
-                type="text"
-                name="postNo"
-                readonly
-              />
-              <input
-                type="button"
-                id="find-button"
-                onclick="sample6_execDaumPostcode()"
-                value="우편번호 찾기"
-              />
-            </div>
-            <div class="b-basicAddress">
-              <b>기본주소</b><br />
-              <input
-                class="sign-input"
-                id="m-basicAddress"
-                type="text"
-                name="basicAddress"
-                readonly
-              />
-            </div>
-            <div class="b-detailAddress">
-              <b>상세주소</b><br />
-              <input
-                class="sign-input"
-                id="m-detailAddress"
-                type="text"
-                name="detailAddress"
-              />
-            </div>
-            <div class="b-birth">
-              <b>생년월일</b><br />
-              <input class="sign-input" id="m-birth" type="date" name="birth" />
-            </div>
+        <div class="b-email">
+          <b>이메일</b><br />
+          <input id="email" type="email" name="email" readonly />
+        </div>
+        <div class="b-password">
+          <b>비밀번호</b><br />
+          <input
+            class="pw"
+            id="m-password"
+            type="password"
+            placeholder="문자, 숫자, 특수문자 포함(6~16자)"
+            name="password"
+            onchange="check_pw()"
+          />
+        </div>
+        <div class="b-password-chk">
+          <b>비밀번호 확인</b><br />
+          <input
+            class="pw"
+            id="m-password-chk"
+            type="password"
+            placeholder="비밀번호 재입력"
+            name="passwordChk"
+            onchange="check_pw()"
+          /><span id="check"></span>
+        </div>
+        <div class="b-name">
+          <b>이름</b><br />
+          <input
+            class="sign-input"
+            id="m-name"
+            type="text"
+            placeholder="이름을 입력해주세요"
+            name="name"
+          />
+        </div>
+        <div class="b-nickname">
+          <b>닉네임</b><br />
+          <input
+            class="sign-input"
+            id="nickname"
+            type="text"
+            placeholder="닉네임을 입력해주세요"
+            name="nickname"
+            oninput="checkNick()"
+          />
+          <span class="ni_ok">사용 가능한 닉네임입니다.</span>
+          <span class="ni_already">누군가 이 닉을 사용하고 있어요.</span>
+          <span class="ni_no"
+            >닉네임에 공백이나 특수문자가 포함되어있습니다.</span
+          >
+        </div>
+        <div class="b-tel">
+          <b>전화</b><br />
+          <input
+            class="sign-input"
+            id="m-tel"
+            type="tel"
+            oninput="hypenTel(this)"
+            maxlength="13"
+            placeholder="휴대폰 번호(숫자를 입력하세요.)"
+            name="tel"
+          />
+        </div>
+        <div class="b-postNo">
+          <b>우편번호</b><br />
+          <input
+            class="sign-input"
+            id="m-postNo"
+            type="text"
+            name="postNo"
+            readonly
+          />
+          <input
+            type="button"
+            id="find-button"
+            onclick="sample6_execDaumPostcode()"
+            value="우편번호 찾기"
+          />
+        </div>
+        <div class="b-basicAddress">
+          <b>기본주소</b><br />
+          <input
+            class="sign-input"
+            id="m-basicAddress"
+            type="text"
+            name="basicAddress"
+            readonly
+          />
+        </div>
+        <div class="b-detailAddress">
+          <b>상세주소</b><br />
+          <input
+            class="sign-input"
+            id="m-detailAddress"
+            type="text"
+            name="detailAddress"
+          />
+        </div>
+        <div class="b-birth">
+          <b>생년월일</b><br />
+          <input class="sign-input" id="m-birth" type="date" name="birth" />
+        </div>
 
-            <div id="btns">
-              <button id="btn-update" type="button">변경하기</button>
-              <button id="btn-cancel" type="button">변경취소</button>
-            </div>
-          </form>
-        </article>
+        <div id="btns">
+          <button id="btn-update" type="button">변경하기</button>
+          <button id="btn-cancel" type="button">변경취소</button>
+        </div>
+      </form>
+    </article>
 
-        <!-- Footer -->
-        <footer id="footer">
-          <div id="footer-title">
-            <p>SANDLE</p>
-          </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <div id="footer-title">
+        <p>SANDLE</p>
+      </div>
 
-          <div id="creater">
-            <div id="creater-name-email">
-              <h2>creater</h2>
-              팀장 : 서영훈 | <a>email : darktemi@nate.com</a><br />
-              조원 : 안진수 | <a>email : </a><br />
-              조원 : 김종현 | <a>email : </a><br />
-              조원 : 이건형 | <a>email : </a><br />
-              조원 : 박경한 | <a>email : </a>
-            </div>
-            <div id="creater-github">
-              <a href="#" id="git"></a>
-              <a href="#" id="git"></a>
-              <a href="#" id="git"></a>
-              <a href="#" id="git"></a>
-              <a href="#" id="git"></a>
-            </div>
-          </div>
-        </footer>
+      <div id="creater">
+        <div id="creater-name-email">
+          <h2>creater</h2>
+          팀장 : 서영훈 | <a>email : darktemi@nate.com</a><br />
+          조원 : 안진수 | <a>email : </a><br />
+          조원 : 김종현 | <a>email : </a><br />
+          조원 : 이건형 | <a>email : </a><br />
+          조원 : 박경한 | <a>email : </a>
+        </div>
+        <div id="creater-github">
+          <a href="https://github.com/darktemi" id="git"></a>
+          <a href="https://github.com/yubylee" id="git"></a>
+          <a href="https://github.com/jinsuahn" id="git"></a>
+          <a href="https://github.com/letsgojonny" id="git"></a>
+          <a href="#" id="git"></a>
+        </div>
+      </div>
+    </footer>
 
-        <!-- Scripts -->
-        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-        <script src="/sandle/assets/js/jquery.min.js"></script>
-        <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
-        <script src="/sandle/assets/js/breakpoints.min.js"></script>
-        <script src="/sandle/assets/js/util.js"></script>
-        <script src="/sandle/navLogin.js"></script>
-        <script src="userUpdate.js"></script>
-      </body>
-    </html>
+    <!-- Scripts -->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="/sandle/assets/js/jquery.min.js"></script>
+    <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
+    <script src="/sandle/assets/js/breakpoints.min.js"></script>
+    <script src="/sandle/assets/js/util.js"></script>
+    <script src="/sandle/navLogin.js"></script>
+    <script src="userUpdate.js"></script>
   </body>
 </html>

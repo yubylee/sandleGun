@@ -1,0 +1,72 @@
+/* 공통 */
+#head {
+  font-size: 30px;
+  font-weight: 900;
+  text-align: center;
+  color: #28544b;
+  margin: 0;
+}
+
+main {
+  padding: 10px 0;
+  background-image: url("forest.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.8;
+  min-height: 800px;
+}
+
+.notice-inputbox {
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-top: 50px;
+  width: 50%;
+  overflow: auto;
+  padding: auto;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+input {
+  border: none;
+  outline: none;
+  width: 500px;
+  font-size: 20px;
+}
+
+textarea {
+  border: none;
+  outline: none;
+  width: 500px;
+  font-size: 20px;
+  height: 250px;
+  color: black;
+}
+
+.notice-title {
+  max-height: 90px;
+}
+
+.notice-content {
+  max-height: 300px;
+}
+
+.notice-title,
+.notice-content {
+  margin-top: 30px;
+  position: relative;
+  transform: translateX(-50%);
+  max-width: 530px;
+  left: 50%;
+  font-size: 18px;
+
+  background: #ffffff;
+  mix-blend-mode: normal;
+  border-bottom: 3px solid #28544b;
+  box-shadow: 3px 3px 3px 3px;
+  border-radius: 10px;
+  padding: 5px 0 10px 10px;
+}

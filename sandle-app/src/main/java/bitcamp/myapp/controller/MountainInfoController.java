@@ -32,7 +32,6 @@ public class MountainInfoController {
 
   @GetMapping("region/{regionId}")
   public Object view(@PathVariable int regionId) {
-    log.debug(regionId);
     return new RestResult()
         .setStatus(RestStatus.SUCCESS)
         .setData(mountainInfoService.get(regionId));
@@ -40,9 +39,9 @@ public class MountainInfoController {
 
   @GetMapping("region/{regionId}/{title}")
   public Object view(@PathVariable int regionId, @PathVariable String title) {
-    log.debug(regionId);
     return new RestResult()
         .setStatus(RestStatus.SUCCESS)
         .setData(mountainInfoService.get(regionId, title));
   }
+
 }

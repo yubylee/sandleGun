@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>산들 - 공지사항</title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.0/themes/smoothness/jquery-ui.css"
+    />
+    <link rel="stylesheet" href="css/view.css" />
+  </head>
+  <body>
+    <!-- 공지사항 view -->
+    <main>
+      <div id="head">
+        <p>공지사항</p>
+      </div>
+
+      <div id="board-list">
+        <div class="container">
+          <div id="accordion"></div>
+        </div>
+      </div>
+    </main>
+    <br />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <script src="../node_modules/handlebars/dist/handlebars.js"></script>
+
+    <script id="tr-template" type="text/x-handlebars-template">
+      {{#each this}}
+        <h3>{{createdDate}} | {{#if title}}{{title}}{{else}}제목없음{{/if}}</h3>
+        <div><p>{{content}}</p></div>
+      {{/each}}
+    </script>
+
+    <script>
+      // 템플릿으로 사용할 HTML을 준비한다.
+      const html = document.querySelector("#tr-template").innerHTML;
+
+      // HTML을 가지고 템플릿 엔진을 생성한다.
+      const templateEngine = Handlebars.compile(html);
+
+      fetch("../notices")
+        .then((response) => {
+          return response.json();
+        })
+        .then((result) => {
+          const accordionContainer = document.querySelector("#accordion");
+          result.data.forEach((item) => {
+            const content = templateEngine(item);
+            accordionContainer.innerHTML += `
+        <h3>${item.createdDate} | ${item.title ? item.title : "제목없음"}</h3>
+        <div><p>${item.content}</p></div>
+      `;
+          });
+          $("#accordion").accordion();
+        });
+    </script>
+  </body>
+</html>

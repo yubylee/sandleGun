@@ -36,6 +36,7 @@ document.querySelector("#btn-login").onclick = () => {
     .catch((exception) => {
       alert("로그인 오류!");
       console.log(exception);
+      location.reload();
     });
 };
 

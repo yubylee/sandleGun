@@ -17,80 +17,84 @@
     />
     <link rel="stylesheet" href="login_form.css" />
     <link rel="stylesheet" href="/sandle/index.css" />
-    <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
+    <link rel="icon" href="/sandle/assets/images/profile_default_logo.png" />
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
   </head>
 
   <body>
-    <!-- Header -->
-    <header id="header">
-      <div id="header-title"><a href="/sandle/index.html">SANDLE</a></div>
+    <!-- Header  -->
+    <div class="content_navi">
+      <div id="header-title">
+        <a href="/sandle/index.html">SANDLE</a>
 
-      <div id="login" class="login">
-        <a href="/sandle/auth/login_form.html">LOGIN</a>
-      </div>
-
-      <div id="logout" class="logout">
-        <a href="sandle/auth/logout" onclick="logout(); return false;">
-          LOGOUT</a
-        >
-      </div>
-
-      <div id="sign-up" class="sign-up">
-        <a href="/sandle/member/member.html">SIGN UP</a>
-      </div>
-
-      <div id="profilePhoto" class="profilePhoto">
-        <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
-          <img id="u-photo" class="edit" />
-          <span id="userEmail"></span>
-        </a>
-      </div>
-    </header>
-
-    <!-- Nav -->
-    <nav id="nav">
-      <ul>
-        <li>
-          <a href="/sandle/index.html">산들 소개</a>
-        </li>
-
-        <li>
-          <a href="/sandle/mountain_info/mountain_info.html"
-            >전국 등산로 정보</a
-          >
-        </li>
-
-        <li>
-          <a href="#">산악 소식</a>
+        <div id="nav">
           <ul>
-            <ol>
-              산악 소식
-            </ol>
-            <li><a href="/sandle/notice/list.html">공지 사항</a></li>
-            <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
+            <li class="current">
+              <a href="/sandle/index.html">산들 소개</a>
+            </li>
             <li>
-              <a href="/sandle/festival/festival.html">지역 행사 정보</a>
+              <a href="/sandle/mountain_info/mountain_info.html"
+                >전국 등산로 정보</a
+              >
+            </li>
+            <li>
+              <a href="#">산악 소식</a>
+              <ul>
+                <ol>
+                  산악 소식
+                </ol>
+                <li><a href="/sandle/notice/view.html">공지 사항</a></li>
+                <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
+                <li>
+                  <a href="/sandle/festival/festival.html">지역 행사 정보</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">커뮤니티</a>
+              <ul>
+                <ol>
+                  커뮤니티
+                </ol>
+                <li>
+                  <a href="/sandle/sandleboard/photofeed.html">포토 피드</a>
+                </li>
+                <li>
+                  <a href="/sandle/userPage/userPage.html" id="my-page"
+                    >마이페이지</a
+                  >
+                </li>
+                <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
+              </ul>
+            </li>
+
+            <li id="profilePhoto" class="profilePhoto">
+              <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
+                <img id="u-photo" class="edit" />
+                <span id="userEmail"></span>
+              </a>
+              <ul>
+                <li>
+                  <div id="login" class="login">
+                    <a href="/sandle/auth/login_form.html">LOGIN</a>
+                  </div>
+                </li>
+                <li>
+                  <div id="logout" class="logout">
+                    <a href="sandle/auth/logout" onclick="logout(); return false;">LOGOUT</a>
+                  </div>
+                </li>
+                <li>
+                  <div id="sign-up" class="sign-up">
+                    <a href="/sandle/member/member.html">SIGN UP</a>
+                  </div>
+                </li>
+              </ul>
             </li>
           </ul>
-        </li>
-        <li>
-          <a href="#">커뮤니티</a>
-          <ul>
-            <ol>
-              커뮤니티
-            </ol>
-            <li>
-              <a href="/sandle/sandleboard/photofeed.html">포토 피드</a>
-            </li>
-            <li>
-              <a href="/sandle/userPage/userPage.html">마이페이지</a>
-            </li>
-            <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
+        </div>
+      </div>
+    </div>
 
     <div id="logo">
       <a href="/sandle/index.html"
@@ -111,10 +115,10 @@
         placeholder="비밀번호를 입력해주세요."
         name="password"
         required
-      />
+      /><br />
       <label class="Remember"
         ><input type="checkbox" name="remember" />이메일 기억</label
-      >
+      ><br />
 
       <button id="btn-login" type="submit">로그인</button>
 
@@ -130,37 +134,6 @@
         onlogin="checkLoginState();"
       >
         Login with Facebook
-      </div>
-
-      <!-- 구글 로그인-->
-      <ul>
-        <li id="GgCustomLogin">
-          <a href="javascript:void(0)" id="google-login">
-            <span>Login with Google</span>
-          </a>
-        </li>
-      </ul>
-
-      <!-- 카카오톡 로그인 -->
-
-      <a href="javascript:void(0)" id="kakao-login">
-        <ol onclick="kakaoLogin();">
-          <span>카카오 로그인</span>
-        </ol>
-      </a>
-      <a href="javascript:void(0)" id="kakao-logout">
-        <ol onclick="kakaoLogout();">
-          <span>카카오 로그아웃</span>
-        </ol>
-      </a>
-
-      <div class="bottom-container">
-        <div class="row">
-          <div class="col">
-            <a href="#" style="color: white" class="btn">Sign up</a><br />
-            <a href="#" style="color: white" class="btn">Forgot password?</a>
-          </div>
-        </div>
       </div>
     </form>
     <!-- Footer -->
@@ -179,10 +152,10 @@
           조원 : 박경한 | <a>email : </a>
         </div>
         <div id="creater-github">
-          <a href="#" id="git"></a>
-          <a href="#" id="git"></a>
-          <a href="#" id="git"></a>
-          <a href="#" id="git"></a>
+          <a href="https://github.com/darktemi" id="git"></a>
+          <a href="https://github.com/yubylee" id="git"></a>
+          <a href="https://github.com/jinsuahn" id="git"></a>
+          <a href="https://github.com/letsgojonny" id="git"></a>
           <a href="#" id="git"></a>
         </div>
       </div>

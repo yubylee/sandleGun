@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>산들 - 공지사항 수정</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- 공지사항 update -->
+    <main class="notice">
+      <div id="head">
+        <p>공지사항</p>
+      </div>
+
+      <div class="notice-inputbox">
+        <form id="board-form" action="update" method="post">
+          <div class="notice-title">
+            <b>제목</b><br />
+            <input id="notice-title" type="text" name="title" value="" />
+          </div>
+          <div class="notice-content">
+            <b>공지내용</b><br />
+            <textarea id="notice-content" name="content"></textarea>
+          </div>
+        </form>
+        <div id="btns">
+          <a href="list.html">
+            <button id="btn-list" type="button">목록</button>
+          </a>
+          <button id="btn-update" type="button">수정</button>
+          <button id="btn-delete" type="button">삭제</button>
+        </div>
+      </div>
+    </main>
+
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+    <script>
+      // URL에서 번호 가져오기
+      const urlParams = new URLSearchParams(window.location.search);
+      const boardId = urlParams.get("no");
+
+      // API에서 해당 공지사항 정보 가져오기
+      axios
+        .get(`../notices/${boardId}`)
+        .then((response) => {
+          const board = response.data.data;
+          document.querySelector("#notice-title").value = board.title;
+          document.querySelector("#notice-content").value = board.content;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+
+      // 수정 버튼 클릭 시
+      const updateBtn = document.querySelector("#btn-update");
+      updateBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        const title = document.querySelector("#notice-title").value;
+        const content = document.querySelector("#notice-content").value;
+
+        axios
+          .put(`../notices/${boardId}`, { title, content })
+          .then((response) => {
+            alert("공지사항이 수정되었습니다.");
+            window.location.href = "list.html";
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      });
+
+      // 삭제 버튼 클릭 시
+      const deleteBtn = document.querySelector("#btn-delete");
+      deleteBtn.addEventListener("click", () => {
+        if (confirm("정말로 삭제하시겠습니까?")) {
+          axios
+            .delete(`../notices/${boardId}`)
+            .then((response) => {
+              alert("공지사항이 삭제되었습니다.");
+              window.location.href = "list.html";
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>산들 - 공지사항</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- 공지사항 form -->
+    <main class="notice">
+      <div id="head">
+        <p>공지사항</p>
+      </div>
+
+      <div class="notice-inputbox">
+        <form id="board-form" action="update" method="post">
+          <div style="display: none">
+            <b>게시글 카테고리</b><br />
+            <input
+              type="text"
+              name="boardCategoryId"
+              value="3"
+              maxlength="60"
+            />
+          </div>
+          <div style="display: none">
+            <b>회원 번호</b><br />
+            <input id="b-no" type="text" name="memberId" maxlength="60" />
+          </div>
+          <div class="notice-title">
+            <b>제목</b><br />
+            <input id="notice-title" type="text" name="title" maxlength="60" />
+          </div>
+          <div class="notice-content">
+            <b>공지내용</b><br />
+            <textarea id="notice-content" type="text" name="content"></textarea>
+          </div>
+        </form>
+        <div id="btns">
+          <button id="btn-insert" type="button">등록</button>
+          <button id="btn-cancel" type="button">취소</button>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      fetch("../users/view")
+        .then((response) => {
+          return response.json();
+        })
+        .then((result) => {
+          console.log(result);
+          if (result.status == "failure") {
+            alert("xxxxxxx");
+            return;
+          }
+
+          let member = result.data;
+          console.log(member);
+          document.querySelector("#b-no").value = member.no;
+        });
+
+      document.querySelector("#btn-insert").onclick = function () {
+        const form = document.querySelector("#board-form");
+        const formData = new FormData(form);
+
+        let json = JSON.stringify(Object.fromEntries(formData));
+        console.log(json);
+
+        fetch("../notices", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: json,
+        })
+          .then((response) => {
+            return response.json();
+          })
+          .then((result) => {
+            if (result.status == "success") {
+              location.href = "list.html";
+            } else if (result.errorCode == "401") {
+              location.href = "../auth/login_form.html";
+            } else {
+              alert("입력 실패!");
+            }
+          })
+          .catch((exception) => {
+            alert("입력 오류!");
+            console.log(exception);
+          });
+      };
+
+      document.querySelector("#btn-cancel").onclick = function () {
+        location.href = "view.html";
+      };
+    </script>
+  </body>
+</html>

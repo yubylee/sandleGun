@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bitcamp.myapp.dao.NoticeDao">
+
+  <resultMap type="notice" id="noticeMap">
+    <result column="board_id" property="boardId"/>
+    <result column="board_category_id" property="boardCategoryId"/>
+    <result column="member_id" property="memberId"/>
+    <result column="title" property="title"/>
+    <result column="content" property="content"/>
+    <result column="created_date" property="createdDate"/>
+  </resultMap>
+
+  <insert id="insert" parameterType="notice" 
+          useGeneratedKeys="true" keyProperty="boardId" keyColumn="board_id">
+    insert into hms_notice(board_category_id, member_id, title, content)
+    values(#{boardCategoryId}, #{memberId}, #{title}, #{content})
+  </insert>
+
+  <select id="findAll" resultMap="noticeMap">
+    select 
+      board_id, 
+      board_category_id,
+      member_id,
+      title,
+      content,
+      created_date
+    from 
+      hms_notice
+    order by 
+      board_id desc
+  </select>
+
+  <select id="findByNo" parameterType="int" resultMap="noticeMap">
+    select 
+      board_id, 
+      title,
+      content,
+      created_date
+    from 
+      hms_notice
+    where 
+      board_id=#{boardId}
+  </select>
+  
+  <update id="update" parameterType="notice">
+    update hms_notice 
+    set 
+      title = #{title},
+      content = #{content}
+    where 
+      board_id = #{boardId}
+  </update>
+  
+  <delete id="delete" parameterType="int">
+    delete from hms_notice
+    where board_id = #{boardId}
+  </delete>
+
+</mapper>

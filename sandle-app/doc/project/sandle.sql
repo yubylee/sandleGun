@@ -22,9 +22,6 @@ DROP TABLE IF EXISTS hms_food RESTRICT;
 -- 댓글좋아요
 DROP TABLE IF EXISTS hms_comment_like RESTRICT;
 
--- 산악뉴스
-DROP TABLE IF EXISTS hms_mountain_news RESTRICT;
-
 -- 등산일지
 DROP TABLE IF EXISTS hms_diary RESTRICT;
 
@@ -248,16 +245,6 @@ CREATE TABLE hms_course_info (
   level            VARCHAR(50) NOT NULL COMMENT '난이도' -- 난이도
 )
 COMMENT '등산코스';
-
--- 등산코스
-ALTER TABLE hms_course_info
-  ADD CONSTRAINT PK_hms_course_info -- 등산코스 기본키
-  PRIMARY KEY (
-  course_info_id -- 등산코스번호
-  );
-
-ALTER TABLE hms_course_info
-  MODIFY COLUMN course_info_id INTEGER NOT NULL AUTO_INCREMENT COMMENT '등산코스번호';
 
 -- 게시판유형
 CREATE TABLE hms_board_category (

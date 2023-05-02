@@ -79,7 +79,14 @@ public class DefaultSandleBoardService implements SandleBoardService{
   @Override
   public void update(SandleBoard sandleBoard) {
     sandleBoardDao.updateBoard(sandleBoard);
-    boardFileDao.updatePhoto(sandleBoard);
+
+    if (sandleBoard.getAttachedFiles().size() > 0) {
+      for (BoardFile boardFile : sandleBoard.getAttachedFiles()) {
+        boardFile.setBoardNo(sandleBoard.getNo());
+        //        boardFile.setPhoto(sandleBoard.getFileName());
+      }
+      boardFileDao.insertList(sandleBoard.getAttachedFiles());
+    }
   }
 
 
@@ -98,5 +105,10 @@ public class DefaultSandleBoardService implements SandleBoardService{
     commentDao.deleteBoard(no);
     boardFileDao.delete(no);
     sandleBoardDao.deleteUserBoard(no);
+  }
+
+  @Override
+  public void delete(int no) {
+    boardFileDao.delete(no);
   }
 }

@@ -3,34 +3,28 @@
   html5up.net | @ajlkn
   Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+
+const photoDiv = document.getElementById("photo");
+var images = []; // 이미지를 담을 배열
+var currentIndex = 0; // 현재 인덱스
 function showImages() {
-  var photoDiv = document.getElementById("photo");
-  var images = []; // 이미지를 담을 배열
-  var currentIndex = 0; // 현재 인덱스
+  currentIndex = 0;
+  photoDiv.innerHTML = '';
+  images = [];
 
   for (let i = 0; i < sandleboard.attachedFiles.length; i++) {
     const file = sandleboard.attachedFiles[i];
     console.log(file.photoNo);
+    var imgContainer = document.createElement("div"); // 이미지와 x 버튼을 담을 div 요소 생성
     var img = document.createElement("img");
     img.src = `http://mcjpfbyigjei16837664.cdn.ntruss.com/photofeed/${file.photo}?type=u&w=286&h=351&ttype=jpg`;
     img.id = "attach-img";
     img.setAttribute('name', file.photoNo); // img에 file.photoNo를 name 속성으로 추가
-    images.push(img); // 배열에 이미지 추가
-    photoDiv.appendChild(img); // 이미지를 화면에 추가
-  }
-  
-  for (let i = 0; i < images.length; i++) {
-    var ximg = document.createElement("img");
-    ximg.src = `../assets/photofeed_images/comment-x-icon.png`;
-    ximg.id = "comment-insert-button"
-    ximg.addEventListener('click', function () {
-      var imgName = this.parentNode.querySelector('#attach-img').getAttribute('name');
-      var targetImg = this.parentNode.querySelector(`[name='${imgName}']`);
-      targetImg.parentNode.removeChild(targetImg);
-      this.parentNode.removeChild(this);
-      console.log(imgName);
-    });
-    images[i].parentNode.appendChild(ximg); // ximg를 이미지와 같은 부모 노드에 추가
+
+
+    imgContainer.appendChild(img); // 이미지와 x 버튼을 div 요소에 추가
+    images.push(imgContainer); // 배열에 div 요소 추가
+    photoDiv.appendChild(imgContainer); // div 요소를 화면에 추가
   }
 
   photoDiv.style.backgroundSize = "cover";
@@ -45,111 +39,28 @@ function showImages() {
     images[i].style.display = "none";
   }
 
-  document.getElementById("next-btn").addEventListener("click", function () {
-    images[currentIndex].style.display = "none";
-    currentIndex = (currentIndex + 1) % images.length;
-    if (currentIndex < 0) {
-      currentIndex = images.length - 1;
-    }
-    images[currentIndex].style.display = "block";
-  });
   
-  document.getElementById("prev-btn").addEventListener("click", function () {
-    images[currentIndex].style.display = "none";
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    if (currentIndex >= images.length) {
-      currentIndex = 0;
-    }
-    images[currentIndex].style.display = "block";
-  });
 };
+document.getElementById("next-btn").addEventListener("click", function () {
+  if (images.length === 0) {
+    return;
+  }
 
+  images[currentIndex].style.display = "none";
+  currentIndex = (currentIndex + 1) % images.length;
+  images[currentIndex].style.display = "block";
+});
 
-(function ($) {
-  var $window = $(window),
-    $body = $("body");
+document.getElementById("prev-btn").addEventListener("click", function () {
+  if (images.length === 0) {
+    return;
+  }
 
-  // Breakpoints.
-  breakpoints({
-    xlarge: ["1281px", "1680px"],
-    large: ["981px", "1280px"],
-    medium: ["737px", "980px"],
-    small: [null, "736px"],
-  });
+  images[currentIndex].style.display = "none";
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  images[currentIndex].style.display = "block";
+});
 
-  // Play initial animations on page load.
-  $window.on("load", function () {
-    window.setTimeout(function () {
-      $body.removeClass("is-preload");
-    }, 100);
-  });
-
-  // Dropdowns.
-  $("#nav > ul").dropotron({
-    mode: "fade",
-    noOpenerFade: true,
-    alignment: "center",
-  });
-
-  // Nav.
-
-  // Title Bar.
-  $(
-    '<div id="titleBar">' + '<a href="#navPanel" class="toggle"></a>' + "</div>"
-  ).appendTo($body);
-
-  // Panel.
-  $('<div id="navPanel">' + "<nav>" + $("#nav").navList() + "</nav>" + "</div>")
-    .appendTo($body)
-    .panel({
-      delay: 500,
-      hideOnClick: true,
-      hideOnSwipe: true,
-      resetScroll: true,
-      resetForms: true,
-      side: "left",
-      target: $body,
-      visibleClass: "navPanel-visible",
-    });
-})(jQuery);
-
-// $(function () {
-//   $("#accordion").accordion();
-// });
-
-// $(function () {
-//   $("#tabs").tabs();
-// });
-
-fetch("../auth/user")
-  .then((response) => {
-    return response.json();
-  })
-  .then((result) => {
-    console.log(result);
-
-    if (result.status === "success") {
-      document.querySelector("#email").innerHTML = result.data.email;
-      document.querySelector(".default_logo").classList.remove("default_logo");
-      document.querySelector(".logout").classList.remove("logout");
-    } else {
-      document.querySelector(".login").classList.remove("login");
-      document.querySelector(".sign-up").classList.remove("sign-up");
-    }
-  });
-
-function logout() {
-  fetch("../auth/logout")
-    .then((response) => {
-      return response.json();
-    })
-    .then((result) => {
-      location.reload();
-    })
-    .catch((exception) => {
-      console.log(exception);
-    });
-}
 // ---------------------------------------------------
 
 // ----------------------------------------------------------------------------------body
@@ -188,7 +99,7 @@ function getSandleBoard(e) {
     .then((result) => {
       console.log(result.data);
       if (result.status == "failure") {
-        
+
         alert("게시글을 조회할 수 없습니다.");
         location.href = "photofeed.html";
         return;
@@ -202,7 +113,7 @@ function getSandleBoard(e) {
       document.querySelector("#tag").value = sandleboard.tag;
       document.querySelector("#user-info-id").innerHTML = sandleboard.nickname;
 
-      if(sandleboard.profilePhoto == null) {
+      if (sandleboard.profilePhoto == null) {
         document.querySelector(
           "#modal-user-image"
         ).src = "../assets/images/profile_default_logo.png";
@@ -218,111 +129,32 @@ function getSandleBoard(e) {
 
       const photo = document.querySelector('#photo');
       const new_photo = document.querySelector('#seleted-image');
-editIcon.style.display = 'none';
-photo.addEventListener('mouseenter', function() {
-  editIcon.style.display = 'block';
-});
-editIcon.addEventListener('mouseenter', function() {
-  editIcon.style.display = 'block';
-});
-// new_photo.addEventListener('mouseenter', function() {
-//   editIcon.style.display = 'block';
-// });
-
-photo.addEventListener('mouseleave', function() {
-  editIcon.style.display = 'none';
-});
-
-// new_photo.addEventListener('mouseleave', function() {
-//   editIcon.style.display = 'none';
-// });
-
-
-
-
-
-
-
-      let div = "";
-      sandleboard.comments.forEach((comment) => {
-        if (comment.no == 0) return;
-        let html =
-          `
-        <div id="cmt-box">
-        <div  style="display: flex; align-items: center;"> ` + 
-       (comment.profilePhoto == null ?
-        `<img src="../assets/images/default_logo.jpg" 
-      id="cmt-image"
-      style="border-radius:30px;"/>` : 
-
-        `<img src="http://mcjpfbyigjei16837664.cdn.ntruss.com/profile-photo/${comment.profilePhoto}?type=f&w=40&h=40&faceopt=true&ttype=jpg" 
-        id="cmt-image"
-        style="border-radius:30px;"/>`) + `<span id="cmt-nickname">${comment.nickname}</span><br/>` +
-          (result.data.loginUser.no === comment.writerNo
-            ? `<img src="../assets/photofeed_images/comment-x-icon.png" class="cmt-x-logo" name="${comment.no}"/>`
-            : "") +
-          `</div>
-        <div id="cmt-content">${comment.commentContent}</div>
-        </div>
-        `;
-        div += html;
-        console.log(comment);
+      editIcon.style.display = 'none';
+      photo.addEventListener('mouseenter', function () {
+        editIcon.style.display = 'block';
       });
-      document.querySelector("#comment").innerHTML = div;
-      // 스크롤 내리기
-      // cmt.scrollTo(0, document.body.scrollHeight);
-      cmt.scrollTop = cmt.scrollHeight;
+      editIcon.addEventListener('mouseenter', function () {
+        editIcon.style.display = 'block';
+      });
+
+      photo.addEventListener('mouseleave', function () {
+        editIcon.style.display = 'none';
+      });
       $modal.css("display", "block");
       $body.css("overflow", "hidden");
+    })
+    
+  }
 
-      //삭제버튼 클릭 리스너--------------------------------------------------------
-      document.querySelectorAll(".cmt-x-logo").forEach(function (element) {
-        element.addEventListener("click", function () {
-          const replyNo = element.getAttribute("name");
-          fetch("../sandleboards/" + replyNo, {
-            method: "DELETE",
-          })
-            .then((response) => {
-              return response.json();
-            })
-            .then((result) => {
-              if (result.status == "success") {
-                console.log(result.data);
-                // 삭제된 댓글을 바로 HTML에서 제거합니다.
-                // let commentBox = document.querySelector(`[name="${replyNo}"]`).parentNode.parentNode;
-                // commentBox.parentNode.removeChild(commentBox);
-              }
-            })
-            .catch((exception) => {
-              // alert("삭제 중 오류 발생!");
-              console.log(exception);
-            });
-        });
-      });
+  document.querySelector('#edit-board').onclick = function () {
 
-      // 이벤트 위임 기법을 사용하여 이벤트 핸들러를 등록합니다.
-      document.addEventListener("click", function (event) {
-        // 클릭된 요소가 ".cmt-x-logo" 클래스를 가지고 있는지 확인합니다.
-        if (event.target.classList.contains("cmt-x-logo")) {
-          // 클릭된 요소가 ".cmt-x-logo" 클래스를 가진 경우, 이벤트를 처리합니다.
-          const replyNo = event.target.getAttribute("name");
-          deleteComment(replyNo);
-          reloadComments();
-        }
-      });
-    });
+    const form = document.querySelector('#edit-form');
+    const formData = new FormData(form);
 
-
-
-    document.querySelector('#edit-board').onclick = function() {
-      
-      const form = document.querySelector('#edit-form');
-      const formData = new FormData(form);
-      
-      fetch("../sandleboards/" + no +"/update/" , {
-        method: "PUT",
-        body: formData
-      })
+    fetch("../sandleboards/" + no + "/update/", {
+      method: "PUT",
+      body: formData
+    })
       .then(response => {
         return response.json();
       })
@@ -337,76 +169,35 @@ photo.addEventListener('mouseleave', function() {
         // alert('변경 중 오류 발생!');
         console.log(exception);
       });
-    
+
   }
 
 
-    document.querySelector('#delete-board').onclick = function() {
-      fetch("../sandleboards/" + no + "/userBoard/", {
-        method: "DELETE",
-      })
-        .then((response) => {
-          return response.json(); 
-        })
-        .then((result) => {
-          if (result.status == "success") {
-            alert("성공성공!");
-            location.reload();
-            console.log(result.data);
-            // 삭제된 댓글을 바로 HTML에서 제거합니다.
-            // let commentBox = document.querySelector(`[name="${replyNo}"]`).parentNode.parentNode;
-            // commentBox.parentNode.removeChild(commentBox);
-          }
-        })
-        .catch((exception) => {
-          // alert("삭제 중 오류 발생!");
-          console.log(exception);
-        });
-    };
-      
-    document.querySelectorAll(".cmt-x-logo").forEach(function (element) {
-      element.addEventListener("click", function () {
-        const replyNo = element.getAttribute("name");
-        fetch("../sandleboards/" + no, {
-          method: "DELETE",
-        })
-          .then((response) => {
-            return response.json();
-          })
-          .then((result) => {
-            if (result.status == "success") {
-              console.log(result.data);
-              // 삭제된 댓글을 바로 HTML에서 제거합니다.
-              // let commentBox = document.querySelector(`[name="${replyNo}"]`).parentNode.parentNode;
-              // commentBox.parentNode.removeChild(commentBox);
-            }
-          })
-          .catch((exception) => {
-            // alert("삭제 중 오류 발생!");
-            console.log(exception);
-          });
-      });
+document.querySelector('#delete-board').onclick = function () {
+  fetch("../sandleboards/" + no + "/userBoard/", {
+    method: "DELETE",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      console.log(result);
+      if (result.status == "success") {
+        alert("성공성공!");
+        location.reload();
+        console.log(result.data);
+      } else {
+        
+      }
+    })
+    .catch((exception) => {
+
+      console.log(exception);
     });
-    }
+};
 
 
 
-// 삭젝랑 댓글 추가 함수
-function inputComment() {
-
-  reloadComments(); // 서버에서 새로운 댓글 목록을 가져와서 화면을 업데이트
-
-  document.querySelectorAll(".cmt-x-logo").forEach(function (element) {
-    element.addEventListener("click", function () {
-      const replyNo = element.getAttribute("name");
-      deleteComment(replyNo);
-      reloadComments();
-    });
-  });
-
-  // document.querySelector("#comment").innerHTML += html;
-
-}
 
 const $btnClosePopup = $("#x-circle");
 const $btnCloseInsert = $("#insert-x-circle");
@@ -417,8 +208,8 @@ const $selected_image = $("#selected-image");
 $btnClosePopup.on("click", function () {
   $modal.css("display", "none");
   $body.css("overflow", "auto");
-   $selected_image.css("display", "none");
-   $("#photo").empty();
+  $selected_image.css("display", "none");
+  $("#photo").empty();
 });
 
 $btnCloseInsert.on("click", function () {
@@ -427,8 +218,8 @@ $btnCloseInsert.on("click", function () {
 });
 
 $btnInsert.on("click", function () {
- $modal_insert.css("display", "block");
- $body.css("overflow", "hidden");
+  $modal_insert.css("display", "block");
+  $body.css("overflow", "hidden");
 });
 
 $("#sandle").on("click", function () {
@@ -445,29 +236,44 @@ const imagePlusIcon = document.getElementById('post-photo-icon');
 const plusText = document.getElementById('file-text');
 const editIcon = document.querySelector('#edit-photo-icon');
 // const editIcon = document.querySelector('#edit-photo-icon');
-fileInput.addEventListener('change', function() {
-  const file = fileInput.files[0];
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    selectedImage.src = URL.createObjectURL(file);
-    selectedImage.style.display = 'block';
-     editIcon.style.display = 'block';
-    oldPhoto.style.display = 'block';
-    
-        // 파일 정보 출력
-        console.log(file);
+fileInput.addEventListener('change', function () {
+  for (file of fileInput.files) {
+    console.log(file);
+
+    var imgContainer = document.createElement("div"); // 이미지와 x 버튼을 담을 div 요소 생성
+    var img = document.createElement("img");
+    img.src = URL.createObjectURL(file);
+    img.id = "attach-img";
+    img.setAttribute('name', "temp"); // img에 file.photoNo를 name 속성으로 추가
+    imgContainer.style.display = "none"
+
+    imgContainer.appendChild(img); // 이미지와 x 버튼을 div 요소에 추가
+    images.push(imgContainer); // 배열에 div 요소 추가
+    photoDiv.appendChild(imgContainer); // div 요소를 화면에 추가
+
+
+
+
   }
-  reader.readAsDataURL(file);
+
+  // const reader = new FileReader();
+  // reader.onload = function (e) {
+  //   // selectedImage.src = URL.createObjectURL(file);
+  //   // selectedImage.style.display = 'block';
+  //   // editIcon.style.display = 'block';
+  //   // oldPhoto.style.display = 'block';
+
+  //   // 파일 정보 출력
+  //   console.log(file);
+  // }
+  // reader.readAsDataURL(file);
 
 });
 
-// selectedImage.addEventListener('mouseenter', function() {
-//   editIcon.style.display = 'block';
-// });
 
 const postClose = document.querySelector("#x-circle");
 
-const closeModal = function() {
+const closeModal = function () {
   // 이미지 초기화
   selectedImage.src = "";
   selectedImage.style.display = "none";
@@ -477,47 +283,4 @@ const closeModal = function() {
 
 // 모달 닫기 버튼 클릭 시 closeModal() 함수 호출
 postClose.addEventListener("click", closeModal);
-
-
-
-
-
-
-const btnPost = document.getElementById("btn-post"); // 버튼 요소 가져오기
-
-btnPost.addEventListener("click", (event) => {
-  event.preventDefault(); // 기본 이벤트 방지
-  const form = document.querySelector("#photofeed-form");
-  const formData = new FormData(form);
-  console.log("확인");
-
-  fetch("../sandleboards/post", {
-    method: "POST",
-    body: formData
-  })
-    .then((response) => {
-      return response.json(); // 서버에서 새로운 댓글 목록을 가져오기 위해 json 형식으로 변환
-    })
-    .then((result) => {
-      console.log(result);
-      if(result.status == "success") {
-        alert("성공성공!")
-        location.reload();
-      } else if (result.errorCode == '401') {
-        location.href = '../auth/login_form.html';
-      } else {
-        alert("입력 실패!");
-        console.log(result.data);
-      }
-    })
-    .catch(exception => {
-      alert("입력 오류!");
-      console.error(exception); // 오류 처리
-    });
-});
-
-
-
-
-
 

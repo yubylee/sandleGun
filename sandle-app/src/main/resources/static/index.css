@@ -18,71 +18,71 @@ select {
 
 /* Header */
 
-#header {
-  position: relative;
-  background: #ffffff;
-  padding: 2em 0 3em 0;
-  text-align: center;
-  min-height: 70px;
-  max-height: 70px;
-}
-
-#header-title {
-  color: #28544b;
+#header-title > a {
   font-weight: 900;
-  font-size: 45px;
+  font-size: 60px;
+  padding-left: 10px;
 }
 
 .login,
 .logout,
 .sign-up,
 .profilePhoto {
-  display: none;
+  /* display: none; */
 }
 
 #login,
 #logout,
 #sign-up {
-  float: right;
-  margin-right: 30px;
   font-weight: 700;
   font-size: 20px;
-}
-
-#login,
-#logout,
-#sign-up {
-  margin-top: 13px;
 }
 
 #profilePhoto {
   float: right;
-  width: 560px;
+  width: auto;
   font-weight: 700;
   font-size: 20px;
+  margin-top: 40px;
+  margin-right: 180px;
+}
+
+#profilePhoto:hover > a,
+#profilePhoto.active > a,
+#profilePhoto.current > a {
+  background: none !important;
+  color: #28544b !important;
+}
+
+#u-photo,
+#m-photo {
+  border-radius: 100%;
 }
 
 #userEmail {
   margin-left: 20px;
-  margin-top: 13px;
-  position: absolute;
+  margin-top: 18px;
+  font-size: 20px;
 }
 
 /* Nav */
 
 #nav {
   text-align: center;
+  display: inline-block;
 }
 
 #nav > ul {
   margin: 0;
-  background-color: #28544b;
-  min-height: 20px;
+  font-size: 23px;
+  font-weight: 700;
+  width: 1000px;
+  padding-left: 0 !important;
 }
 
 #nav > ul > li {
   display: inline-block;
-  margin: 6px 3em 5px 0em;
+  margin: 6px 0.2em 5px 0em;
 }
 
 #nav > ul > li > ul {
@@ -91,7 +91,6 @@ select {
 
 #nav > ul > li > a {
   border-radius: 5px;
-  color: #fff;
   text-decoration: none;
   padding: 0.2em 0.6em 0.2em 0.6em;
   outline: 0;
@@ -99,14 +98,14 @@ select {
 
 #nav > ul > li:hover > a,
 #nav > ul > li.active > a {
-  background: #fff;
-  color: #28544b !important;
+  background: #28544b;
+  color: white;
   font-weight: 700;
 }
 
 #nav > ul > li.current > a {
-  background: #fff;
-  color: #28544b !important;
+  background: #28544b;
+  color: white;
   font-weight: 700;
 }
 
@@ -119,9 +118,11 @@ select {
   background-color: #fff;
   background-color: fff(34, 30, 31, 0.98);
   padding: 1.2em 0.5em 1em 1em;
-  color: #28544b !important;
+  color: #28544b;
+  font-size: 20px;
   font-weight: 1000;
-  min-width: 12em;
+  min-width: 15em;
+  min-height: 10em;
   box-shadow: 0px 8px 15px 0px rgba(0, 0, 0, 0.5);
   text-align: left;
   margin-top: -1.25em;
@@ -131,7 +132,7 @@ select {
 
 .dropotron a,
 .dropotron span {
-  color: #28544b !important;
+  color: #28544b;
   font-weight: 400;
   text-decoration: none;
   -moz-transition: color 0.25s ease-in-out;
@@ -146,25 +147,12 @@ select {
 
 .dropotron li:hover > a,
 .dropotron li:hover > span {
-  color: #28544b !important;
+  color: #28544b;
   font-weight: 700;
 }
 
 .dropotron.level-0 {
   margin-top: 2em;
-}
-
-.dropotron.level-0:before {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 50%;
-  margin-left: -10px;
-  top: -9px;
-  border-left: solid 10px transparent;
-  border-right: solid 10px transparent;
-  border-bottom: solid 10px #28544b;
-  border-bottom-color: #28544b;
 }
 
 /* Intro */
@@ -398,8 +386,17 @@ h1 {
 .content_navi {
   width: 100%;
   height: 96px;
+  background-color: white;
+  border-bottom: 1px #28544b solid;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.content_navi-2 {
+  width: 100%;
+  height: 96px;
   background-color: #fff;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 999;
@@ -567,48 +564,6 @@ h1 {
   transition: transform 0.4s ease-in-out;
   /* z-index: 1; */
 }
-
-/* .tab_button.active {
-  border-bottom-color: #2c5601;
-}
-
-.tab_button.active ~ .tab_button {
-  border-bottom-color: transparent;
-}
-
-.tab_button.active ~ .tab_underline {
-  transform: translateX(calc(var(--tab-index, 0) * 100%));
-} */
-
-/* .SK60uA4aDEfAkrV\+jMkxPQ\=\=,
-.WsfKo-Yj8hZITdEJe9qZ-w\=\= {
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  margin: 0;
-  position: absolute;
-  top: 0;
-  height: 100%;
-  cursor: pointer;
-  align-items: center;
-  display: none;
-} */
-
-/* .WsfKo-Yj8hZITdEJe9qZ-w\=\= {
-  left: 0;
-  padding-right: 8px;
-  background: linear-gradient(90deg, #fff 66%, hsla(0, 0%, 100%, 0));
-} */
-
-/* .AUxnvEMKUpKbQqeQ\+9di6g\=\= {
-  vertical-align: top;
-} */
-/* 
-.SK60uA4aDEfAkrV\+jMkxPQ\=\= {
-  right: 0;
-  padding-left: 8px;
-  background: linear-gradient(270deg, #fff 66%, hsla(0, 0%, 100%, 0));
-} */
 
 .GiyqJKhU9Wi22cfIGuPzKA\=\= {
   padding: 0;

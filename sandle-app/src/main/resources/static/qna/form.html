@@ -7,125 +7,117 @@
       name="viewport"
       content="width=device-width, initial-scale=1, user-scalable=no"
     />
+    <link rel="stylesheet" href="form.css" />
     <link rel="stylesheet" href="/sandle/index.css" />
     <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
     <style>
       #head {
-        font-size: 30px;
-        font-weight: 900;
-        text-align: center;
-        color: #28544b;
-        margin: 0;
-      }
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+    color: black;
+    margin: 0;
+  }
 
-      #head-next {
-        margin-left: 20px;
-        font-weight: 700;
-        text-align: center;
-        color: #28544b;
-        margin-bottom: 30px;
-      }
+  #head-next {
+    margin-left: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: black;
+    margin-bottom: 30px;
+  }
 
-      form {
-        max-width: 600px;
-        margin: 0 auto;
-        background-color: #fff;
-        border-radius: 10px;
-        padding: auto;
-        margin-top: 40px;
-      }
+  body {
+    font-family: "Nanum Gothic", sans-serif;
+    background-color: #f4f4f4;
+  }
 
-      input {
-        border: none;
-        outline: none;
-        width: 500px;
-        font-size: 20px;
-      }
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 40px;
+  }
 
-      textarea {
-        border: none;
-        outline: none;
-        width: 500px;
-        font-size: 20px;
-        height: 250px;
-      }
+  .box {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
 
-      ::placeholder {
-        font-size: 15px;
-      }
+  .inputBox {
+    margin-bottom: 30px;
+  }
 
-      .q-title {
-        max-height: 90px;
-      }
+  .readBox input[type="text"] {
+    width: 20%;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    box-shadow: 3px 3px 3px 3px #d3d3d3;
+    resize: none;
+  }
 
-      .q-content {
-        max-height: 300px;
-      }
+  .inputBox input[type="text"],
+  .inputBox textarea {
+    width: 98%;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    box-shadow: 3px 3px 3px 3px #d3d3d3;
+    resize: none;
+  }
 
-      .q-title,
-      .q-content {
-        margin-top: 30px;
-        position: relative;
-        transform: translateX(-50%);
-        max-width: 530px;
-        left: 50%;
-        font-size: 18px;
+  .inputBox textarea {
+    height: 250px;
+  }
 
-        background: #ffffff;
-        mix-blend-mode: normal;
-        border-bottom: 3px solid #28544b;
-        box-shadow: 3px 3px 3px 3px;
-        border-radius: 10px;
-        padding: 5px 0 10px 10px;
-      }
+  #btns {
+    text-align: center;
+    margin-bottom: 10px;
+  }
 
-      #btns {
-        text-align: center;
-        margin-bottom: 50px;
-      }
+  #btn-insert,
+  #btn-list {
+    border-radius: 10px;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 50px;
+    width: 120px;
+    height: 40px;
+    outline: none;
+    font-size: 20px;
+    border: none;
+  }
 
-      #btn-insert,
-      #btn-list {
-        box-shadow: 3px 3px 3px 3px #000000;
-        border-radius: 10px;
-        position: relative;
-        margin-top: 30px;
-        width: 120px;
-        height: 40px;
-        outline: none;
-        font-size: 20px;
-      }
+  #btn-insert {
+    background-color: #007bff;
+    color: #ffffff;
+  }
 
-      #btn-insert {
-        border: none;
-        background-color: #28544b;
-        color: #ffffff;
-      }
+  button:hover {
+    cursor: pointer;
+  }
 
-      #btn-list {
-        margin-left: 50px;
-      }
+  #btn-insert:active {
+    background-color: white;
+    color: #007bff;
+    border: 1px #007bff solid;
+    box-shadow: 2px 2px 2px 2px #000000;
+  }
 
-      button:hover {
-        cursor: pointer;
-      }
-
-      #btn-insert:active {
-        background-color: white;
-        color: #28544b;
-        border: 1px #28544b solid;
-        box-shadow: 2px 2px 2px 2px #000000;
-      }
-
-      #btn-list:active {
-        background-color: #28544b;
-        color: white;
-        border: 1px #28544b solid;
-        box-shadow: 2px 2px 2px 2px #000000;
-      }
+  #btn-list:active {
+    background-color: #007bff;
+    color: white;
+    border: 1px #007bff solid;
+    box-shadow: 2px 2px 2px 2px #000000;
+  }
     </style>
   </head>
-
   <body>
     <!DOCTYPE html>
     <html>
@@ -141,59 +133,35 @@
       </head>
 
       <body>
-        <!-- Header -->
-        <header id="header">
-          <div id="header-title"><a href="/sandle/index.html">SANDLE</a></div>
+    <!-- Header  -->
+    <div class="content_navi">
+      <div id="header-title">
+        <a href="/sandle/index.html">SANDLE</a>
 
-          <div id="login" class="login">
-            <a href="/sandle/auth/login_form.html">LOGIN</a>
-          </div>
-
-          <div id="logout" class="logout">
-            <a href="sandle/auth/logout" onclick="logout(); return false;">
-              LOGOUT</a
-            >
-          </div>
-
-          <div id="sign-up" class="sign-up">
-            <a href="/sandle/member/member.html">SIGN UP</a>
-          </div>
-
-          <div id="profilePhoto" class="profilePhoto">
-            <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
-              <img id="u-photo" class="edit" />
-              <span id="userEmail"></span>
-            </a>
-          </div>
-        </header>
-
-        <!-- Nav -->
-        <nav id="nav">
+        <div id="nav">
           <ul>
-            <li>
+            <li class="current">
               <a href="/sandle/index.html">산들 소개</a>
             </li>
-
             <li>
               <a href="/sandle/mountain_info/mountain_info.html"
                 >전국 등산로 정보</a
               >
             </li>
-
             <li>
               <a href="#">산악 소식</a>
               <ul>
                 <ol>
                   산악 소식
                 </ol>
-                <li><a href="/sandle/notice/list.html">공지 사항</a></li>
+                <li><a href="/sandle/notice/view.html">공지 사항</a></li>
                 <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
                 <li>
                   <a href="/sandle/festival/festival.html">지역 행사 정보</a>
                 </li>
               </ul>
             </li>
-            <li class="current">
+            <li>
               <a href="#">커뮤니티</a>
               <ul>
                 <ol>
@@ -203,13 +171,41 @@
                   <a href="/sandle/sandleboard/photofeed.html">포토 피드</a>
                 </li>
                 <li>
-                  <a href="/sandle/userPage/userPage.html">마이페이지</a>
+                  <a href="/sandle/userPage/userPage.html" id="my-page"
+                    >마이페이지</a
+                  >
                 </li>
                 <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
               </ul>
             </li>
+
+            <li id="profilePhoto" class="profilePhoto">
+              <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
+                <img id="u-photo" class="edit" />
+                <span id="userEmail"></span>
+              </a>
+              <ul>
+                <li>
+                  <div id="login" class="login">
+                    <a href="/sandle/auth/login_form.html">LOGIN</a>
+                  </div>
+                </li>
+                <li>
+                  <div id="logout" class="logout">
+                    <a href="sandle/auth/logout" onclick="logout(); return false;">LOGOUT</a>
+                  </div>
+                </li>
+                <li>
+                  <div id="sign-up" class="sign-up">
+                    <a href="/sandle/member/member.html">SIGN UP</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
           </ul>
-        </nav>
+        </div>
+      </div>
+    </div>
 
         <!-- 1:1 문의하기 -->
         <main>
@@ -222,37 +218,41 @@
 
           <article>
             <form id="member-form" action="update" method="post">
-              <div class="q-title">
-                <div style="display: none">
-                  <b>유저번호</b><br />
+              <div class="box">
+                <div class="readBox">
+                  <b>닉네임</b>
+                  <input id="f-nickname" type="text" name="nickname" readonly />
                   <input
                     id="f-member-id"
                     type="text"
                     name="memberId"
+                    style="display: none"
                     readonly
                   />
                 </div>
-                <div>
-                  <b style="display: none">닉네임</b>
-                  <input id="f-nickname" type="text" name="nickname" readonly />
-                </div>
-                <b>제목</b><br />
-                <input
-                  id="qna-title"
-                  type="text"
-                  name="title"
-                  placeholder="제목을 입력하세요."
-                  maxlength="60"
-                />
               </div>
-              <div class="q-content">
-                <b>문의내용</b><br />
-                <textarea
-                  id="qna-content"
-                  type="text"
-                  placeholder="문의하실 내용을 기입해주세요."
-                  name="content"
-                ></textarea>
+              <div class="box">
+                <div class="tit">제목</div>
+                <div class="inputBox">
+                  <input
+                    id="qna-title"
+                    type="text"
+                    name="title"
+                    placeholder="제목을 입력하세요."
+                    maxlength="60"
+                  />
+                </div>
+              </div>
+              <div class="box">
+                <div class="tit">문의 내용</div>
+                <div class="inputBox">
+                  <textarea
+                    id="qna-content"
+                    type="text"
+                    placeholder="문의하실 내용을 기입해주세요."
+                    name="content"
+                  ></textarea>
+                </div>
               </div>
               <div id="btns">
                 <button id="btn-insert" type="button">저장</button>
@@ -261,6 +261,7 @@
             </form>
           </article>
         </main>
+      </br>
 
         <!-- Footer -->
         <footer id="footer">
@@ -290,56 +291,61 @@
         <!-- Scripts -->
         <script>
           fetch("../users/view")
-            .then((response) => {
-              return response.json();
-            })
-            .then((result) => {
-              console.log(result);
-              if (result.status == "failure") {
-                alert("회원을 조회할 수 없습니다.");
-                location.href = "/sandle/auth/login_form.html";
-              }
+    .then((response) => {
+        return response.json();
+    })
+    .then((result) => {
+        console.log(result);
+        if (result.status == "failure") {
+        alert("회원을 조회할 수 없습니다.");
+        location.href = "/sandle/auth/login_form.html";
+        }
 
-              let member = result.data;
-              console.log(member);
-              document.querySelector("#f-member-id").value = member.no;
-              document.querySelector("#f-nickname").value = member.nickname;
-            });
+        let member = result.data;
+        console.log(member);
+        document.querySelector("#f-member-id").value = member.no;
+        document.querySelector("#f-nickname").value = member.nickname;
+    });
 
-          document.querySelector("#btn-insert").onclick = () => {
-            const form = document.querySelector("#member-form");
-            const formData = new FormData(form);
+    document.querySelector("#btn-list").onclick = () => {
+        history.back();
+    }
 
-            let json = JSON.stringify(Object.fromEntries(formData));
-            console.log(json);
+    document.querySelector("#btn-insert").onclick = () => {
+    const form = document.querySelector("#member-form");
+    const formData = new FormData(form);
 
-            fetch("../qnas", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: json,
-            })
-              .then((response) => {
-                console.log(response);
-                return response.json();
-              })
-              .then((result) => {
-                console.log(result);
-                if (result.status == "success") {
-                  alert("게시 완료!");
-                  location.href = "/sandle/qna/list.html";
-                } else {
-                  alert("게시글 등록중 오류!");
-                  console.log(result.data);
-                }
-              })
-              .catch((exception) => {
-                alert("입력 중 오류 발생!");
-                console.log(exception);
-              });
-          };
+    let json = JSON.stringify(Object.fromEntries(formData));
+    console.log(json);
+
+    fetch("../qnas", {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: json,
+    })
+        .then((response) => {
+        console.log(response);
+        return response.json();
+        })
+        .then((result) => {
+        console.log(result);
+        if (result.status == "success") {
+            alert("게시 완료!");
+            location.href = "/sandle/qna/list.html";
+        } else {
+            alert("게시글 등록중 오류!");
+            console.log(result.data);
+        }
+        })
+        .catch((exception) => {
+        alert("입력 중 오류 발생!");
+        console.log(exception);
+        });
+    };
         </script>
+        <script src="form.js"></script>
         <script src="/sandle/assets/js/jquery.min.js"></script>
         <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
         <script src="/sandle/assets/js/breakpoints.min.js"></script>

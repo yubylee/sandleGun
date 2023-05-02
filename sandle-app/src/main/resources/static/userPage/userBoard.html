@@ -1,177 +1,163 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>SANDLE - 산들산들</title>
+  <link rel="stylesheet" href="userBoard.css" />
+  <link rel="stylesheet" href="/sandle/index.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+  <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+
+<body>
+  <!DOCTYPE html>
+  <html>
+
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>SANDLE - 산들산들</title>
-    <link rel="stylesheet" href="userBoard.css" />
     <link rel="stylesheet" href="/sandle/index.css" />
     <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
   </head>
 
   <body>
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, user-scalable=no"
-        />
-        <title>SANDLE - 산들산들</title>
-        <link rel="stylesheet" href="/sandle/index.css" />
-        <link rel="icon" href="/sandle/assets/images/default_logo.jpg" />
-      </head>
+    <!-- Header -->
+    <header id="header">
+      <div id="header-title"><a href="/sandle/index.html">SANDLE</a></div>
 
-      <body>
-        <!-- Header -->
-        <header id="header">
-          <div id="header-title"><a href="/sandle/index.html">SANDLE</a></div>
+      <div id="login" class="login">
+        <a href="/sandle/auth/login_form.html">LOGIN</a>
+      </div>
 
-          <div id="login" class="login">
-            <a href="/sandle/auth/login_form.html">LOGIN</a>
-          </div>
+      <div id="logout" class="logout">
+        <a href="sandle/auth/logout" onclick="logout(); return false;">
+          LOGOUT</a>
+      </div>
 
-          <div id="logout" class="logout">
-            <a href="sandle/auth/logout" onclick="logout(); return false;">
-              LOGOUT</a
-            >
-          </div>
+      <div id="sign-up" class="sign-up">
+        <a href="/sandle/member/member.html">SIGN UP</a>
+      </div>
 
-          <div id="sign-up" class="sign-up">
-            <a href="/sandle/member/member.html">SIGN UP</a>
-          </div>
+      <div id="profilePhoto" class="profilePhoto">
+        <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
+          <img id="u-photo" class="edit" />
+          <span id="userEmail"></span>
+        </a>
+      </div>
+    </header>
 
-          <div id="profilePhoto" class="profilePhoto">
-            <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
-              <img id="u-photo" class="edit" />
-              <span id="userEmail"></span>
-            </a>
-          </div>
-        </header>
+    <!-- Nav -->
+    <nav id="nav">
+      <ul>
+        <li>
+          <a href="/sandle/index.html">산들 소개</a>
+        </li>
 
-        <!-- Nav -->
-        <nav id="nav">
+        <li>
+          <a href="/sandle/mountain_info/mountain_info.html">전국 등산로 정보</a>
+        </li>
+
+        <li>
+          <a href="#">산악 소식</a>
           <ul>
+            <ol>
+              산악 소식
+            </ol>
+            <li><a href="/sandle/notice/list.html">공지 사항</a></li>
+            <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
             <li>
-              <a href="/sandle/index.html">산들 소개</a>
-            </li>
-
-            <li>
-              <a href="/sandle/mountain_info/mountain_info.html"
-                >전국 등산로 정보</a
-              >
-            </li>
-
-            <li>
-              <a href="#">산악 소식</a>
-              <ul>
-                <ol>
-                  산악 소식
-                </ol>
-                <li><a href="/sandle/notice/list.html">공지 사항</a></li>
-                <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
-                <li>
-                  <a href="/sandle/festival/festival.html">지역 행사 정보</a>
-                </li>
-              </ul>
-            </li>
-            <li class="current">
-              <a href="#">커뮤니티</a>
-              <ul>
-                <ol>
-                  커뮤니티
-                </ol>
-                <li>
-                  <a href="/sandle/sandleboard/photofeed.html">포토 피드</a>
-                </li>
-                <li>
-                  <a href="/sandle/userPage/userPage.html">마이페이지</a>
-                </li>
-                <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
-              </ul>
+              <a href="/sandle/festival/festival.html">지역 행사 정보</a>
             </li>
           </ul>
-        </nav>
+        </li>
+        <li class="current">
+          <a href="#">커뮤니티</a>
+          <ul>
+            <ol>
+              커뮤니티
+            </ol>
+            <li>
+              <a href="/sandle/sandleboard/photofeed.html">포토 피드</a>
+            </li>
+            <li>
+              <a href="/sandle/userPage/userPage.html">마이페이지</a>
+            </li>
+            <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
 
-        <div id="photo-head">
-          <div id="head-underline">
-            <span id="photo-head-photofeed">My PHOTOFEED</span>
+    <div id="photo-head">
+      <div id="head-underline">
+        <span id="photo-head-photofeed">My PHOTOFEED</span>
+      </div>
+    </div>
+
+    <!-- photofeed -->
+    <div class="container"></div>
+
+    <!-- ---------------------------------------------Modal area------------------------------ -->
+
+    <div class="modal">
+      <div class="modal_body">
+        <!-- <img src="../assets/photofeed_images/arrow-left.png" width="30px" height="30px" class="arrow-i" /> -->
+        <form id="edit-form" enctype="multipart/form-data">
+          <div id="session1">
+            <img src="../assets/photofeed_images/x-circle.png" width="17px" height="17px" id="x-circle" />
           </div>
-        </div>
-
-        <!-- photofeed -->
-        <div class="container"></div>
-
-        <!-- ---------------------------------------------Modal area------------------------------ -->
-
-        <div class="modal">
-          <div class="modal_body">
-            <!-- <img src="../assets/photofeed_images/arrow-left.png" width="30px" height="30px" class="arrow-i" /> -->
-            <form id="edit-form" enctype="multipart/form-data">
-              <div id="session1">
-                <img
-                  src="../assets/photofeed_images/x-circle.png"
-                  width="17px"
-                  height="17px"
-                  id="x-circle"
-                />
+          <div id="session2">
+            <div class="session2-s" id="session2-1"></div>
+            <div class="session2-s" id="session2-2">
+              <div id="photo">
               </div>
-              <div id="session2">
-                <div class="session2-s" id="session2-1"></div>
-                <div class="session2-s" id="session2-2">
-                  <div id="photo"></div>
-                  <a class="prev" id="prev-btn">&#10094;</a>
-                  <a class="next" id="next-btn">&#10095;</a>
-                  <input
-                    id="file-input"
-                    type="file"
-                    style="display: none"
-                    name="files"
-                    multiple
-                  />
-                  <img id="selected-image" style="display: none" />
-                  <label for="file-input">
-                    <img
-                      src="../assets/photofeed_images/add-icon.png"
-                      id="edit-photo-icon"
-                    />
-                  </label>
-                </div>
-                <div class="session2-s" id="session2-3">
-                  <div class="session2-s" id="session2-3-1">
-                    <div id="modal-content-creater">
-                      <div id="user-info">
-                        <div id="user-info-image">
-                          <img id="modal-user-image" />
-                        </div>
-
-                        <div id="user-info-content">
-                          <span id="user-info-id"></span>
-                        </div>
-                      </div>
-                      <input id="tag" name="tag" />
-                      <input id="content" name="content" /> 
+              <!-- <div>
+              <img src="../assets/photofeed_images/comment-x-icon.png" type="button" id="image-delete-button"/>
+            </div> -->
+              <a class="prev" id="prev-btn">&#10094;</a>
+              <a class="next" id="next-btn">&#10095;</a>
+              <input id="file-input" type="file" style="display: none" name="files" multiple />
+              <img id="selected-image" style="display: none" />
+              <label for="file-input">
+                <img src="../assets/photofeed_images/add-icon.png" id="edit-photo-icon" />
+              </label>
+            </div>
+            <div class="session2-s" id="session2-3">
+              <div class="session2-s" id="session2-3-1">
+                <div id="modal-content-creater">
+                  <div id="user-info">
+                    <div id="user-info-image">
+                      <img id="modal-user-image" />
                     </div>
-                    <div id="comment"></div>
-                    <button id="edit-board">수정하기</button>
-                    <button id="delete-board">삭제하기</button>
+
+                    <div id="user-info-content">
+                      <span id="user-info-id"></span>
+                    </div>
                   </div>
-                </div>
 
-                <div class="session2-s" id="session2-4">
-                  <!-- <img src="../assets/photofeed_images/arrow-right.png" width="30px" height="30px" class="arrow-i" id="arrow-right"/> -->
+                  <input id="tag" name="tag" />
+                  <input id="content" name="content" />
                 </div>
+                <!-- <div id="comment"></div> -->
+                <button id="edit-board">수정하기</button>
+                <button id="delete-board">삭제하기</button>
               </div>
-            </form>
-          </div>
-        </div>
+            </div>
 
-        <script id="image-template" type="text/x-handlebars-template">
+            <div class="session2-s" id="session2-4">
+              <!-- <img src="../assets/photofeed_images/arrow-right.png" width="30px" height="30px" class="arrow-i" id="arrow-right"/> -->
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script id="image-template" type="text/x-handlebars-template">
           {{#each this}}
             <div class="item">
               <div
@@ -185,14 +171,17 @@
             </div>
           {{/each}}
         </script>
-        <script src="../assets/js/jquery.min.js"></script>
-        <script src="../assets/js/jquery.dropotron.min.js"></script>
-        <script src="../assets/js/breakpoints.min.js"></script>
-        <script src="../assets/js/util.js"></script>
-        <script src="../node_modules/handlebars/dist/handlebars.js"></script>
-        <script src="/sandle/navLogin.js"></script>
-        <script src="userBoard.js"></script>
-      </body>
-    </html>
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.dropotron.min.js"></script>
+    <script src="../assets/js/breakpoints.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../node_modules/handlebars/dist/handlebars.js"></script>
+    <script src="/sandle/navLogin.js"></script>
+    <script src="userBoard.js"></script>
   </body>
+
+  </html>
+</body>
+
 </html>

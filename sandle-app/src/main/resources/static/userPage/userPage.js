@@ -6,7 +6,7 @@ document.querySelector(".change-profile-photo-btn").onclick = () => {
     .then((result) => {
       if (result.status == "failure") {
         alert("회원을 조회할 수 없습니다.");
-        return;
+        location.href = "/sandle/auth/login_form.html";
       }
 
       let member = result.data;

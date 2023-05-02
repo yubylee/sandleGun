@@ -5,12 +5,11 @@
   display: grid;
   margin-left: 80px;
   margin-top: 30px;
-  grid-template-columns: 480px 480px 480px 480px;
+  grid-template-columns: 450px 450px 450px;
   grid-template-rows: auto auto;
 }
 
 .item {
-
   height: 390px;
   width: 430px;
   /* margin: auto; */
@@ -23,6 +22,7 @@
 
 .photo-a {
   /* border: 1px solid black; */
+  border-radius: 3px;
   height: 300px;
   width: 430px;
   margin: auto;
@@ -34,7 +34,6 @@
   background-position: center;
   background-size: cover;
   cursor: pointer;
-  
 }
 
 .item:hover {
@@ -64,12 +63,14 @@
 .view-title {
   /* border: 1px solid black; */
   flex-grow: 1;
-  width: 100%;
+  width: 98%;
+  height: 50px;
   display: flex;
   align-items: center;
   color: black;
   font-size: 18px;
   font-weight: 700;
+  margin-left: 5px;
 }
 
 .view-like {
@@ -88,7 +89,6 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-
 }
 
 .view-like-count {
@@ -105,8 +105,8 @@
   margin-top: 2px;
 
   font-size: 16px;
-    color: rgb(153,153,153);
-    line-height: 28px;
+  color: rgb(153, 153, 153);
+  line-height: 28px;
 }
 
 .view-icon {
@@ -227,10 +227,9 @@
   flex-direction: column;
 }
 
-
-
 /* 이전/다음 버튼 스타일 */
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -255,8 +254,9 @@
   margin-right: 425px;
 }
 
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .text {
@@ -281,16 +281,24 @@
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-#prev-btn{
+#prev-btn {
   margin-left: 25px;
 }
 
@@ -305,7 +313,7 @@
 }
 
 #post-prev-btn {
-  margin-right: 330px;
+  /* margin-right: 330px; */
   margin-top: 2px;
 }
 
@@ -410,11 +418,13 @@
 #cmt-nickname {
   font-weight: bold;
   padding-left: 10px;
+  margin-top: 3px;
 }
 
 #cmt-image {
   width: 30px;
   height: 30px;
+  margin-top: 3px;
 }
 
 .cmt-x-logo {
@@ -426,6 +436,7 @@
 
 #cmt-content {
   padding-left: 50px;
+  margin-top: 3px;
 }
 
 #board-plus {
@@ -451,9 +462,10 @@
 #head-underline {
   display: flex;
   align-items: center;
-  width: 1050px;
+  width: 1330px;
   height: 60px;
   border-bottom: 5px solid black;
+  margin-left: 50px;
 }
 
 #post-font {
@@ -518,6 +530,8 @@
   margin-bottom: 5px;
   cursor: pointer;
 }
+
+
 
 #post-tag {
   border: 1px solid black;
@@ -596,7 +610,6 @@
 .selected-image {
   width: 373px;
   height: 463px;
-  
 }
 
 #selected-image {
@@ -628,7 +641,7 @@
   margin-left: 4px;
 }
 
-#board-date{
+#board-date {
   color: black;
   margin-left: 90px;
 }
@@ -639,7 +652,6 @@
   color: black;
   margin-right: 30px;
 }
-
 
 #bottom-content {
   display: flex;
@@ -652,23 +664,13 @@
   color: black;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .mySlides {
   position: relative;
 }
 
 /* 이전/다음 버튼 스타일 */
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -683,20 +685,20 @@
   user-select: none;
 }
 
-.prev {
+#prev-btn.prev {
   left: 0;
-  margin-left: 35px;
 }
 
 /* 다음 버튼 스타일 */
-.next {
+#next-btn.next {
   margin-left: 330px;
   border-radius: 3px 0 0 3px;
 }
 
 /* 마우스를 버튼 위로 올렸을 때 스타일 */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* 이미지 캡션 텍스트 스타일 */
@@ -719,12 +721,60 @@
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+#post-label {
+  height: 50px;
+}
+
+#plus-minus {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+}
+
+#post-label {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 2;
+}
+
+#post-photo-icon {
+  width: 50px;
+  height: 50px;
+  margin-top: 200px;
+  margin-left: 0.8px;
+} 
+
+#cancel-photo-icon {
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}

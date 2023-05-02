@@ -182,23 +182,32 @@ public class SandleBoardController {
   public Object update(
       @PathVariable int no,
       SandleBoard sandleBoard,
-      MultipartFile files) throws Exception {
+      List<MultipartFile> files) throws Exception {
 
-    // URL 의 번호와 요청 파라미터의 번호가 다를 경우를 방지하기 위해
-    // URL의 번호를 게시글 번호로 설정한다.
-    //    board.setNo(no);
-
-
-    String filename = objectStorageService.uploadFile(bucketName, "photofeed/", files);
-
-    sandleBoard.setFileName(filename);
-
+    List<BoardFile> boardFiles = new ArrayList<>();
+    for (MultipartFile file : files) {
+      String filename = objectStorageService.uploadFile(bucketName, "photofeed/", file);
+      if (filename == null) {
+        continue;
+      }
+      BoardFile boardFile = new BoardFile();
+      boardFile.setPhoto(filename);
+      boardFiles.add(boardFile);
+    }
+    sandleBoard.setAttachedFiles(boardFiles);
     sandleBoardService.update(sandleBoard);
 
     return new RestResult()
         .setStatus(RestStatus.SUCCESS);
 
   }
-
+  @DeleteMapping("{no}/userPhoto/")
+  public Object delete(
+      @PathVariable int no) {
+    System.out.println("받음");
+    sandleBoardService.delete(no);
+    return new RestResult()
+        .setStatus(RestStatus.SUCCESS);
+  }
 
 }

@@ -7,6 +7,25 @@ hr {
   border: solid 1px #28544b;
 }
 
+.change-profile-photo-btn {
+  color: white;
+  background-color: #28544b;
+  height: 35px;
+  border-radius: 10px;
+  box-shadow: 1px 1px gray;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.change-profile-photo-btn:hover {
+  box-shadow: none;
+}
+
+#f-name, #f-nickname {
+  font-size: 20px;
+}
+
 #top {
   text-align: center;
   font-weight: 700;
@@ -87,5 +106,3 @@ hr {
 #member-form {
   text-align: center;
 }
-
-

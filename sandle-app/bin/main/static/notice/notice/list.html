@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>산들 - 공지사항</title>
+    <link rel="stylesheet" href="css/list.css" />
+  </head>
+  <body>
+    <!-- 공지사항 list -->
+    <main>
+      <div id="head">
+        <p>공지사항</p>
+      </div>
+
+      <div class="notice-list">
+        <a href="form.html">
+          <button type="button">새 공지글 작성</button>
+        </a>
+        <br />
+
+        <div class="notice-tbl-common">
+          <table id="board-table">
+            <colgroup>
+              <col style="width: 20%" />
+              <col style="width: 50%" />
+              <col style="width: 30%" />
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col" class="th-no">번호</th>
+                <th scope="col" class="th-title">제목</th>
+                <th scope="col" class="th-date">게시일</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+    <br />
+
+    <script id="tr-template" type="text/x-handlebars-template">
+      {{#each this}}
+        <tr>
+          <td>{{boardId}}</td>
+          <td class="notice-sub-title"><a href="update.html?no={{boardId}}">
+              {{#if title}}{{title}}{{else}}제목없음{{/if}}</a></td>
+          <td>{{createdDate}}</td>
+        </tr>
+      {{/each}}
+    </script>
+
+    <script src="../node_modules/handlebars/dist/handlebars.js"></script>
+    <script>
+      // 템플릿으로 사용할 HTML을 준비한다.
+      const html = document.querySelector("#tr-template").innerHTML;
+
+      // HTML을 가지고 템플릿 엔진을 생성한다.
+      const templateEngine = Handlebars.compile(html);
+
+      fetch("../notices")
+        .then((response) => {
+          return response.json();
+          // json()은 Promise 객체를 리턴한다.
+          // Promise 객체가 하는 일:
+          //   - 서버에서 응답 콘텐트를 받는 일을 한다.
+          //   - 서버에서 받은 JSON 포맷의 문자열을 JavaScript 객체로 변환한다.
+          //   - resolve()를 호출하여 다음 Promise 객체에 작업이 완료됐음을 통지한다.
+          //     이때 변환된 JavaScript를 객체를 파라미터로 전달한다.
+        })
+        .then((result) => {
+          document.querySelector("#board-table > tbody").innerHTML =
+            templateEngine(result.data);
+        });
+    </script>
+  </body>
+</html>

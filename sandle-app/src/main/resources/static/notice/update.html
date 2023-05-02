@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>산들 - 공지사항</title>
+    <link rel="icon" href="/sandle/assets/images/profile_default_logo.png" />
+
+    <link rel="stylesheet" href="css/form.css" />
+    <link rel="stylesheet" href="../index.css" />
+  </head>
+  <body>
+    <!-- Header  -->
+    <div class="content_navi">
+      <div id="header-title">
+        <a href="/sandle/index.html">SANDLE</a>
+
+        <div id="nav">
+          <ul>
+            <li class="current">
+              <a href="/sandle/index.html">산들 소개</a>
+            </li>
+            <li>
+              <a href="/sandle/mountain_info/mountain_info.html"
+                >전국 등산로 정보</a
+              >
+            </li>
+            <li>
+              <a href="#">산악 소식</a>
+              <ul>
+                <ol>
+                  산악 소식
+                </ol>
+                <li><a href="/sandle/notice/view.html">공지 사항</a></li>
+                <li><a href="/sandle/news/news.html">산들 뉴스</a></li>
+                <li>
+                  <a href="/sandle/festival/festival.html">지역 행사 정보</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">커뮤니티</a>
+              <ul>
+                <ol>
+                  커뮤니티
+                </ol>
+                <li>
+                  <a href="/sandle/sandleboard/photofeed.html">포토 피드</a>
+                </li>
+                <li>
+                  <a href="/sandle/userPage/userPage.html" id="my-page"
+                    >마이페이지</a
+                  >
+                </li>
+                <li><a href="/sandle/qna/list.html">1:1 문의</a></li>
+              </ul>
+            </li>
+
+            <li id="profilePhoto" class="profilePhoto">
+              <a href="/sandle/userPage/userPage.html" id="u-photo-origin">
+                <img id="u-photo" class="edit" />
+                <span id="userEmail"></span>
+              </a>
+              <ul>
+                <li>
+                  <div id="login" class="login">
+                    <a href="/sandle/auth/login_form.html">LOGIN</a>
+                  </div>
+                </li>
+                <li>
+                  <div id="logout" class="logout">
+                    <a href="sandle/auth/logout" onclick="logout(); return false;">LOGOUT</a>
+                  </div>
+                </li>
+                <li>
+                  <div id="sign-up" class="sign-up">
+                    <a href="/sandle/member/member.html">SIGN UP</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 공지사항 update -->
+    <main class="notice">
+      <div id="head">
+        <p>공지사항</p>
+      </div>
+
+      <article>
+        <form id="board-form" action="update" method="post">
+          <div class="box">
+            <div class="tit">제목</div>
+            <div class="inputBox">
+              <input
+                id="notice-title"
+                type="text"
+                name="title"
+                maxlength="60"
+              />
+            </div>
+          </div>
+          <div class="box">
+            <div class="tit">공지내용</div>
+            <div class="inputBox">
+              <textarea
+                id="notice-content"
+                type="text"
+                name="content"
+              ></textarea>
+            </div>
+          </div>
+          <div id="btns">
+            <button id="btn-list" type="button">목록</button>
+            <button id="btn-update" type="button">수정</button>
+            <button id="btn-delete" type="button">삭제</button>
+          </div>
+        </form>
+      </article>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div id="footer-title">
+        <p>SANDLE</p>
+      </div>
+
+      <div id="creater">
+        <div id="creater-name-email">
+          <h2>creater</h2>
+          팀장 : 서영훈 | <a>email : darktemi@nate.com</a><br />
+          조원 : 안진수 | <a>email : </a><br />
+          조원 : 김종현 | <a>email : </a><br />
+          조원 : 이건형 | <a>email : </a><br />
+          조원 : 박경한 | <a>email : </a>
+        </div>
+        <div id="creater-github">
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+          <a href="#" id="git"></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/sandle/assets/js/jquery.min.js"></script>
+    <script src="/sandle/assets/js/jquery.dropotron.min.js"></script>
+    <script src="/sandle/assets/js/breakpoints.min.js"></script>
+    <script src="/sandle/assets/js/util.js"></script>
+    <script src="/sandle/navLogin.js"></script>
+
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+    <script>
+      // URL에서 번호 가져오기
+      const urlParams = new URLSearchParams(window.location.search);
+      const boardId = urlParams.get("no");
+
+      // API에서 해당 공지사항 정보 가져오기
+      axios
+        .get(`../notices/${boardId}`)
+        .then((response) => {
+          const board = response.data.data;
+          document.querySelector("#notice-title").value = board.title;
+          document.querySelector("#notice-content").value = board.content;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+
+      // 수정 버튼 클릭 시
+      const updateBtn = document.querySelector("#btn-update");
+      updateBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        const title = document.querySelector("#notice-title").value;
+        const content = document.querySelector("#notice-content").value;
+
+        axios
+          .put(`../notices/${boardId}`, { title, content })
+          .then((response) => {
+            alert("공지사항이 수정되었습니다.");
+            window.location.href = "list.html";
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      });
+
+      // 삭제 버튼 클릭 시
+      const deleteBtn = document.querySelector("#btn-delete");
+      deleteBtn.addEventListener("click", () => {
+        if (confirm("정말로 삭제하시겠습니까?")) {
+          axios
+            .delete(`../notices/${boardId}`)
+            .then((response) => {
+              alert("공지사항이 삭제되었습니다.");
+              window.location.href = "list.html";
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+        }
+      });
+
+      // 목록 버튼 클릭 시
+      document.querySelector("#btn-list").onclick = () => {
+        window.location.href = "list.html";
+      };
+    </script>
+    
+    </script>
+  </body>
+</html>
